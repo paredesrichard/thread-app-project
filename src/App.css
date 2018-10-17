@@ -1,32 +1,61 @@
-.App {
-  text-align: center;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+  max-width: 960px;
+  margin: 0 auto;
+  grid-template-areas:
+    "header header header header"
+    "nav nav nav nav"
+    "searchbox searchbox searchbox searchbox"
+    "aside aside aside aside"
+    "aside aside aside aside"
+    "section section section section"
+    "section section section section"
+    "footer footer footer footer";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.grid-container > * {
+  background: #3bbced;
+  padding: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header {
+  grid-area: header;
+  min-height: 250px;
 }
 
-.App-link {
-  color: #61dafb;
+nav {
+  grid-area: nav;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+#search-form {
+  grid-area: searchbox;
+}
+
+aside {
+  grid-area: aside;
+}
+
+section {
+  grid-area: section;
+}
+
+footer {
+  grid-area: footer;
+  background: #333;
+}
+
+@media screen and (min-width: 760px) {
+  .grid-container {
+    grid-template-areas:
+      "header header header header"
+      "nav nav nav nav"
+      "searchbox searchbox searchbox searchbox"
+      "aside section section section"
+      "aside section section section"
+      "aside section section section"
+      "footer footer footer footer";
   }
 }
