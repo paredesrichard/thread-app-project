@@ -1,9 +1,9 @@
 .select-container {
   display: -ms-flexbox; /* IE10 */
   display: flex;
-  width: 300px;
+  width: 100%;
   margin-bottom: 15px;
-  padding: 0 5px;
+  padding: 0;
   box-sizing: border-box;
 }
 
