@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-google-maps": "^9.4.5",
     "react-scripts": "2.0.5"
   },
   "scripts": {
@@ -25,10 +26,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^3.4.11",
     "@storybook/addon-actions": "^3.4.11",
     "@storybook/addon-links": "^3.4.11",
     "@storybook/addons": "^3.4.11",
+    "@storybook/react": "^3.4.11",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0"
   }
