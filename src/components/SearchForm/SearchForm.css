@@ -1,0 +1,25 @@
+.search-container {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.select-container {
+  grid-area: select;
+}
+
+#jobtitle {
+  grid-area: jobtitle;
+}
+
+#location {
+  grid-area: location;
+}
+
+@media screen and (min-width: 760px) {
+  .search-container {
+    display: grid;
+    grid-template-areas: "jobtitle location select";
+  }
+}
