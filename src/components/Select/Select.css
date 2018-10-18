@@ -9,7 +9,7 @@
 
 select {
   width: 100%;
-  padding: 2px;
+  padding: 0;
   outline: none;
   background-color: #f1f1f1;
   border-radius: 4px;
