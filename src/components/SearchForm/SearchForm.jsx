@@ -7,7 +7,7 @@ import "./SearchForm.css";
 class SearchForm extends Component {
   render() {
     return (
-      <div className="search-container">
+      <div id="search-form" className="search-container">
         <div>
           <label>Job Title:</label>
           <TextInput placeholder={"Job title"} name={"jobtitle"} />

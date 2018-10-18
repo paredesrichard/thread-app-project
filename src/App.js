@@ -3,6 +3,7 @@ import "./App.css";
 
 import Header from "./components/Header/Header";
 import Navmenu from "./components/Navmenu/Navmenu";
+import SearchForm from "./components/SearchForm/SearchForm";
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
       <div className="grid-container">
         <Header />
         <Navmenu />
-        <div id="search-form">Search Form</div>
+        <SearchForm />
         <aside>Aside</aside>
         <section id="map-calendar-section">Map / Calendar Section</section>
         <footer>Footer</footer>
