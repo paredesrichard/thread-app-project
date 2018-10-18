@@ -21,9 +21,9 @@ header {
   grid-area: header;
 }
 
-nav {
+/* nav {
   grid-area: nav;
-}
+} */
 
 #search-form {
   grid-area: searchbox;
