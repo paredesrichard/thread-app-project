@@ -8,9 +8,18 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="search-container">
-        <Select />
-        <TextInput placeholder={"Job title"} name={"jobtitle"} />
-        <TextInput placeholder={"Location"} name={"location"} />
+        <div>
+          <label>Job Title:</label>
+          <TextInput placeholder={"Job title"} name={"jobtitle"} />
+        </div>
+        <div>
+          <label>Location:</label>
+          <TextInput placeholder={"Location"} name={"location"} />
+        </div>
+        <div>
+          <label>Select</label>
+          <Select />
+        </div>
       </div>
     );
   }
