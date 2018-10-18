@@ -33,6 +33,7 @@ class TextInput extends Component {
           placeholder={this.props.placeholder}
           name={this.props.name}
           onChange={this.handleChange}
+          id={this.props.name}
         />
       </div>
     );

@@ -8,6 +8,7 @@ import { Button, Welcome } from "@storybook/react/demo";
 import "./MapComponent";
 import "./Select";
 import "./TextInput";
+import "./SearchForm";
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
