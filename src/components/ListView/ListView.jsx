@@ -26,14 +26,19 @@ class ListView extends Component {
 
   render() {
     return (
-      <aside className="aside">
-        <h2>Events</h2>
-        {this.state.data
-          ? this.state.data.map(data => {
-              return <Card key={data.id} data={data} />;
-            })
-          : ""}
-      </aside>
+      <div className="list-view-container">
+        <aside className="aside">
+          <h2>Events</h2>
+          {this.state.data
+            ? this.state.data.map(data => {
+                return <Card key={data.id} data={data} />;
+              })
+            : ""}
+        </aside>
+        <div className="map-section">
+          <MapComponent />
+        </div>
+      </div>
     );
   }
 }

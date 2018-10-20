@@ -15,9 +15,8 @@ class App extends Component {
         <Header />
         <Navmenu />
         <SearchForm />
-        <ListView />
         <section>
-          <MapComponent />
+          <ListView />
         </section>
         <Footer />
       </div>
