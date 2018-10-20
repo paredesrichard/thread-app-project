@@ -1,6 +1,23 @@
-.aside {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-left: 10%;
+aside {
+  box-sizing: border-box;
+  display: block;
+  padding: 20px;
+}
+
+section {
+  width: auto;
+  height: 500px;
+  padding: 1em 1em;
+}
+
+h2 {
+  color: gray;
+}
+
+@media screen and (min-width: 760px) {
+  .aside {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
 }

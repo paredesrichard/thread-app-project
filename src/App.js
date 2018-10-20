@@ -6,6 +6,7 @@ import Navmenu from "./components/Navmenu/Navmenu";
 import SearchForm from "./components/SearchForm/SearchForm";
 import Footer from "./components/Footer/Footer";
 import ListView from "./components/ListView/ListView";
+import MapComponent from "./components/MapComponent/MapComponent";
 
 class App extends Component {
   render() {
@@ -15,7 +16,9 @@ class App extends Component {
         <Navmenu />
         <SearchForm />
         <ListView />
-        <section id="map-calendar-section">Map / Calendar Section</section>
+        <section>
+          <MapComponent />
+        </section>
         <Footer />
       </div>
     );
