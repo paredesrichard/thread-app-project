@@ -9,6 +9,7 @@ import "./MapComponent";
 import "./Select";
 import "./TextInput";
 import "./SearchForm";
+import "./Footer";
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
