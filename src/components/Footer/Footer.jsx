@@ -65,7 +65,11 @@ const Footer = () => {
           Group 1 for the Final Project Class at <br />
           Hack Your Future - Copenhagen
           <br />
-          <a href="http://hackyourfuture.dk" target="_blank">
+          <a
+            href="http://hackyourfuture.dk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             http://hackyourfuture.dk
           </a>
         </p>
