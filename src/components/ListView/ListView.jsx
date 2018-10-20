@@ -11,16 +11,26 @@ class ListView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      coords: []
     };
   }
 
   componentDidMount() {
+    let newCoords = [];
     fetchAPIData(
       "https://raw.githubusercontent.com/paredesrichard/commandline/master/events.json"
     ).then(newData => {
       this.setState({ data: newData });
-      console.log("newData:", newData);
+      newCoords = newData.map(data => {
+        let tempCoords = {};
+        tempCoords = {
+          lat: data.event_geo_lat,
+          lng: data.event_geo_lng
+        };
+        return tempCoords;
+      });
+      this.setState({ coords: newCoords });
     });
   }
 
@@ -36,7 +46,7 @@ class ListView extends Component {
             : ""}
         </aside>
         <div className="map-section">
-          <MapComponent />
+          <MapComponent setMarker Zoom={11} coords={this.state.coords} />
         </div>
       </div>
     );

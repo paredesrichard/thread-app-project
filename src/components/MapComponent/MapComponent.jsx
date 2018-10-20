@@ -23,13 +23,15 @@ class MapComponent extends React.Component {
           {this.props.setMarker &&
           this.props.mapCenter &&
           !this.props.coords ? (
-            <Marker position={this.props.mapCenter} />
+            <Marker key={Math.random()} position={this.props.mapCenter} />
           ) : (
             ""
           )}
 
           {this.props.setMarker && this.props.coords
-            ? this.props.coords.map(coords => <Marker position={coords} />)
+            ? this.props.coords.map(coords => (
+                <Marker key={Math.random()} position={coords} />
+              ))
             : ""}
         </GoogleMap>
       ))
