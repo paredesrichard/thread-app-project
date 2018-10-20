@@ -39,7 +39,6 @@ section {
 
 footer {
   grid-area: footer;
-  background: #333;
 }
 
 @media screen and (min-width: 760px) {
