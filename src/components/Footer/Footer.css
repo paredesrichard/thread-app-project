@@ -1,0 +1,46 @@
+footer {
+  box-sizing: border-box;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0;
+  marging: 0;
+}
+
+div > * {
+  padding: 1em;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#about {
+  background-color: dodgerblue;
+  color: white;
+  width: 100%;
+}
+
+#contact {
+  width: 100%;
+}
+
+#main-footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+@media all and (min-width: 760px) {
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #about {
+    width: 70%;
+  }
+  #contact {
+    width: 20%;
+  }
+}
