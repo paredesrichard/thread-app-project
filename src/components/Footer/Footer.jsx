@@ -4,7 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer>
-      <div id="about" className="footer-article">
+      <div id="about">
         <h3>About Us:</h3>
         <p>
           Textile Hub for Refugees' Empowerment, Employment and Entrepreneurship
@@ -26,9 +26,11 @@ const Footer = () => {
           their individual confidence and competence.
         </p>
         <p>The project is funded by Innovationsfonden.</p>
+        <br />
       </div>
 
-      <div id="contact" className="footer-article">
+      <div id="contact">
+        <br />
         <h3>Contact:</h3>
         <p>
           Jane Malcolm-Davies, Director
@@ -53,9 +55,11 @@ const Footer = () => {
           <br />
           E-mail: egzona@hum.ku.dk
         </p>
+        <br />
       </div>
 
       <div id="main-footer">
+        <br />
         <h4>Developed by:</h4>
         <p>
           Group 1 for the Final Project Class at <br />
@@ -65,6 +69,7 @@ const Footer = () => {
             http://hackyourfuture.dk
           </a>
         </p>
+        <br />
       </div>
     </footer>
   );
