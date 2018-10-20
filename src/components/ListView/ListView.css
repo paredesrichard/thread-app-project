@@ -1,0 +1,44 @@
+.list-view-container {
+  display: block;
+}
+
+aside {
+  box-sizing: border-box;
+  display: block;
+  padding: 20px;
+  width: 100%;
+}
+
+/* section {
+  width: auto;
+  height: 500px;
+  padding: 1em 1em;
+} */
+
+.map-section {
+  box-sizing: border-box;
+  display: block;
+  width: initial;
+  height: 500px;
+  padding: 1em 1em;
+}
+
+h2 {
+  color: gray;
+}
+
+@media screen and (min-width: 760px) {
+  .list-view-container {
+    display: flex;
+  }
+  .aside {
+    display: flex;
+    flex-flow: column;
+    width: 40%;
+  }
+  .map-section {
+    display: block;
+    width: 60%;
+    height: initial;
+  }
+}

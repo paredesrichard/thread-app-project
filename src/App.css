@@ -7,8 +7,8 @@
     "header header header header"
     "nav nav nav nav"
     "searchbox searchbox searchbox searchbox"
-    "aside aside aside aside"
-    "aside aside aside aside"
+    "section section section section"
+    "section section section section"
     "section section section section"
     "section section section section"
     "footer footer footer footer";
@@ -29,9 +29,9 @@ nav {
   grid-area: searchbox;
 }
 
-aside {
+/* aside {
   grid-area: aside;
-}
+} */
 
 section {
   grid-area: section;
@@ -47,9 +47,10 @@ footer {
       "header header header header"
       "nav nav nav nav"
       "searchbox searchbox searchbox searchbox"
-      "aside section section section"
-      "aside section section section"
-      "aside section section section"
+      "section section section section"
+      "section section section section"
+      "section section section section"
+      "section section section section"
       "footer footer footer footer";
   }
 }
