@@ -5,21 +5,21 @@ const Navmenu = () => {
   return (
     <nav>
       <ul>
-        <li class="internships">
+        <li className="internships">
           <a href="#internships">Internships</a>
         </li>
-        <li class="events">
-          <a class="active" href="/events">
+        <li className="events">
+          <a className="active" href="/events">
             Events
           </a>
         </li>
-        <li class="mentors">
+        <li className="mentors">
           <a href="#mentors">Mentors</a>
         </li>
-        <li class="networking">
+        <li className="networking">
           <a href="#networking">Networking</a>
         </li>
-        <li class="about">
+        <li className="about">
           <a href="#about">About us</a>
         </li>
       </ul>
