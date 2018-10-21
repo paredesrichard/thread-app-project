@@ -7,16 +7,21 @@ import SearchForm from "./components/SearchForm/SearchForm";
 import Footer from "./components/Footer/Footer";
 import ListView from "./components/ListView/ListView";
 
+import { Route, Switch } from "react-router-dom";
+import Homepage from "./components/Homepage/Homepage";
+
 class App extends Component {
   render() {
     return (
-      <div className="grid-container">
+      <div classNagme="grid-container">
         <Header />
         <Navmenu />
         <SearchForm />
-        <section>
-          <ListView />
-        </section>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/events" component={ListView} />
+        </Switch>
+
         <Footer />
       </div>
     );

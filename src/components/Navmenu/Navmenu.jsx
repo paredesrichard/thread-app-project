@@ -9,7 +9,7 @@ const Navmenu = () => {
           <a href="#internships">Internships</a>
         </li>
         <li class="events">
-          <a class="active" href="#events">
+          <a class="active" href="/events">
             Events
           </a>
         </li>
