@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import TextInput from "../TextInput/TextInput";
-import Select from "../Select/Select";
-import "./SearchForm.css";
+import TextInput from '../TextInput/TextInput';
+import Select from '../Select/Select';
+import './SearchForm.css';
 
 class SearchForm extends Component {
   render() {
@@ -10,11 +10,11 @@ class SearchForm extends Component {
       <div id="search-form" className="search-container">
         <div>
           <label>Job Title:</label>
-          <TextInput placeholder={"Job title"} name={"jobtitle"} />
+          <TextInput placeholder={'Job title'} name={'jobtitle'} />
         </div>
         <div>
           <label>Location:</label>
-          <TextInput placeholder={"Location"} name={"location"} />
+          <TextInput placeholder={'Location'} name={'location'} />
         </div>
         <div>
           <label>Select</label>
