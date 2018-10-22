@@ -1,9 +1,9 @@
 .grid-container {
-  display: grid;
+  display: block;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(50px, auto);
   margin: 0;
-  grid-template-areas:
+  /* grid-template-areas:
     "header header header header"
     "nav nav nav nav"
     "searchbox searchbox searchbox searchbox"
@@ -11,7 +11,7 @@
     "section section section section"
     "section section section section"
     "section section section section"
-    "footer footer footer footer";
+    "footer footer footer footer"; */
 }
 
 .grid-container > * {
@@ -44,13 +44,13 @@ footer {
 @media screen and (min-width: 760px) {
   .grid-container {
     grid-template-areas:
-      "header header header header"
-      "nav nav nav nav"
-      "searchbox searchbox searchbox searchbox"
-      "section section section section"
-      "section section section section"
-      "section section section section"
-      "section section section section"
-      "footer footer footer footer";
+      'header header header header'
+      'nav nav nav nav'
+      'searchbox searchbox searchbox searchbox'
+      'section section section section'
+      'section section section section'
+      'section section section section'
+      'section section section section'
+      'footer footer footer footer';
   }
 }
