@@ -8,7 +8,7 @@ import Navmenu from './components/Navmenu/Navmenu';
 import SearchForm from './components/SearchForm/SearchForm';
 import Footer from './components/Footer/Footer';
 import ListView from './components/ListView/ListView';
-
+import Calendar from './components/calendar/calendar';
 import Homepage from './components/Homepage/Homepage';
 
 class App extends Component {
@@ -18,6 +18,7 @@ class App extends Component {
         <Header />
         <Navmenu />
         <SearchForm />
+        <Calendar />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/events" component={ListView} />

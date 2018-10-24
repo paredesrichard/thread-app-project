@@ -1,11 +1,11 @@
-import React from "react";
-import "./MapComponent.css";
+import React from 'react';
+import './MapComponent.css';
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker
-} from "react-google-maps";
+} from 'react-google-maps';
 
 class MapComponent extends React.Component {
   render() {
