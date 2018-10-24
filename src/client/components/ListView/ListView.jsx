@@ -1,32 +1,30 @@
-import React, { Component } from "react";
-import "./ListView.css";
+import React, { Component } from 'react';
+import './ListView.css';
 
-import { fetchAPIData } from "../Api/api";
+import { fetchAPIData } from '../Api/api';
 
-import Card from "./Card";
+import Card from './Card';
 
-import MapComponent from "../MapComponent/MapComponent";
+import MapComponent from '../MapComponent/MapComponent';
 
 class ListView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      coords: []
+      coords: [],
     };
   }
 
   componentDidMount() {
     let newCoords = [];
-    fetchAPIData(
-      "https://raw.githubusercontent.com/paredesrichard/commandline/master/events.json"
-    ).then(newData => {
+    fetchAPIData('http://localhost:3000/api/events').then(newData => {
       this.setState({ data: newData });
       newCoords = newData.map(data => {
         let tempCoords = {};
         tempCoords = {
           lat: data.event_geo_lat,
-          lng: data.event_geo_lng
+          lng: data.event_geo_lng,
         };
         return tempCoords;
       });
@@ -43,7 +41,7 @@ class ListView extends Component {
             ? this.state.data.map(data => {
                 return <Card key={data.id} data={data} />;
               })
-            : ""}
+            : ''}
         </aside>
         <div className="map-section">
           <MapComponent setMarker Zoom={11} coords={this.state.coords} />
