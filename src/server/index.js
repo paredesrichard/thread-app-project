@@ -1,23 +1,21 @@
-const express = require("express");
-const path = require("path");
+import express from 'express';
+import path from 'path';
+import bodyParser from 'body-parser';
+
+import apiRoutes from './routes';
 
 const app = express();
-app.use(express.static("dist"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-const buildDirectory = path.join(__dirname, "../../dist");
+app.use('/api', apiRoutes);
 
 // Serve the static files from the React app
-app.use(express.static(buildDirectory));
-
-app.get("/api/hello", (req, res) => {
-  res.send({
-    hello: "world"
-  });
-});
+app.use(express.static(path.resolve(__dirname, '..', 'client')));
 
 // Handles any requests that don't match the ones above
-app.get("*", (req, res) => {
-  res.sendFile(path.join(buildDirectory, "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'client', 'index.js'));
 });
 
 const PORT = process.env.PORT || 8080;
