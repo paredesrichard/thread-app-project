@@ -3,7 +3,7 @@ import './Card.css';
 
 const Card = props => {
   return (
-    <div className="cards">
+    <div className="internships-card">
       <img
         src={props.data.internship_theme_image}
         className="thumb-nail-img"

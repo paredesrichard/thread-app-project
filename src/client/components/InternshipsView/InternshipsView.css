@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-aside {
+.internships-aside {
   box-sizing: border-box;
   display: block;
   padding: 20px;
@@ -17,13 +17,13 @@ aside {
   .internships-view-container {
     display: block;
   }
-  #search-form {
+  .internships-view-container > #search-form {
     width: 100%;
   }
   /* section {
     display: flex;
   } */
-  .aside {
+  .internships-aside {
     display: flex;
     flex-flow: wrap;
     width: 90%;
@@ -31,9 +31,10 @@ aside {
 }
 
 @media screen and (min-width: 760px) {
-  .aside {
+  .internships-aside {
     display: flex;
     flex-flow: wrap;
+    justify-content: space-around;
     width: 100%;
   }
 }

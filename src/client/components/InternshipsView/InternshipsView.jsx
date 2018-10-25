@@ -4,7 +4,6 @@ import './InternshipsView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
-import MapComponent from '../MapComponent/MapComponent';
 
 class InternshipsView extends Component {
   constructor(props) {
@@ -26,8 +25,8 @@ class InternshipsView extends Component {
       <div className="internships-view-container">
         <h3>Welcome to the Internships View</h3>
         <SearchForm />
-        <section>
-          <aside className="aside">
+        <section className="internships-section">
+          <aside className="internships-aside">
             {this.state.data
               ? this.state.data.map(data => {
                   return <Card key={data.id} data={data} />;
