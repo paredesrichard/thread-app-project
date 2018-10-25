@@ -1,26 +1,41 @@
-import React from "react";
-import "./Navmenu.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import './Navmenu.css';
 
 const Navmenu = () => {
   return (
     <nav>
       <ul>
+        <li className="Home">
+          <NavLink exact to="/" activeClassName="active">
+            Home
+          </NavLink>
+        </li>
         <li className="internships">
-          <a href="#internships">Internships</a>
+          <NavLink to="/internships" activeClassName="active">
+            Internships
+          </NavLink>
         </li>
         <li className="events">
-          <a className="active" href="/events">
+          <NavLink to="/events" activeClassName="active">
             Events
-          </a>
+          </NavLink>
         </li>
         <li className="mentors">
-          <a href="#mentors">Mentors</a>
+          <NavLink to="/mentors" activeClassName="active">
+            Mentors
+          </NavLink>
         </li>
         <li className="networking">
-          <a href="#networking">Networking</a>
+          <NavLink to="/networking" activeClassName="active">
+            Networking
+          </NavLink>
         </li>
         <li className="about">
-          <a href="#about">About us</a>
+          <NavLink to="/about" activeClassName="active">
+            About Us
+          </NavLink>
         </li>
       </ul>
     </nav>

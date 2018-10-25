@@ -1,0 +1,40 @@
+.internships-view-container {
+  font-family: Arial, Helvetica, sans-serif;
+  color: dimgrey;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.internships-aside {
+  box-sizing: border-box;
+  display: block;
+  padding: 20px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1100px) {
+  .internships-view-container {
+    display: block;
+  }
+  .internships-view-container > #search-form {
+    width: 100%;
+  }
+  /* section {
+    display: flex;
+  } */
+  .internships-aside {
+    display: flex;
+    flex-flow: wrap;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .internships-aside {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
