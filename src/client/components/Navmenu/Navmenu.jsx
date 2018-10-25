@@ -9,21 +9,19 @@ const Navmenu = () => {
           <a href="/">Home</a>
         </li>
         <li className="internships">
-          <a href="#internships">Internships</a>
+          <a href="/internships">Internships</a>
         </li>
         <li className="events">
-          <a className="active" href="/events">
-            Events
-          </a>
+          <a href="/events">Events</a>
         </li>
         <li className="mentors">
-          <a href="#mentors">Mentors</a>
+          <a href="/mentors">Mentors</a>
         </li>
         <li className="networking">
-          <a href="#networking">Networking</a>
+          <a href="/networking">Networking</a>
         </li>
         <li className="about">
-          <a href="#about">About us</a>
+          <a href="/aboutus">About us</a>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,37 @@
+.about-us-container {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+#about {
+  background-color: dodgerblue;
+  color: white;
+  width: 100%;
+  text-align: left;
+}
+
+#contact {
+  width: 100%;
+  background-color: lightgrey;
+  text-align: left;
+}
+
+p,
+h3,
+h4 {
+  padding: 1em;
+  line-height: 1.3em;
+}
+
+@media all and (min-width: 760px) {
+  .about-us-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #about {
+    width: 70%;
+  }
+  #contact {
+    width: 30%;
+  }
+}
