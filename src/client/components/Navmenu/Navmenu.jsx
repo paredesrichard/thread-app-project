@@ -1,10 +1,13 @@
-import React from "react";
-import "./Navmenu.css";
+import React from 'react';
+import './Navmenu.css';
 
 const Navmenu = () => {
   return (
     <nav>
       <ul>
+        <li className="Home">
+          <a href="/">Home</a>
+        </li>
         <li className="internships">
           <a href="#internships">Internships</a>
         </li>
