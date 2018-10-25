@@ -21,7 +21,7 @@ const Navmenu = () => {
           <a href="/networking">Networking</a>
         </li>
         <li className="about">
-          <a href="/aboutus">About us</a>
+          <a href="/about">About us</a>
         </li>
       </ul>
     </nav>

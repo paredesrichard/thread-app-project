@@ -1,3 +1,39 @@
 .internships-view-container {
+  font-family: Arial, Helvetica, sans-serif;
+  color: dimgrey;
+  display: block;
+  box-sizing: border-box;
   width: 100%;
+}
+
+aside {
+  box-sizing: border-box;
+  display: block;
+  padding: 20px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1100px) {
+  .internships-view-container {
+    display: block;
+  }
+  #search-form {
+    width: 100%;
+  }
+  /* section {
+    display: flex;
+  } */
+  .aside {
+    display: flex;
+    flex-flow: wrap;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .aside {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+  }
 }

@@ -28,7 +28,7 @@ class App extends Component {
           <Route exact path="/events" component={EventsView} />
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
-          <Route exact path="/aboutus" component={AboutUs} />
+          <Route exact path="/about" component={AboutUs} />
         </Switch>
         <Footer />
       </div>
