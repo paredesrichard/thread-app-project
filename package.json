@@ -17,8 +17,10 @@
     "sqlstring": "^2.3.1"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "node src/server/index.js",
+    "start": "node dist/server/server.js",
+    "build-client": "webpack --config webpack.config.js --mode production",
+    "build-server": "webpack --config webpack.server.config.js --mode production",
+    "build": "npm run build-client && npm run build-server",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js --exec babel-node",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
