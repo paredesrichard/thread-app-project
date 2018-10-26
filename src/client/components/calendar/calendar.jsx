@@ -4,48 +4,50 @@ import './calendar.css'
 import { Var } from "glamorous";
 import { isEqual } from "ip";
 
-const url='https://raw.githubusercontent.com/paredesrichard/commandline/master/events.json';
+// Pointing to the correct API Url
+// const url='https://raw.githubusercontent.com/paredesrichard/commandline/master/events.json';
+const url = '/api/events';
 class Calendar extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             currentMonth: new Date(),
             selectedDate: new Date(),
-            events:[]
+            events: []
         }
 
-        this.findEvents=this.findEvents.bind(this);
+        this.findEvents = this.findEvents.bind(this);
     }
-    
-    
-  
 
-   toDate =(dateStr) => {
-    const [day, month, year] = dateStr.split("/")
-    return new Date(year, month - 1, day)
-  }
+
+
+
+    toDate = (dateStr) => {
+        const [day, month, year] = dateStr.split("/")
+        return new Date(year, month - 1, day)
+    }
 
     renderEvents = () => {
-     
+
         fetch(url)
-          .then(response => response.json())
-          .then(events => {
-            const newEevents = events.map(event => {
-              
-              let eve = {
-                name: event.event_name,
-                date:this.toDate(event.event_start_date)
-              };
+            .then(response => response.json())
+            .then(events => {
+                const newEevents = events.map(event => {
 
-              return eve;
-              
+                    let eve = {
+                        name: event.event_name,
+                        date: this.toDate(event.event_start_date)
+                    };
+
+                    return eve;
+
+                });
+                this.setState({ events: newEevents });
+
+
             });
-            this.setState({ events: newEevents });
-
-                
-          });
-      }
+    }
 
     renderHeader() {
         const dateFormat = "MMMM YYYY";
@@ -147,24 +149,23 @@ class Calendar extends React.Component {
         });
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.renderEvents();
-        console.log("did mounth" + this.state.events.map( event =>
-            {
-                console.log(event.name);
-            }
+        console.log("did mounth" + this.state.events.map(event => {
+            console.log(event.name);
+        }
         ));
     }
 
-    findEvents=(day)=>{
-        
-        const currentDay=dateFns.setDate(this.state.currentMonth,day);
-       
+    findEvents = (day) => {
+
+        const currentDay = dateFns.setDate(this.state.currentMonth, day);
+
         return this.state.events.filter(event => {
-            
+
             return event.date.toDateString() === currentDay.toDateString();
         }).map(eve => eve.name)
-        
+
     }
 
     render() {
@@ -177,4 +178,4 @@ class Calendar extends React.Component {
         );
     }
 }
-export default Calendar ;
+export default Calendar;
