@@ -15,7 +15,7 @@ class InternshipsView extends Component {
 
   componentDidMount() {
     let newCoords = [];
-    fetchAPIData('http://localhost:3000/api/internships').then(newData => {
+    fetchAPIData('/api/internships').then(newData => {
       this.setState({ data: newData });
     });
   }

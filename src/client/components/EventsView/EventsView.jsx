@@ -21,7 +21,7 @@ class EventsView extends Component {
 
   componentDidMount() {
     let newCoords = [];
-    fetchAPIData('http://localhost:3000/api/events').then(newData => {
+    fetchAPIData('/api/events').then(newData => {
       this.setState({ data: newData });
       newCoords = newData.map(data => {
         let tempCoords = {};
