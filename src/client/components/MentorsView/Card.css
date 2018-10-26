@@ -1,0 +1,41 @@
+.mentors-card {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 80%;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 1em;
+    line-height: 1em;
+    line-height: 1em;
+    text-align: left;
+    border: 0.5px gray solid;
+  }
+  
+  .thumb-nail-img {
+    padding: 1em;
+    width: 150px;
+    height: auto;
+    text-align: center;
+  }
+  
+  .mentors-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .mentors-card > .card-label {
+    font-size: 1em;
+    font-weight: bold;
+    color: dodgerblue;
+  }
+  
+  @media screen and (min-width: 760px) {
+    .mentors-card {
+      width: 270px;
+      height: auto;
+    }
+  }
+  
