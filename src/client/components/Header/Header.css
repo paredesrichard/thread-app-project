@@ -5,7 +5,7 @@ header {
 }
 
 header .bg-image {
-  position: absolute;
+  position: relative;
   background: #333 url("../../images/internships/thread-internship-1month.JPG");
   background-position: center;
   background-repeat: no-repeat;

@@ -19,7 +19,7 @@ import NetworkingView from './components/NetworkingView/NetworkingView';
 class App extends Component {
   render() {
     return (
-      <div className="grid-container">
+      <div className="container-fluid">
         <Header />
         <Navmenu />
         <Switch>
