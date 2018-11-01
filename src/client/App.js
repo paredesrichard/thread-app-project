@@ -15,6 +15,7 @@ import EventsView from './components/EventsView/EventsView';
 import InternshipsView from './components/InternshipsView/InternshipsView';
 import MentorsView from './components/MentorsView/MentorsView';
 import NetworkingView from './components/NetworkingView/NetworkingView';
+import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
           <Route exact path="/about" component={AboutUs} />
+          <Route exact path="/admin/internships" component={InternshipsForm} />
         </Switch>
         <Footer />
       </div>
