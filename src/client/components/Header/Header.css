@@ -2,6 +2,7 @@ header {
   grid-area: header;
   height: 300px;
   color: white;
+  padding: 0;
 }
 
 header .bg-image {
