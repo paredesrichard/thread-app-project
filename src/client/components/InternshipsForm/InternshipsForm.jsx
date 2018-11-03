@@ -10,10 +10,9 @@ class InternshipsForm extends Component {
     super(props);
     const { path } = this.props.match;
 
-    if (path === "/admin/internships/edit/:id") {
+    if (this.props.isEditing) {
       this.state = {
-        data: this.props.internshipsData,
-        isEditing: false,
+        internshipsData: this.props.internshipsData
       }
     } else if (path === "/admin/internships/add") {
       this.state = {
@@ -47,11 +46,11 @@ class InternshipsForm extends Component {
 
   }
 
-  componentDidMount() {
-    fetchAPIData('/api/internships').then(newData => {
-      this.setState({ data: newData });
-    });
-  }
+  // componentDidMount() {
+  //   fetchAPIData('/api/internships').then(newData => {
+  //     this.setState({ data: newData });
+  //   });
+  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -74,6 +73,7 @@ class InternshipsForm extends Component {
     }).then(res => res.text())
       .then(response => {
         console.log('Success:', response)
+        alert("Record has been saved.");
         // TODO redirect to the Mentors list page (/Mentors)
       })
       .catch(error => console.error('Error:', error));
@@ -202,7 +202,7 @@ class InternshipsForm extends Component {
             <div className="col-md-5">
               <div className="form-group">
                 <label for="txtInternshipAddDate">Internship Add Date:</label>
-                <input name="internship_add_date" type="datetime-local" className="form-control" id="txtInternshipAddDate" placeholder="Internship add date..." onChange={this.updateField} value={this.state.internshipsData.internship_add_date} />
+                <input name="internship_add_date" type="date" className="form-control" id="txtInternshipAddDate" placeholder="Internship add date..." onChange={this.updateField} value={this.state.internshipsData.internship_add_date} />
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ class InternshipsForm extends Component {
             <div className="col-md-4">
               <div className="form-group">
                 <label for="txtInternshipDeadline">Internship Deadline:</label>
-                <input name="internship_deadline" type="datetime-local" className="form-control" id="txtInternshipDeadline" placeholder="Internship deadline..." onChange={this.updateField} value={this.state.internshipsData.internship_deadline} />
+                <input name="internship_deadline" type="date" className="form-control" id="txtInternshipDeadline" placeholder="Internship deadline..." onChange={this.updateField} value={this.state.internshipsData.internship_deadline} />
               </div>
             </div>
           </div>
