@@ -16,6 +16,7 @@ import InternshipsView from './components/InternshipsView/InternshipsView';
 import MentorsView from './components/MentorsView/MentorsView';
 import NetworkingView from './components/NetworkingView/NetworkingView';
 import InternshipsForm from './components/InternshipsForm/InternshipsForm';
+import AddInternship from './components/InternshipsForm/AddInternship';
 
 class App extends Component {
   render() {

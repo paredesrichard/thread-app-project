@@ -3,6 +3,7 @@ import './Card.css';
 import { NavLink } from 'react-router-dom';
 
 const Card = props => {
+  console.log("data:", props.data);
   return (
     <div className="internships-card">
       <img
@@ -25,14 +26,17 @@ const Card = props => {
           {props.data.internship_description}
         </p>
       </div>
-      <div className="form-row">
-        <div className="col-auto">
-          <NavLink to="#" class="btn btn-primary btn-sm">Edit</NavLink>
+      {props.adminMode ? (
+        <div className="form-row">
+          <div className="col-auto">
+            <NavLink to={`/admin/internships/edit/${props.data.id}`} class="btn btn-primary btn-sm">Edit</NavLink>
+          </div>
+          <div className="col-auto">
+            <NavLink to="#" class="btn btn-primary btn-sm">Delete</NavLink>
+          </div>
         </div>
-        <div className="col-auto">
-          <NavLink to="#" class="btn btn-primary btn-sm">Delete</NavLink>
-        </div>
-      </div>
+      ) : ""}
+
 
     </div>
   );
