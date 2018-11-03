@@ -29,8 +29,8 @@ class InternshipsView extends Component {
           <aside className="internships-aside">
             {this.state.data
               ? this.state.data.map(data => {
-                  return <Card key={data.id} data={data} />;
-                })
+                return <Card key={data.id} data={data} />;
+              })
               : 'Loading data...'}
           </aside>
         </section>

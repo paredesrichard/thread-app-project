@@ -26,11 +26,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/internships" component={InternshipsView} />
+          <Route exact path="/admin/internships/add" component={InternshipsForm} />
+          <Route exact path="/admin/internships/edit/:id" component={InternshipsForm} />
           <Route exact path="/events" component={EventsView} />
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
           <Route exact path="/about" component={AboutUs} />
-          <Route exact path="/admin/internships" component={InternshipsForm} />
         </Switch>
         <Footer />
       </div>
