@@ -51,7 +51,6 @@ class InternshipsForm extends Component {
   }
 
   handleSubmit = (event) => {
-    alert('Form submitted')
     event.preventDefault();
     let url = '', method = '';
 
