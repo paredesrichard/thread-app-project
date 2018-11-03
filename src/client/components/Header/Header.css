@@ -2,10 +2,11 @@ header {
   grid-area: header;
   height: 300px;
   color: white;
+  padding: 0;
 }
 
 header .bg-image {
-  position: absolute;
+  position: relative;
   background: #333 url("../../images/internships/thread-internship-1month.JPG");
   background-position: center;
   background-repeat: no-repeat;
