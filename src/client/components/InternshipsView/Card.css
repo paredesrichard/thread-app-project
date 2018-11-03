@@ -16,6 +16,10 @@
   border: 0.5px gray solid;
 }
 
+.card-body{
+  height: 150px;
+ }
+
 .internships-thumb-nail-img {
   padding: 0.5em;
   height: 60px;
@@ -37,4 +41,8 @@
     width: 220px;
     height: auto;
   }
+  .card-body{
+    height: 280px;
+  }
+
 }

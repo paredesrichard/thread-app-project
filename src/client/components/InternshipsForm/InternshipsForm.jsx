@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import { fetchAPIData } from '../Api/api';
 
+import { NavLink } from 'react-router-dom';
+
+
 class InternshipsForm extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +19,7 @@ class InternshipsForm extends Component {
       this.state = {
         isEditing: true,
         internshipsData: {
-          internship_title: "",
+          internship_title: undefined,
           internship_category: "",
           organisation_name: "",
           department: "",
@@ -274,7 +277,7 @@ class InternshipsForm extends Component {
               <button type="submit" class="btn btn-primary mb-2">Save</button>
             </div>
             <div className="col-auto">
-              <button type="submit" class="btn btn-primary mb-2">Cancel</button>
+              <NavLink to={`/internships`} class="btn btn-primary mb-2">Cancel</NavLink>
             </div>
           </div>
 
