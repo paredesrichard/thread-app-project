@@ -15,18 +15,27 @@ import EventsView from './components/EventsView/EventsView';
 import InternshipsView from './components/InternshipsView/InternshipsView';
 import MentorsView from './components/MentorsView/MentorsView';
 import NetworkingView from './components/NetworkingView/NetworkingView';
+
 import MentorForms from './components/add';
+
+import InternshipsForm from './components/InternshipsForm/InternshipsForm';
+import AddInternship from './components/InternshipsForm/AddInternship';
+import EditInternships from './components/InternshipsForm/EditInternships';
+
+
 
 //console.log(AddMentor);
 class App extends Component {
   render() {
     return (
-      <div className="grid-container">
+      <div className="container-fluid m-0 p-0">
         <Header />
         <Navmenu />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/internships" component={InternshipsView} />
+          <Route exact path="/admin/internships/add" component={InternshipsForm} />
+          <Route exact path="/admin/internships/edit/:id" component={EditInternships} />
           <Route exact path="/events" component={EventsView} />
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
