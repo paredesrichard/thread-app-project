@@ -4,6 +4,7 @@ import './MentorsView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
+import {Link} from "react-router-dom";
 
 class MentorsView extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class MentorsView extends Component {
   componentDidMount() {
     let newCoords = [];
     fetchAPIData('/api/mentors').then(newData => {
-      console.log(newData);
+      console.log("MentorView component---->",newData);
       this.setState({ data: newData });
     });
   }
@@ -25,7 +26,8 @@ class MentorsView extends Component {
     return (
       <div className="mentors-view-container">
         <h3>Welcome to the mentors View</h3>
-        <SearchForm />
+        <SearchForm /><br />
+        <Link to='/mentors/add' className="add-mentor-link">add mentor</Link>
         <section className="mentors-section">
           <aside className="mentors-aside">
             {this.state.data
@@ -34,6 +36,7 @@ class MentorsView extends Component {
                 })
               : 'Loading data...'}
           </aside>
+          
         </section>
       </div>
     );

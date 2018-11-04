@@ -15,7 +15,9 @@ import EventsView from './components/EventsView/EventsView';
 import InternshipsView from './components/InternshipsView/InternshipsView';
 import MentorsView from './components/MentorsView/MentorsView';
 import NetworkingView from './components/NetworkingView/NetworkingView';
+import MentorForms from './components/add';
 
+//console.log(AddMentor);
 class App extends Component {
   render() {
     return (
@@ -29,8 +31,11 @@ class App extends Component {
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
           <Route exact path="/about" component={AboutUs} />
+          <Route exact path='/mentors/add' component={MentorForms.AddMentor} />
+          <Route exact path='/mentors/edit/:id' component={MentorForms.EditMentor} />
         </Switch>
         <Footer />
+        
       </div>
     );
   }
