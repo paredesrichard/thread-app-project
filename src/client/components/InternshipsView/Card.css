@@ -3,23 +3,27 @@
   font-size: 0.8em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 80%;
+  width: 90%;
+  height: auto;
   border-radius: 5px;
   margin: auto;
   margin-bottom: 1em;
   margin-top: 1em;
-  padding: 1em;
+  padding: 0.8em;
   line-height: 1em;
   line-height: 1em;
   text-align: left;
   border: 0.5px gray solid;
 }
 
-.thumb-nail-img {
-  padding: 1em;
-  width: 150px;
-  height: auto;
-  text-align: center;
+.card-body{
+  height: 150px;
+ }
+
+.internships-thumb-nail-img {
+  padding: 0.5em;
+  height: 60px;
+  text-align: left;
 }
 
 .internships-card:hover {
@@ -27,14 +31,18 @@
 }
 
 .internships-card > .card-label {
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: bold;
   color: dodgerblue;
 }
 
 @media screen and (min-width: 760px) {
   .internships-card {
-    width: 270px;
+    width: 220px;
     height: auto;
   }
+  .card-body{
+    height: 280px;
+  }
+
 }
