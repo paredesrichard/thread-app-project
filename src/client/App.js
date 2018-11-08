@@ -21,6 +21,7 @@ import MentorForms from './components/add';
 import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
+import MentorSearch from './components/MentorsView/MentorSearch';
 
 
 
@@ -42,6 +43,8 @@ class App extends Component {
           <Route exact path="/about" component={AboutUs} />
           <Route exact path='/mentors/add' component={MentorForms.AddMentor} />
           <Route exact path='/mentors/edit/:id' component={MentorForms.EditMentor} />
+          <Route exact path='/mentors/search' component={MentorSearch} />
+          
         </Switch>
         <Footer />
         

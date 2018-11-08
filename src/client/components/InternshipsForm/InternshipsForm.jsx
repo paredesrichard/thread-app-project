@@ -274,10 +274,10 @@ class InternshipsForm extends Component {
 
           <div className="form-row">
             <div className="col-auto">
-              <button type="submit" class="btn btn-primary mb-2">Save</button>
+              <button type="submit" className="btn btn-primary mb-2">Save</button>
             </div>
             <div className="col-auto">
-              <NavLink to={`/internships`} class="btn btn-primary mb-2">Cancel</NavLink>
+              <NavLink to={`/internships`} className="btn btn-primary mb-2">Cancel</NavLink>
             </div>
           </div>
 
