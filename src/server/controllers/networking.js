@@ -35,6 +35,29 @@ export function createNetworking(req, res) {
   });
 }
 
+export function searchNetwork(req,res){
+  const searchName = `%${req.query.name}%`;
+  const searchCity = `%${req.query.location}%`;
+  console.log("locations length", req.query.location.length);
+
+const sql = SqlString.format('SELECT * FROM networking WHERE (organisation_name LIKE ? or organisation_description LIKE ? ) AND organisation_city LIKE ? AND active = ?',  [searchName,searchName,searchCity,true]);
+console.log(sql);
+
+db.execute(sql,(err, result)=>{
+  if(err){
+      res.status(500).send(err);
+      return;
+  }
+    
+  if (result.length === 0) {
+    res.status(404).send('Not Found');
+    return;
+  }
+
+  res.send(result);
+})
+}
+
 export function getNetworkingById(req, res) {
   const networkingId = req.params.id;
   const sql = SqlString.format(

@@ -22,11 +22,12 @@ class SearchForm extends Component {
                 <label>Location:</label>
                 <TextInput placeholder={'Location'} name={'location'} />
               </div>
+              */}
               <div>
                 <label>Select</label>
                 <Select />
               </div>
-*/}
+
               <div>
               <button>Search</button>
               </div>

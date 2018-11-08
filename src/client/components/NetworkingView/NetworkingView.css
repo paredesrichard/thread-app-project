@@ -12,7 +12,9 @@
   padding: 20px;
   width: 100%;
 }
-
+.add-networking-link {
+  color: blue;
+}
 @media screen and (min-width: 1100px) {
   .networking-view-container {
     display: block;

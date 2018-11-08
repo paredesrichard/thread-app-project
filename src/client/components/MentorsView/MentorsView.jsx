@@ -26,8 +26,10 @@ class MentorsView extends Component {
     return (
       <div className="mentors-view-container">
         <h3>Welcome to the mentors View</h3>
-        <SearchForm /><br />
-        <Link to='/mentors/add' className="add-mentor-link">add mentor</Link>
+        <SearchForm />
+        <div className="form-group">
+        <Link to='/mentors/add' className="btn btn-primary btn-sm">Add New Record</Link>
+        </div>
         <section className="mentors-section">
           <aside className="mentors-aside">
             {this.state.data

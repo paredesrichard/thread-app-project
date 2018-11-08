@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import {Link} from "react-router-dom";
 
 const Card = props => {
   return (
@@ -22,6 +23,19 @@ const Card = props => {
         <span className="card-label">Description</span> :{' '}
         {props.data.organisation_description}
       </p>
+
+      <div className="form-row">
+      <div className="col-auto">
+        <Link
+          to={`/networking/edit/${props.data.id}`}
+          className="btn btn-primary mb-2"
+          target="_blank">Edit</Link>
+          </div>
+          <Link to="#"  className="btn btn-primary mb-2">
+          Delete
+        </Link>
+      </div>
+      
     </div>
   );
 };

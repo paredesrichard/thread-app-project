@@ -18,6 +18,8 @@ import NetworkingView from './components/NetworkingView/NetworkingView';
 
 import MentorForms from './components/add';
 
+import NetworkingForms from './components/networkingForm';
+
 import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
@@ -44,7 +46,8 @@ class App extends Component {
           <Route exact path='/mentors/add' component={MentorForms.AddMentor} />
           <Route exact path='/mentors/edit/:id' component={MentorForms.EditMentor} />
           <Route exact path='/mentors/search' component={MentorSearch} />
-          
+          <Route exact path='/networking/add' component={NetworkingForms.AddNetworking} />
+          <Route exact path='/networking/edit/:id' component={NetworkingForms.EditNetworking} />
         </Switch>
         <Footer />
         
