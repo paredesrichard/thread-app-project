@@ -66,7 +66,7 @@ class Card extends Component {
         {this.props.adminMode ? (
           <div className="form-row">
             <div className="col-auto">
-              <NavLink to={`/admin/internships/edit/${this.props.data.id}`} class="btn btn-primary btn-sm">Edit</NavLink>
+              <NavLink to={`/admin/internships/edit/${this.props.data.id}`} className="btn btn-primary btn-sm">Edit</NavLink>
             </div>
             <div className="col-auto">
               <button class="btn btn-primary btn-sm" onClick={() => { if (window.confirm('Are you sure you wish to delete this record?')) this.deleteRecord(this.props.data.id) }}>Delete</button>
