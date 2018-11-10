@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import Navmenu from './components/Navmenu/Navmenu';
 // import SearchForm from './components/SearchForm/SearchForm';
 import Footer from './components/Footer/Footer';
-import ListView from './components/ListView/ListView';
+// import ListView from './components/ListView/ListView';
 // import Calendar from './components/calendar/calendar';
 import Homepage from './components/Homepage/Homepage';
 import AboutUs from './components/AboutUs/AboutUs';
@@ -26,15 +26,13 @@ import EditInternships from './components/InternshipsForm/EditInternships';
 import MentorSearch from './components/MentorsView/MentorSearch';
 import NetworkingSearch from './components/NetworkingView/NetworkingSearch';
 import Login from './components/Login';
-//import Logout from "./components/logout";
-//import LoginContext, { loadContextValue } from './contexts/login';
+// import Logout from "./components/logout";
+// import LoginContext, { loadContextValue } from './contexts/login';
 
-
-
-//console.log(AddMentor);
+// console.log(AddMentor);
 class App extends Component {
   render() {
-    //const contextValue = loadContextValue();
+    // const contextValue = loadContextValue();
     return (
       <div className="container-fluid m-0 p-0">
         <Header />
@@ -48,19 +46,16 @@ class App extends Component {
           <Route exact path="/mentors" component={MentorsView} />
           <Route exact path="/networking" component={NetworkingView} />
           <Route exact path="/about" component={AboutUs} />
-          <Route exact path='/mentors/add' component={MentorForms.AddMentor} />
-          <Route exact path='/mentors/edit/:id' component={MentorForms.EditMentor} />
-          <Route exact path='/Mentors/search' component={MentorSearch} />
-          <Route exact path='/networking/add' component={NetworkingForms.AddNetworking} />
-          <Route exact path='/networking/edit/:id' component={NetworkingForms.EditNetworking} />
-          <Route exact path='/Networking/search' component={NetworkingSearch} />
+          <Route exact path="/mentors/add" component={MentorForms.AddMentor} />
+          <Route exact path="/mentors/edit/:id" component={MentorForms.EditMentor} />
+          <Route exact path="/Mentors/search" component={MentorSearch} />
+          <Route exact path="/networking/add" component={NetworkingForms.AddNetworking} />
+          <Route exact path="/networking/edit/:id" component={NetworkingForms.EditNetworking} />
+          <Route exact path="/Networking/search" component={NetworkingSearch} />
           <Route exact path="/login" component={Login} />
-          
-    
-
         </Switch>
         <Footer />
-        </div>
+      </div>
     );
   }
 }
