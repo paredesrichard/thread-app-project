@@ -7,6 +7,8 @@ import SearchForm from '../SearchForm/SearchForm';
 
 import { NavLink } from 'react-router-dom';
 
+import LoginContext from '../../contexts/login';
+
 class InternshipsView extends Component {
   constructor(props) {
     super(props);
@@ -24,19 +26,36 @@ class InternshipsView extends Component {
   }
 
   render() {
+    const contextType = LoginContext._currentValue;
     return (
       <div className="internships-view-container">
         <h3>Welcome to the Internships View</h3>
         <SearchForm />
-        <div className="form-group">
-          <NavLink to='/admin/internships/add' className="btn btn-primary btn-sm">Add New Record</NavLink>
-        </div>
+        {contextType.isLoggedIn ? (
+          <div className="form-group">
+            <NavLink
+              to="/admin/internships/add"
+              className="btn btn-primary btn-sm"
+            >
+              Add New Record
+            </NavLink>
+          </div>
+        ) : (
+          ''
+        )}
+
         <section className="internships-section">
           <aside className="internships-aside">
             {this.state.data
               ? this.state.data.map(data => {
-                return <Card key={data.id} data={data} adminMode={this.state.adminMode} />;
-              })
+                  return (
+                    <Card
+                      key={data.id}
+                      data={data}
+                      adminMode={this.state.adminMode}
+                    />
+                  );
+                })
               : 'Loading data...'}
           </aside>
         </section>

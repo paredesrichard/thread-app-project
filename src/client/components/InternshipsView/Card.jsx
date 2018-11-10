@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Card.css';
 import { NavLink } from 'react-router-dom';
 
+import LoginContext from '../../contexts/login';
+
 // function deleteRecord(id) {
 //   console.log("deleting record id: ", id);
 
@@ -24,22 +26,23 @@ class Card extends Component {
   }
 
   deleteRecord(id) {
-    console.log("deleting record id: ", id);
-
+    console.log('deleting record id: ', id);
     fetch(`/api/internships/${id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.text())
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.text())
       .then(response => {
-        console.log('Success:', response)
-        alert("Record has been deleted");
+        console.log('Success:', response);
+        alert('Record has been deleted');
       })
       .catch(error => console.error('Error:', error));
   }
 
   render() {
+    const contextType = LoginContext._currentValue;
     // console.log("data:", this.props.data);
     return (
       <div className="internships-card">
@@ -63,19 +66,38 @@ class Card extends Component {
             {this.props.data.internship_description}
           </p>
         </div>
-        {this.props.adminMode ? (
+        {contextType.isLoggedIn ? (
           <div className="form-row">
             <div className="col-auto">
-              <NavLink to={`/admin/internships/edit/${this.props.data.id}`} className="btn btn-primary btn-sm">Edit</NavLink>
+              <NavLink
+                to={`/admin/internships/edit/${this.props.data.id}`}
+                className="btn btn-primary btn-sm"
+              >
+                Edit
+              </NavLink>
             </div>
             <div className="col-auto">
-              <button class="btn btn-primary btn-sm" onClick={() => { if (window.confirm('Are you sure you wish to delete this record?')) this.deleteRecord(this.props.data.id) }}>Delete</button>
+              <button
+                class="btn btn-primary btn-sm"
+                onClick={() => {
+                  if (
+                    window.confirm(
+                      'Are you sure you wish to delete this record?',
+                    )
+                  )
+                    this.deleteRecord(this.props.data.id);
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
-        ) : ""}
+        ) : (
+          ''
+        )}
       </div>
     );
   }
-};
+}
 
 export default Card;
