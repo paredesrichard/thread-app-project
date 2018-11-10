@@ -29,7 +29,7 @@ class InternshipsView extends Component {
         <h3>Welcome to the Internships View</h3>
         <SearchForm />
         <div className="form-group">
-          <NavLink to='/admin/internships/add' class="btn btn-primary btn-sm">Add New Record</NavLink>
+          <NavLink to='/admin/internships/add' className="btn btn-primary btn-sm">Add New Record</NavLink>
         </div>
         <section className="internships-section">
           <aside className="internships-aside">
