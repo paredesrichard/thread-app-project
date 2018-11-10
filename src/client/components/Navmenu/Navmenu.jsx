@@ -33,13 +33,13 @@ const Navmenu = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/login" className="nav-link">
-            Login
+          <NavLink to="/about" className="nav-link">
+            About Us
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/about" className="nav-link">
-            About Us
+          <NavLink to="/login" className="nav-link">
+            Login
           </NavLink>
         </li>
       </ul>
