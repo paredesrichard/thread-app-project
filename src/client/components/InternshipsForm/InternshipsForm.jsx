@@ -155,7 +155,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-3">
               <div className="form-group form-check">
-                <input name="internship_agreement" class="form-check-input" type="checkbox" id="chkInternshipAgreement" onChange={this.updateField} defaultChecked={this.state.internshipsData.internship_agreement} />
+                <input name="internship_agreement" className="form-check-input" type="checkbox" id="chkInternshipAgreement" onChange={this.updateField} defaultChecked={this.state.internshipsData.internship_agreement} />
                 <label class="form-check-label" for="chkInternshipAgreement">
                   Internship Agreement
                 </label>
@@ -163,8 +163,8 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-3">
               <div className="form-group form-check">
-                <input name="internship_requirements" class="form-check-input" type="checkbox" id="chkInternshipRequirements" onChange={this.updateField} defaultChecked={this.state.internshipsData.internship_requirements} />
-                <label class="form-check-label" for="chkInternshipRequirements">
+                <input name="internship_requirements" className="form-check-input" type="checkbox" id="chkInternshipRequirements" onChange={this.updateField} defaultChecked={this.state.internshipsData.internship_requirements} />
+                <label className="form-check-label" for="chkInternshipRequirements">
                   Internship Requirements
                 </label>
               </div>
@@ -210,8 +210,8 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-2">
               <div className="form-group form-check">
-                <input name="closing_date" class="form-check-input" type="checkbox" id="chkClosingDate" onChange={this.updateField} defaultChecked={this.state.internshipsData.closing_date} />
-                <label class="form-check-label" for="chkClosingDate">
+                <input name="closing_date" className="form-check-input" type="checkbox" id="chkClosingDate" onChange={this.updateField} defaultChecked={this.state.internshipsData.closing_date} />
+                <label className="form-check-label" for="chkClosingDate">
                   Closing date
                 </label>
               </div>
@@ -274,10 +274,10 @@ class InternshipsForm extends Component {
 
           <div className="form-row">
             <div className="col-auto">
-              <button type="submit" class="btn btn-primary mb-2">Save</button>
+              <button type="submit" className="btn btn-primary mb-2">Save</button>
             </div>
             <div className="col-auto">
-              <NavLink to={`/internships`} class="btn btn-primary mb-2">Cancel</NavLink>
+              <NavLink to={`/internships`} className="btn btn-primary mb-2">Cancel</NavLink>
             </div>
           </div>
 
