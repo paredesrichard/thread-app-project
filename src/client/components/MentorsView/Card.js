@@ -50,7 +50,7 @@ class Card extends React.Component{
   deleteRecord(id) {
     console.log("deleting record id: ", id);
 
-    fetch(`/api/internships/${id}`, {
+    fetch(`/api/mentors/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

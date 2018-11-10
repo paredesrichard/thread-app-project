@@ -51,7 +51,7 @@ super(props);
   deleteRecord(id) {
     console.log("deleting record id: ", id);
 
-    fetch(`/api/internships/${id}`, {
+    fetch(`/api/networking/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
