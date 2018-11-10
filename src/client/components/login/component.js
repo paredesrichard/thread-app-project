@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import SearchForm from '../SearchForm/SearchForm';
 
 class Login extends Component{
     state = {
@@ -47,6 +47,8 @@ class Login extends Component{
       render() {
         return (
           <div className="container">
+          <h3>Welcome to the Networking View</h3>
+        <SearchForm />
             <form onSubmit={this.onSubmit}>
               <label>
                 E-mail
