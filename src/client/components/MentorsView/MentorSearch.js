@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import queryString from 'querystring'
 import Card from './Card';
+import SearchForm from '../SearchForm/SearchForm';
 
 class MentorSearch extends Component {
     constructor(props) {
@@ -24,11 +25,11 @@ class MentorSearch extends Component {
         })
     }
     render(){
-        
         if(this.state.dataisLoaded){
             console.log(this.state.data);
              return(
                 <div className="container">
+                <SearchForm />
                     {this.state.data.map((data)=>
                         <Card data={data}/>
                     )}
