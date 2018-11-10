@@ -1,5 +1,5 @@
 import React from 'react';
-import MentorForm from './mentorForm';
+import MentorForm from './MentorForm';
 
 export default (props) => (
     <MentorForm {...props} isEditing={false} />

@@ -38,7 +38,7 @@ export function createNetworking(req, res) {
 export function searchNetwork(req,res){
   const searchName = `%${req.query.name}%`;
   const searchCity = `%${req.query.location}%`;
-  console.log("locations length", req.query.location.length);
+  console.log("name", searchName);
 
 const sql = SqlString.format('SELECT * FROM networking WHERE (organisation_name LIKE ? or organisation_description LIKE ? ) AND organisation_city LIKE ? AND active = ?',  [searchName,searchName,searchCity,true]);
 console.log(sql);

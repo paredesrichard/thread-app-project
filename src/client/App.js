@@ -24,12 +24,17 @@ import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
 import MentorSearch from './components/MentorsView/MentorSearch';
+import NetworkingSearch from './components/NetworkingView/NetworkingSearch';
+import Login from './components/login';
+//import Logout from "./components/logout";
+//import LoginContext, { loadContextValue } from './contexts/login';
 
 
 
 //console.log(AddMentor);
 class App extends Component {
   render() {
+    //const contextValue = loadContextValue();
     return (
       <div className="container-fluid m-0 p-0">
         <Header />
@@ -45,13 +50,17 @@ class App extends Component {
           <Route exact path="/about" component={AboutUs} />
           <Route exact path='/mentors/add' component={MentorForms.AddMentor} />
           <Route exact path='/mentors/edit/:id' component={MentorForms.EditMentor} />
-          <Route exact path='/mentors/search' component={MentorSearch} />
+          <Route exact path='/Mentors/search' component={MentorSearch} />
           <Route exact path='/networking/add' component={NetworkingForms.AddNetworking} />
           <Route exact path='/networking/edit/:id' component={NetworkingForms.EditNetworking} />
+          <Route exact path='/Networking/search' component={NetworkingSearch} />
+          <Route exact path="/login" component={Login} />
+          
+    
+
         </Switch>
         <Footer />
-        
-      </div>
+        </div>
     );
   }
 }
