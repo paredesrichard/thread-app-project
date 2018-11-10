@@ -4,7 +4,8 @@ import './MentorsView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+import LoginContext from '../../contexts/login';
 
 class MentorsView extends Component {
   constructor(props) {
@@ -17,19 +18,26 @@ class MentorsView extends Component {
   componentDidMount() {
     let newCoords = [];
     fetchAPIData('/api/mentors').then(newData => {
-      console.log("MentorView component---->",newData);
+      console.log('MentorView component---->', newData);
       this.setState({ data: newData });
     });
   }
 
   render() {
+    const contextType = LoginContext._currentValue;
     return (
       <div className="mentors-view-container">
         <h3>Welcome to the mentors View</h3>
         <SearchForm />
-        <div className="form-group">
-        <Link to='/mentors/add' className="btn btn-primary btn-sm">Add New Record</Link>
-        </div>
+        {contextType.isLoggedIn ? (
+          <div className="form-group">
+            <Link to="/mentors/add" className="btn btn-primary btn-sm">
+              Add New Record
+            </Link>
+          </div>
+        ) : (
+          ''
+        )}
         <section className="mentors-section">
           <aside className="mentors-aside">
             {this.state.data
@@ -38,7 +46,6 @@ class MentorsView extends Component {
                 })
               : 'Loading data...'}
           </aside>
-          
         </section>
       </div>
     );
