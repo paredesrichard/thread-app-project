@@ -112,3 +112,34 @@ export function deleteInternship(req, res) {
     res.send('success');
   });
 }
+
+export function searchInternships(req, res) {
+  /*  check and see if the order is Desc, else set the default to ASC */
+  const sortOrder = req.query.sort !== 'desc' ? "ASC" : "DESC";
+
+  /*  Reconstruct and enclosed the searchFieldValue passed to the api inside '% %'  */
+  const searchFieldValue = `%${req.query[Object.keys(req.query)[0]]}%`;
+  const searchFieldName = Object.keys(req.query)[0];
+
+  const sql = SqlString.format('SELECT * FROM internships WHERE active=? AND ?? LIKE ? order by ?? ?',
+    [
+      true,
+      searchFieldName,
+      searchFieldValue,
+      req.query.orderby,
+      SqlString.raw(sortOrder),
+    ],
+  );
+
+  console.log("sql", sql);
+
+  db.execute(sql, (err, rows) => {
+    if (err) {
+      // throw err;
+      res.status(500).send(err);
+      return;
+    }
+
+    res.send(rows);
+  });
+}

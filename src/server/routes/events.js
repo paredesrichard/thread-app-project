@@ -6,10 +6,12 @@ import {
   getEventsById,
   updateEvents,
   deleteEvents,
+  searchEvents,
 } from '../controllers/events';
 
 const router = express.Router();
 
+router.get('/search', searchEvents);
 router.get('/', listAllEvents);
 router.post('/', createEvents);
 router.get('/:id', getEventsById);
