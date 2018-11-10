@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import queryString from 'querystring'
+import Card from './Card';
 
 class MentorSearch extends Component {
     constructor(props) {
