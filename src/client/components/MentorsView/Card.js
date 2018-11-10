@@ -71,7 +71,7 @@ class Card extends React.Component {
       <div className="mentors-card">
         <img
           src={this.props.data.profile_picture}
-          className="thumb-nail-img"
+          className="mentors-thumb-nail-img"
           alt="thumbnail"
         />
         <p>
