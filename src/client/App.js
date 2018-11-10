@@ -25,7 +25,7 @@ import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
 import MentorSearch from './components/MentorsView/MentorSearch';
 import NetworkingSearch from './components/NetworkingView/NetworkingSearch';
-import Login from './components/login';
+import Login from './components/Login';
 //import Logout from "./components/logout";
 //import LoginContext, { loadContextValue } from './contexts/login';
 
