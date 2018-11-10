@@ -38,7 +38,7 @@ const Card = props => {
           target="_blank">Edit</Link>
           </div>
           <Link to="#"  className="btn btn-primary mb-2">
-          Delete
+          Deleted
         </Link>
       </div>
       
