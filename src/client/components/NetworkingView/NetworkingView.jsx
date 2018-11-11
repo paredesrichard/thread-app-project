@@ -4,7 +4,9 @@ import './NetworkingView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+import LoginContext from '../../contexts/login';
 
 class NetworkingView extends Component {
   constructor(props) {
@@ -22,13 +24,20 @@ class NetworkingView extends Component {
   }
 
   render() {
+    const contextType = LoginContext._currentValue;
     return (
       <div className="networking-view-container">
         <h3>Welcome to the Networking View</h3>
         <SearchForm />
-        <div>
-        <Link to='/networking/add' className="btn btn-primary btn-sm">Add New Record</Link>
-        </div>
+        {contextType.isLoggedIn ? (
+          <div>
+            <Link to="/networking/add" className="btn btn-primary btn-sm">
+              Add New Record
+            </Link>
+          </div>
+        ) : (
+          ''
+        )}
         <section className="networking-section">
           <aside className="networking-aside">
             {this.state.data
