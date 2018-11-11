@@ -15,7 +15,7 @@ class EventsView extends Component {
     super(props);
     this.state = {
       data: [],
-      view: 'calendar',
+      view: 'map',
     };
   }
 

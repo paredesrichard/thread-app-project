@@ -4,6 +4,7 @@ import './InternshipsView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
+import InternshipsSearchForm from '../InternshipsForm/InternshipsSearchForm';
 
 import { NavLink } from 'react-router-dom';
 
@@ -30,7 +31,8 @@ class InternshipsView extends Component {
     return (
       <div className="internships-view-container">
         <h3>Welcome to the Internships View</h3>
-        <SearchForm />
+        {/* <SearchForm /> */}
+        <InternshipsSearchForm />
         {contextType.isLoggedIn ? (
           <div className="form-group">
             <NavLink
