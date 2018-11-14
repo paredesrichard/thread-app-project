@@ -102,7 +102,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtInternshipTitle">Internship Title: </label>
+                <label htmlFor="txtInternshipTitle">Internship Title: </label>
                 <input
                   type="text"
                   name="internship_title"
@@ -116,7 +116,9 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtInternshipCategory">Internship Category: </label>
+                <label htmlFor="txtInternshipCategory">
+                  Internship Category:{' '}
+                </label>
                 <input
                   type="text"
                   name="internship_category"
@@ -133,7 +135,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtOrganisationName">Organisation Name:</label>
+                <label htmlFor="txtOrganisationName">Organisation Name:</label>
                 <input
                   type="text"
                   name="organisation_name"
@@ -147,7 +149,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtDepartment">Department Name:</label>
+                <label htmlFor="txtDepartment">Department Name:</label>
                 <input
                   type="text"
                   name="department"
@@ -165,7 +167,7 @@ class InternshipsForm extends Component {
             <div className="col-md-12">
               <div className="form-group">
                 <div className="form-group">
-                  <label for="textInternshipDescription">
+                  <label htmlFor="textInternshipDescription">
                     Internship Description:
                   </label>
                   <textarea
@@ -186,7 +188,7 @@ class InternshipsForm extends Component {
             <div className="col-md-12">
               <div className="form-group">
                 <div className="form-group">
-                  <label for="textOrganisationDescription">
+                  <label htmlFor="textOrganisationDescription">
                     Organisation Description:
                   </label>
                   <textarea
@@ -217,7 +219,10 @@ class InternshipsForm extends Component {
                     this.state.internshipsData.internship_agreement
                   }
                 />
-                <label class="form-check-label" for="chkInternshipAgreement">
+                <label
+                  class="form-check-label"
+                  htmlFor="chkInternshipAgreement"
+                >
                   Internship Agreement
                 </label>
               </div>
@@ -236,7 +241,7 @@ class InternshipsForm extends Component {
                 />
                 <label
                   className="form-check-label"
-                  for="chkInternshipRequirements"
+                  htmlFor="chkInternshipRequirements"
                 >
                   Internship Requirements
                 </label>
@@ -247,7 +252,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtApplicationRequirements">
+                <label htmlFor="txtApplicationRequirements">
                   Application Requirements:
                 </label>
                 <input
@@ -263,7 +268,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-6">
               <div className="form-group">
-                <label for="txtInternshipAvailabilitySchedule">
+                <label htmlFor="txtInternshipAvailabilitySchedule">
                   Internship availabiltiy schedule:
                 </label>
                 <input
@@ -292,12 +297,12 @@ class InternshipsForm extends Component {
                   onChange={this.updateField}
                   defaultChecked={this.state.internshipsData.travel_expendes}
                 />
-                <label for="chkTravelExpenses">Travel Expenses</label>
+                <label htmlFor="chkTravelExpenses">Travel Expenses</label>
               </div>
             </div>
             <div className="col-md-5">
               <div className="form-group">
-                <label for="txtLocation">Location:</label>
+                <label htmlFor="txtLocation">Location:</label>
                 <input
                   name="location"
                   type="text"
@@ -311,7 +316,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-5">
               <div className="form-group">
-                <label for="txtInternshipAddDate">Internship Add Date:</label>
+                <label htmlFor="txtInternshipAddDate">Internship Add Date:</label>
                 <input
                   name="internship_add_date"
                   type="date"
@@ -343,7 +348,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-4">
               <div className="form-group">
-                <label for="txtInternshipDeadline">Internship Deadline:</label>
+                <label htmlFor="txtInternshipDeadline">Internship Deadline:</label>
                 <input
                   name="internship_deadline"
                   type="date"
@@ -360,7 +365,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-4">
               <div className="form-group">
-                <label for="txtContactPerson">Contact Person:</label>
+                <label htmlFor="txtContactPerson">Contact Person:</label>
                 <input
                   name="contact_person"
                   type="text"
@@ -374,7 +379,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-4">
               <div className="form-group">
-                <label for="txtPhoneContact">Contact Number:</label>
+                <label fhtmlForor="txtPhoneContact">Contact Number:</label>
                 <input
                   name="phone_contact"
                   type="text"
@@ -388,7 +393,7 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-4">
               <div className="form-group">
-                <label for="txtEmailContact">Email:</label>
+                <label htmlFor="txtEmailContact">Email:</label>
                 <input
                   name="email_contact"
                   type="email"
@@ -405,7 +410,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-12">
               <div className="form-group">
-                <label for="txtOrganisationAddress">
+                <label htmlFor="txtOrganisationAddress">
                   Organisation Address:
                 </label>
                 <input
@@ -424,7 +429,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-12">
               <div className="form-group">
-                <label for="txtOrganisationWebsite">
+                <label htmlFor="txtOrganisationWebsite">
                   Organisation Website:
                 </label>
                 <input
@@ -443,7 +448,7 @@ class InternshipsForm extends Component {
           <div className="form-row">
             <div className="col-md-12">
               <div className="form-group">
-                <label for="txtInternshipThemeImage">Theme Image:</label>
+                <label htmlFor="txtInternshipThemeImage">Theme Image:</label>
                 <input
                   name="internship_theme_image"
                   type="text"
@@ -467,7 +472,7 @@ class InternshipsForm extends Component {
               <NavLink to={`/internships`} className="btn btn-primary mb-2">
                 Cancel
               </NavLink>
-            </div>  
+            </div>
           </div>
         </form>
       </div>

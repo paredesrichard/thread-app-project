@@ -48,14 +48,14 @@ class InternshipsSearchForm extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <div className="form-row">
-            <div className="col-md-3">
+          <div className="form-row justify-content-end">
+            <div className="col-md-3 ">
               <div className="form-group text-left">
-                <label for="txtInternSearchWord">Search:</label>
+                <label htmlFor="txtInternSearchWord">Search:</label>
                 <input
                   type="text"
                   name="internSearchWord"
-                  className="form-control"
+                  className="form-control-sm  "
                   id="txtinternSearchWord"
                   placeholder="Search keyword..."
                   onChange={this.updateField}
@@ -72,21 +72,37 @@ class InternshipsSearchForm extends Component {
                   className="custom-select custom-select-sm"
                   onChange={this.updateField}
                 >
-                  <option selected value="internship_title">
-                    Internship Title
+                  <option defaultValue value="internship_title">
+                    Title
                   </option>
-                  <option value="organisation_name">Organisation Name</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="organisation_name">Name</option>
+                  <option value="location">Location</option>
+                  <option value="contact_person">Contact person</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="col-md-2">
+              <div className="form-group text-left">
+                <label>Sort order:</label>
+                <select
+                  name="sortby"
+                  className="custom-select custom-select-sm"
+                  onChange={this.updateField}
+                >
+                  <option defaultValue value="ASC">
+                    Ascending
+                  </option>
+                  <option value="DESC">Descending</option>
                 </select>
               </div>
             </div>
 
             <div className="col-md-1">
-              <div className="form-group">
+              <div className="form-group mt-3">
                 <button
                   type="submit"
-                  className="btn btn-primary mt-2 align-self-end"
+                  className="btn-sm btn-primary mt-3 align-self-end"
                 >
                   Search
                 </button>
