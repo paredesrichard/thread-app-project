@@ -35,7 +35,16 @@
 @media screen and (min-width: 760px) {
   .mentors-card {
     width: 270px;
-    height: auto;
+    height: 400px;
+  }
+  .card-description {
+    height: 80px;
+    overflow: hidden;
+    text-overflow: clip ellipsis;
+  }
+  .p-mentors-view-card {
+    height: 180px;
+    margin-bottom: 0;
   }
 }
 .edit-mentor-link {

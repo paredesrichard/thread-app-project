@@ -74,7 +74,7 @@ class Card extends React.Component {
           className="mentors-thumb-nail-img"
           alt="thumbnail"
         />
-        <p>
+        <p className="p-mentors-view-card">
           <br />
           <span className="card-label">First</span>:{' '}
           {this.props.data.first_name}
@@ -85,8 +85,10 @@ class Card extends React.Component {
           <span className="card-label">Email address</span>:{' '}
           {this.props.data.email}
           <br />
-          <span className="card-label">Description</span>:{' '}
-          {this.props.data.mentor_description}
+          <div className="card-description">
+            <span className="card-label card-description">Description</span>:{' '}
+            {this.props.data.mentor_description}
+          </div>
         </p>
         {contextType.isLoggedIn ? (
           <div className="form-row">
