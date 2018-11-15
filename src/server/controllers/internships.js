@@ -115,7 +115,7 @@ export function deleteInternship(req, res) {
 
 export function searchInternships(req, res) {
   /*  check and see if the order is Desc, else set the default to ASC */
-  const sortOrder = req.query.sort !== 'desc' ? "ASC" : "DESC";
+  const sortOrder = req.query.sort !== 'DESC' ? "ASC" : "DESC";
 
   /*  Reconstruct and enclosed the searchFieldValue passed to the api inside '% %'  */
   const searchFieldValue = `%${req.query[Object.keys(req.query)[0]]}%`;
