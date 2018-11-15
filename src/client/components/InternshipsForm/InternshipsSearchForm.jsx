@@ -20,10 +20,10 @@ class InternshipsSearchForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let url = `/api/internships/search?${this.state.fieldName}=${
+    const url = `/api/internships/search?${this.state.fieldName}=${
       this.state.internSearchWord
     }&orderby=${this.state.orderBy}&sort=${this.state.sortBy}`;
-    alert('form submitted');
+    
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
       console.log('data', this.state.data);
@@ -48,14 +48,14 @@ class InternshipsSearchForm extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-          <div className="form-row justify-content-end">
-            <div className="col-md-3 ">
+          <div className="form-row text-left">
+            <div className="col-md-3">
               <div className="form-group text-left">
-                <label htmlFor="txtInternSearchWord">Search:</label>
+                <label>Search:</label>
                 <input
                   type="text"
                   name="internSearchWord"
-                  className="form-control-sm  "
+                  className="form-control"
                   id="txtinternSearchWord"
                   placeholder="Search keyword..."
                   onChange={this.updateField}
@@ -69,13 +69,13 @@ class InternshipsSearchForm extends Component {
                 <label>Search by:</label>
                 <select
                   name="fieldName"
-                  className="custom-select custom-select-sm"
+                  className="custom-select"
                   onChange={this.updateField}
                 >
                   <option defaultValue value="internship_title">
-                    Title
+                    Internship Title
                   </option>
-                  <option value="organisation_name">Name</option>
+                  <option value="organisation_name">Organisation Name</option>
                   <option value="location">Location</option>
                   <option value="contact_person">Contact person</option>
                 </select>
@@ -87,7 +87,7 @@ class InternshipsSearchForm extends Component {
                 <label>Sort order:</label>
                 <select
                   name="sortby"
-                  className="custom-select custom-select-sm"
+                  className="custom-select"
                   onChange={this.updateField}
                 >
                   <option defaultValue value="ASC">
@@ -98,11 +98,11 @@ class InternshipsSearchForm extends Component {
               </div>
             </div>
 
-            <div className="col-md-1">
+            <div className="col-md-2">
               <div className="form-group mt-3">
                 <button
                   type="submit"
-                  className="btn-sm btn-primary mt-3 align-self-end"
+                  className="btn btn-primary mt-3 align-self-end"
                 >
                   Search
                 </button>

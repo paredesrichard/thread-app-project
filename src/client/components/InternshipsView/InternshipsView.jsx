@@ -35,12 +35,16 @@ class InternshipsView extends Component {
         <InternshipsSearchForm />
         {contextType.isLoggedIn ? (
           <div className="form-group">
-            <NavLink
-              to="/admin/internships/add"
-              className="btn btn-primary btn-sm"
-            >
-              Add New Record
-            </NavLink>
+            <div className="form-row justify-content-end">
+              <div className="col-md-3 justify-content-end">
+                <NavLink
+                  to="/admin/internships/add"
+                  className="btn btn-primary btn-sm align-self-end"
+                >
+                  Add Record
+                </NavLink>
+              </div>
+            </div>
           </div>
         ) : (
           ''
