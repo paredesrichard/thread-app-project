@@ -38,8 +38,8 @@ class EventsView extends Component {
   render() {
     return (
       <div className="events-view-container">
-        <h3>Events View</h3>
-        <EventViewSearchForm />
+        <h3>Welcome to the Events page</h3>
+        {/* <EventViewSearchForm /> */}
         <section className="events-section">
           <aside className="events-aside">
             <h4>Events results:</h4>
