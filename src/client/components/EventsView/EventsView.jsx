@@ -61,8 +61,8 @@ class EventsView extends Component {
     event.preventDefault();
     const url = `/api/events/search?${this.state.fieldName}=
     ${this.state.eventsSearchWord.trim()}
-    &event_start_date=${(moment(this.state.dateEventStartDate).format("YYYY-DD-MM")).trim()}
-    &event_end_date=${moment(this.state.dateEventEndDate).format("YYYY-DD-MM").trim()}
+    &event_start_date=${(moment(this.state.dateEventStartDate).format("YYYY-MM-DD")).trim()}
+    &event_end_date=${moment(this.state.dateEventEndDate).format("YYYY-MM-DD").trim()}
     &orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
     console.log("moment: ", url)
     fetchAPIData(url).then(newData => {
