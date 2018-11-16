@@ -36,7 +36,7 @@ class Card extends Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-        alert('Record has been deleted');
+        this.props.history.push('/internships');
       })
       .catch(error => console.error('Error:', error));
   }
@@ -78,7 +78,7 @@ class Card extends Component {
             </div>
             <div className="col-auto">
               <button
-                class="btn btn-primary btn-sm"
+                className="btn btn-primary btn-sm"
                 onClick={() => {
                   if (
                     window.confirm(
