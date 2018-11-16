@@ -220,7 +220,7 @@ class InternshipsForm extends Component {
                   }
                 />
                 <label
-                  class="form-check-label"
+                  className="form-check-label"
                   htmlFor="chkInternshipAgreement"
                 >
                   Internship Agreement
