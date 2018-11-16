@@ -47,7 +47,11 @@ const Card = props => {
 class Card extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      readMore: true,
+    };
   }
+
   deleteRecord(id) {
     console.log('deleting record id: ', id);
 
@@ -67,6 +71,7 @@ class Card extends React.Component {
 
   render() {
     const contextType = LoginContext._currentValue;
+    const keyId = Math.random();
     return (
       <div className="mentors-card">
         <img
@@ -85,41 +90,77 @@ class Card extends React.Component {
           <span className="card-label">Email address</span>:{' '}
           {this.props.data.email}
           <br />
-          <div className="card-description">
-            <span className="card-label card-description">Description</span>:{' '}
-            {this.props.data.mentor_description}
-          </div>
+          {!this.state.readMore ? (
+            <div>
+              <span className="card-label">Gender: </span>
+              {this.props.data.gender}
+              <br />
+              <span className="card-label">Description: </span>
+              {this.props.data.mentor_description}
+              <br />
+              <span className="card-label">Languages: </span>
+              {this.props.data.languages}
+              <br />
+              <span className="card-label">Availability: </span>
+              {this.props.data.availability}
+              <br />
+              <span className="card-label">Offering: </span>
+              {this.props.data.offering}
+              <br />
+            </div>
+          ) : (
+            ''
+          )}
         </p>
-        {contextType.isLoggedIn ? (
-          <div className="form-row">
-            <div className="col-auto">
-              <Link
-                to={`/mentors/edit/${this.props.data.id}`}
-                className="btn btn-primary mb-2"
-                target="_blank"
-              >
-                Edit
-              </Link>
-            </div>
-            <div className="col-auto">
-              <button
-                class="btn btn-primary btn-sm"
-                onClick={() => {
-                  if (
-                    window.confirm(
-                      'Are you sure you wish to delete this record?',
-                    )
-                  )
-                    this.deleteRecord(this.props.data.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
+
+        <div className="form-inline">
+          <div className="col-auto">
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                this.setState({ readMore: !this.state.readMore });
+              }}
+            >
+              {this.state.readMore ? 'View details' : 'Hide details'}
+            </button>
+            {/* <input type="checkbox" className="read-more-state" id={keyId} onChange={(e)=> console.log(e.target.value)} />
+            <label
+              htmlFor={keyId}
+              class="read-more-trigger"
+            /> */}
           </div>
-        ) : (
-          ''
-        )}
+
+          {contextType.isLoggedIn ? (
+            <div className="form-inline justify-content-end">
+              <div className="col-auto">
+                <Link
+                  to={`/mentors/edit/${this.props.data.id}`}
+                  className="btn btn-primary"
+                  target="_blank"
+                >
+                  Edit
+                </Link>
+              </div>
+              <div className="col-auto">
+                <button
+                  class="btn btn-danger"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Are you sure you wish to delete this record?',
+                      )
+                    )
+                      this.deleteRecord(this.props.data.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }
