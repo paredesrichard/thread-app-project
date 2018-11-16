@@ -34,6 +34,13 @@
   color: dodgerblue;
 }
 
+@media screen and (min-width: 760px) {
+  .mentors-card {
+    width: 60%;
+  }
+
+}
+
 /* @media screen and (min-width: 760px) {
   /* .mentors-card {
     width: 80%;
