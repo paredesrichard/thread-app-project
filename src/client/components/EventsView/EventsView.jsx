@@ -94,7 +94,7 @@ class EventsView extends Component {
               <div className="form-row justify-content-md-end mb-3">
                 <div className="col-md-12">
                   <NavLink
-                    to="/admin/internships/add"
+                    to="/admin/events/add"
                     className="btn btn-primary btn-sm"
                   >
                     Add Record
