@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Card.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
 
@@ -23,6 +23,9 @@ import LoginContext from '../../contexts/login';
 class Card extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      readMore: true,
+    };
   }
 
   deleteRecord(id) {
@@ -51,7 +54,7 @@ class Card extends Component {
           className="internships-thumb-nail-img"
           alt="thumbnail"
         />
-        <div className="card-body p-1">
+        <div>
           <p>
             <span className="card-label">Title</span> :{' '}
             {this.props.data.internship_title}
@@ -62,39 +65,104 @@ class Card extends Component {
             <span className="card-label">Category</span> :{' '}
             {this.props.data.internship_category}
             <br />
-            <span className="card-label">Description</span> :{' '}
-            {this.props.data.internship_description}
+            {!this.state.readMore ? (
+              <div>
+                <span className="card-label">Department : </span>
+                {this.props.data.department}
+                <br />
+                <span className="card-label">Internship Description : </span>
+                {this.props.data.internship_description}
+                <br />
+                <span className="card-label">Organisation Description : </span>
+                {this.props.data.organisation_description}
+                <br />
+                <span className="card-label">Agreement? : </span>
+                {this.props.data.internship_agreement ? 'Yes' : 'No'}
+                <br />
+                <span className="card-label">Requirements : </span>
+                {this.props.data.internship_requirements ? 'Yes' : 'No'}
+                <br />
+                <span className="card-label">Application Requirements : </span>
+                {this.props.data.application_requirements}
+                <br />
+                <span className="card-label">Availability Schedule : </span>
+                {this.props.data.internship_availabiltiy_schedule}
+                <br />
+                <span className="card-label">Travel Expenses : </span>
+                {this.props.data.travel_expenses ? 'Yes' : 'No'}
+                <br />
+                <span className="card-label">Location : </span>
+                {this.props.data.location}
+                <br />
+                <span className="card-label">Contact Person : </span>
+                {this.props.data.contact_person}
+                <br />
+                <span className="card-label">Contact Number : </span>
+                {this.props.data.phone_contact}
+                <br />
+                <span className="card-label">Email : </span>
+                {this.props.data.email_contact}
+                <br />
+                <span className="card-label">Organisation Address : </span>
+                {this.props.data.organisation_address}
+                <br />
+                <span className="card-label">
+                  Website :{' '}
+                  <a className="text-secondary" href={this.props.data.organisation_website}>
+                    {this.props.data.organisation_website}
+                  </a>
+                </span>
+
+                <br />
+              </div>
+            ) : (
+              ''
+            )}
           </p>
         </div>
-        {contextType.isLoggedIn ? (
-          <div className="form-row">
-            <div className="col-auto">
-              <NavLink
-                to={`/admin/internships/edit/${this.props.data.id}`}
-                className="btn btn-primary btn-sm"
-              >
-                Edit
-              </NavLink>
-            </div>
-            <div className="col-auto">
-              <button
-                class="btn btn-primary btn-sm"
-                onClick={() => {
-                  if (
-                    window.confirm(
-                      'Are you sure you wish to delete this record?',
-                    )
-                  )
-                    this.deleteRecord(this.props.data.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
+
+        <div className="form-inline">
+          <div className="col-auto">
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                this.setState({ readMore: !this.state.readMore });
+              }}
+            >
+              {this.state.readMore ? 'View details' : 'Hide details'}
+            </button>
           </div>
-        ) : (
-          ''
-        )}
+
+          {contextType.isLoggedIn ? (
+            <div className="form-row">
+              <div className="col-auto">
+                <NavLink
+                  to={`/admin/internships/edit/${this.props.data.id}`}
+                  className="btn btn-primary btn-sm"
+                >
+                  Edit
+                </NavLink>
+              </div>
+              <div className="col-auto">
+                <button
+                  class="btn btn-primary btn-sm"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Are you sure you wish to delete this record?',
+                      )
+                    )
+                      this.deleteRecord(this.props.data.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }
