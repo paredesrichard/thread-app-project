@@ -1,10 +1,9 @@
 .internships-card {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8em;
+  font-size: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 90%;
-  height: auto;
   border-radius: 5px;
   margin: auto;
   margin-bottom: 1em;
@@ -14,6 +13,8 @@
   line-height: 1em;
   text-align: left;
   border: 0.5px gray solid;
+  min-height: 100px;
+  height: auto;
 }
 
 .card-body{
@@ -22,7 +23,7 @@
 
 .internships-thumb-nail-img {
   padding: 0.5em;
-  height: 60px;
+  height: 120px;
   text-align: left;
 }
 
@@ -38,11 +39,6 @@
 
 @media screen and (min-width: 760px) {
   .internships-card {
-    width: 220px;
-    height: auto;
+    width: 60%;
   }
-  .card-body{
-    height: 280px;
-  }
-
 }

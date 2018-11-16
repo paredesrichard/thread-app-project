@@ -32,7 +32,10 @@ class EventsView extends Component {
   }
 
   componentDidMount() {
-    console.log("moments", moment("2018-09-05T22:00:00.000Z").format("YYYY-DD-MM"))
+    console.log(
+      'moments',
+      moment('2018-09-05T22:00:00.000Z').format('YYYY-DD-MM'),
+    );
     let newCoords = [];
     fetchAPIData('/api/events').then(newData => {
       this.setState({ data: newData });
@@ -57,14 +60,14 @@ class EventsView extends Component {
   };
 
   handleSubmit = event => {
-    console.log("form submitted")
+    console.log('form submitted');
     event.preventDefault();
     const url = `/api/events/search?${this.state.fieldName}=
     ${this.state.eventsSearchWord.trim()}
     &event_start_date=${(moment(this.state.dateEventStartDate).format("YYYY-MM-DD")).trim()}
     &event_end_date=${moment(this.state.dateEventEndDate).format("YYYY-MM-DD").trim()}
     &orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
-    console.log("moment: ", url)
+    console.log('moment: ', url);
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
       let newCoords = [];
@@ -77,7 +80,6 @@ class EventsView extends Component {
         return tempCoords;
       });
       this.setState({ coords: newCoords });
-
     });
   };
 

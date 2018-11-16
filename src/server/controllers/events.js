@@ -2,7 +2,7 @@ import SqlString from 'sqlstring';
 import db from '../config/db';
 
 export function listAllEvents(req, res) {
-  const sql = SqlString.format('SELECT * FROM events WHERE active=?', [true]);
+  const sql = SqlString.format('SELECT * FROM events WHERE active=? ORDER BY event_start_date ASC', [true]);
   console.log(sql);
   db.execute(sql, (err, rows) => {
     if (err) {
