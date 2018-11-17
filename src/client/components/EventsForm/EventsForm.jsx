@@ -12,7 +12,7 @@ export default class EventsForm extends Component {
       this.state = {
         eventsData: this.props.eventsData,
       };
-      console.log("passed data", this.props.eventsData)
+      console.log('passed data', this.props.eventsData);
     } else if (path === '/admin/events/add') {
       this.state = {
         isEditing: true,
@@ -43,9 +43,8 @@ export default class EventsForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    alert('event form submitted');
-    let url = '',
-      method = '';
+    let url = '';
+    let method = '';
 
     if (this.props.isEditing) {
       url = `/api/events/${this.props.match.params.id}`;
