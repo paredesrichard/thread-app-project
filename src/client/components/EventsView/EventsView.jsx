@@ -20,7 +20,7 @@ class EventsView extends Component {
     super(props);
     this.state = {
       data: [],
-      view: 'map',
+      mapView: true,
       eventsSearchWord: '',
       fieldName: 'event_name',
       dateEventStartDate: '',
@@ -203,7 +203,10 @@ class EventsView extends Component {
               : 'No results'}
           </aside>
           <div className="map-section">
-            {this.state.view === 'map' ? (
+            <div className="form-row text-right">
+                <button className="btn btn-secondary btn-sm btn-block" onClick={() => {this.setState({mapView: !this.state.mapView})}}>{this.state.mapView ? "Switch to Calendar View" : "Switch to Map View" }</button>
+            </div>
+            {this.state.mapView === true ? (
               <MapComponent setMarker Zoom={11} coords={this.state.coords} />
             ) : (
               <Calendar />
