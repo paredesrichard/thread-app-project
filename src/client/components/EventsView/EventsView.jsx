@@ -32,10 +32,6 @@ class EventsView extends Component {
   }
 
   componentDidMount() {
-    console.log(
-      'moments',
-      moment('2018-09-05T22:00:00.000Z').format('YYYY-DD-MM'),
-    );
     let newCoords = [];
     fetchAPIData('/api/events').then(newData => {
       this.setState({ data: newData });

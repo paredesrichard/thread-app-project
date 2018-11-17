@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { moment } from 'moment';
 
 export default class EventsForm extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class EventsForm extends Component {
       this.state = {
         eventsData: this.props.eventsData,
       };
+      console.log("passed data", this.props.eventsData)
     } else if (path === '/admin/events/add') {
       this.state = {
         isEditing: true,
@@ -42,7 +44,8 @@ export default class EventsForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     alert('event form submitted');
-    let url = '', method = '';
+    let url = '',
+      method = '';
 
     if (this.props.isEditing) {
       url = `/api/events/${this.props.match.params.id}`;
@@ -234,9 +237,9 @@ export default class EventsForm extends Component {
             </div>
             <div className="col-md-3">
               <div className="form-group">
-                <label htmlFor="idEvent_start_date">Start Time: </label>
+                <label htmlFor="idEvent_start_time">Start Time: </label>
                 <input
-                  type="time"
+                  type="text"
                   name="event_start_hour"
                   className="form-control"
                   id="idEvent_start_time"
@@ -248,12 +251,12 @@ export default class EventsForm extends Component {
             </div>
             <div className="col-md-3">
               <div className="form-group">
-                <label htmlFor="idEvent_start_date">Start Date: </label>
+                <label htmlFor="idEvent_end_time">End Date: </label>
                 <input
-                  type="time"
+                  type="text"
                   name="event_end_hour"
                   className="form-control"
-                  id="idEvent_start_date"
+                  id="idEvent_end_time"
                   onChange={this.updateField}
                   value={this.state.eventsData.event_end_hour}
                   required
