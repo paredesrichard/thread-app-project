@@ -60,8 +60,12 @@ class EventsView extends Component {
     event.preventDefault();
     const url = `/api/events/search?${this.state.fieldName}=
     ${this.state.eventsSearchWord.trim()}
-    &event_start_date=${(moment(this.state.dateEventStartDate).format("YYYY-MM-DD")).trim()}
-    &event_end_date=${moment(this.state.dateEventEndDate).format("YYYY-MM-DD").trim()}
+    &event_start_date=${moment(this.state.dateEventStartDate)
+      .format('YYYY-MM-DD')
+      .trim()}
+    &event_end_date=${moment(this.state.dateEventEndDate)
+      .format('YYYY-MM-DD')
+      .trim()}
     &orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
     console.log('moment: ', url);
     fetchAPIData(url).then(newData => {
@@ -86,112 +90,117 @@ class EventsView extends Component {
         <h3>Welcome to the Events page</h3>
         {/* <EventViewSearchForm /> */}
 
-        <div className="container">
-          <form onSubmit={this.handleSubmit}>
-            {contextType.isLoggedIn ? (
-              <div className="form-row justify-content-md-end mb-3">
-                <div className="col-md-12">
-                  <NavLink
-                    to="/admin/events/add"
-                    className="btn btn-primary btn-sm"
-                  >
-                    Add Record
-                  </NavLink>
+        <dev className="container-fluid">
+          <div className="d-flex justify-content-center">
+            <form onSubmit={this.handleSubmit}>
+              {contextType.isLoggedIn ? (
+                <div className="form-row justify-content-md-end mb-3">
+                  <div className="col-md-12">
+                    <NavLink
+                      to="/admin/events/add"
+                      className="btn btn-primary btn-sm"
+                    >
+                      Add Record
+                    </NavLink>
+                  </div>
+                  <br />
                 </div>
-                <br />
-              </div>
-            ) : (
-              ''
-            )}
+              ) : (
+                ''
+              )}
 
-            <div className="form-row text-left">
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Search:</label>
-                  <input
-                    type="text"
-                    name="eventsSearchWord"
-                    className="form-control"
-                    id="txtSearchWord"
-                    placeholder="Search keyword..."
-                    onChange={this.updateField}
-                    value={this.state.eventsSearchWord}
-                  />
+              <div className="form-row text-left">
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
+                    <label>Search:</label>
+                    <input
+                      type="text"
+                      name="eventsSearchWord"
+                      className="form-control"
+                      id="txtSearchWord"
+                      placeholder="Search keyword..."
+                      onChange={this.updateField}
+                      value={this.state.eventsSearchWord}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
+                    <label>Search by:</label>
+                    <select
+                      name="fieldName"
+                      className="custom-select"
+                      onChange={this.updateField}
+                    >
+                      <option defaultValue value="event_name">
+                        Event name
+                      </option>
+                      <option value="event_type">Event type</option>
+                      <option value="event_city">City</option>
+                      <option value="contact_person">Contact person</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
+                    <label>Start date:</label>
+                    <input
+                      type="date"
+                      name="dateEventStartDate"
+                      className="form-control"
+                      id="eventStartDate"
+                      required
+                      onChange={this.updateField}
+                      value={this.state.dateEventStartDate}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
+                    <label>End date:</label>
+                    <input
+                      type="date"
+                      name="dateEventEndDate"
+                      className="form-control"
+                      id="eventEndDate"
+                      required
+                      onChange={this.updateField}
+                      value={this.state.dateEventEndDate}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
+                    <label>Sort order:</label>
+                    <select
+                      name="sortBy"
+                      className="custom-select"
+                      onChange={this.updateField}
+                    >
+                      <option defaultValue value="ASC">
+                        Ascending
+                      </option>
+                      <option value="DESC">Descending</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group">
+                    <label className="invisible">Search</label>
+                    <button type="submit" className="btn btn-primary form-control">
+                      Search
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Search by:</label>
-                  <select
-                    name="fieldName"
-                    className="custom-select"
-                    onChange={this.updateField}
-                  >
-                    <option defaultValue value="event_name">
-                      Event name
-                    </option>
-                    <option value="event_type">Event type</option>
-                    <option value="event_city">City</option>
-                    <option value="contact_person">Contact person</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Start date:</label>
-                  <input
-                    type="date"
-                    name="dateEventStartDate"
-                    className="form-control"
-                    id="eventStartDate"
-                    required
-                    onChange={this.updateField}
-                    value={this.state.dateEventStartDate}
-                  />
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>End date:</label>
-                  <input
-                    type="date"
-                    name="dateEventEndDate"
-                    className="form-control"
-                    id="eventEndDate"
-                    required
-                    onChange={this.updateField}
-                    value={this.state.dateEventEndDate}
-                  />
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Sort order:</label>
-                  <select
-                    name="sortBy"
-                    className="custom-select"
-                    onChange={this.updateField}
-                  >
-                    <option defaultValue value="ASC">
-                      Ascending
-                    </option>
-                    <option value="DESC">Descending</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-md-auto mt-3">
-                <button type="submit" className="btn btn-primary mt-3">
-                  Search
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        </dev>
 
         <section className="events-section">
           <aside className="events-aside">
@@ -204,7 +213,16 @@ class EventsView extends Component {
           </aside>
           <div className="map-section">
             <div className="form-row text-right">
-                <button className="btn btn-secondary btn-sm btn-block" onClick={() => {this.setState({mapView: !this.state.mapView})}}>{this.state.mapView ? "Switch to Calendar View" : "Switch to Map View" }</button>
+              <button
+                className="btn btn-secondary btn-sm btn-block"
+                onClick={() => {
+                  this.setState({ mapView: !this.state.mapView });
+                }}
+              >
+                {this.state.mapView
+                  ? 'Switch to Calendar View'
+                  : 'Switch to Map View'}
+              </button>
             </div>
             {this.state.mapView === true ? (
               <MapComponent setMarker Zoom={11} coords={this.state.coords} />
