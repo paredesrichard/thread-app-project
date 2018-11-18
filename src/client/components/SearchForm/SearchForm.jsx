@@ -30,11 +30,12 @@ class SearchForm extends Component {
             <label>search keyword:</label>
             <TextInput placeholder={'search key word'} name={'search_word'} />
           </div>
-
+{/*
               <div>
                 <label>Job Title:</label>
                 <TextInput placeholder={'Job title'} name={'jobtitle'} />
               </div>
+    */}
               <div>
                 <label>Location:</label>
                 <TextInput placeholder={'Location'} name={'location'} />

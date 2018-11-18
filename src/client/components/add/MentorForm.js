@@ -73,7 +73,12 @@ class MentorForm extends React.Component {
     console.log('From <editmentor------_>', this.state.mentorData);
     return (
       <div className="container">
-        <h4>Mentors Form</h4>
+        <div className="col-auto">
+              <Link to={`/mentors`} className="btn btn-primary mb-2">
+              Go Back To Mentors
+              </Link>
+            </div>
+
         <form onSubmit={this.submitForm} className="text-left">
           <div>
             <div>
