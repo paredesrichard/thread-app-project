@@ -113,7 +113,7 @@ class Card extends React.Component {
           )}
         </p>
 
-        <div className="form-inline">
+        <div className="d-flex justify-content-between">
           <div className="col-auto">
             <button
               className="btn btn-primary"

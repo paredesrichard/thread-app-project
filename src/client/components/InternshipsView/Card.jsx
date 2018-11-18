@@ -124,7 +124,8 @@ class Card extends Component {
           </p>
         </div>
 
-        <div className="form-inline">
+        {/* <div className="form-inline"> */}
+        <div className="d-flex justify-content-between">
           <div className="col-auto">
             <button
               className="btn btn-primary"
@@ -148,7 +149,7 @@ class Card extends Component {
               </div>
               <div className="col-auto">
                 <button
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-danger btn-sm "
                   onClick={() => {
                     if (
                       window.confirm(
