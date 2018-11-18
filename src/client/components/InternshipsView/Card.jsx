@@ -48,7 +48,7 @@ class Card extends Component {
     const contextType = LoginContext._currentValue;
     // console.log("data:", this.props.data);
     return (
-      <div className="internships-card">
+      <div className="internships-card  shadow-lg rounded">
         <img
           src={this.props.data.internship_theme_image}
           className="internships-thumb-nail-img"

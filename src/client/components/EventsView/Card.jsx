@@ -45,8 +45,8 @@ class Card extends Component {
       contact_email,
     } = this.props.data;
     return (
-      <div className="container text-left">
-        <div className="card p-2 h-auto">
+      <div className="container text-left p-3">
+        <div className="card p-2 h-auto  shadow-lg rounded">
           <img
             class="card-img-top"
             src={event_theme_image}
