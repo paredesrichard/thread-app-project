@@ -80,7 +80,7 @@ class Card extends React.Component {
           alt="thumbnail"
         />
         <p className="p-networking-view-card">
-        <br />
+          <br />
           <span className="card-label">Sector</span> :{' '}
           {this.props.data.sector_activity}
           <br />
@@ -92,71 +92,70 @@ class Card extends React.Component {
           <br />
           {!this.state.readMore ? (
             <div>
-          <span className="card-label card-description">Description</span> :{' '}
-          {this.props.data.organisation_description}
-          <br />
-          <span className="card-label">organisation City</span> :{' '}
-          {this.props.data.organisation_city}
-          <br />
-          <span className="card-label">contact Person</span> :{' '}
-          {this.props.data.contact_person}
-          <br />
-          <span className="card-label">contact Email</span> :{' '}
-          {this.props.data.contact_email}
-          <br />
-          <span className="card-label">contact Phone</span> :{' '}
-          {this.props.data.contact_phone}
-          <br />
-          </div>
+              <span className="card-label card-description">Description</span> :{' '}
+              {this.props.data.organisation_description}
+              <br />
+              <span className="card-label">organisation City</span> :{' '}
+              {this.props.data.organisation_city}
+              <br />
+              <span className="card-label">contact Person</span> :{' '}
+              {this.props.data.contact_person}
+              <br />
+              <span className="card-label">contact Email</span> :{' '}
+              {this.props.data.contact_email}
+              <br />
+              <span className="card-label">contact Phone</span> :{' '}
+              {this.props.data.contact_phone}
+              <br />
+            </div>
           ) : (
             ''
           )}
-         
         </p>
 
-        <div className="form-inline">
-        <div className="col-auto">
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            this.setState({ readMore: !this.state.readMore });
-          }}
-        >
-          {this.state.readMore ? 'View details' : 'Hide details'}
-        </button>
-      </div>
-
-        {contextType.isLoggedIn ? (
-          <div className="form-inline justify-content-end">
-            <div className="col-auto">
-              <Link
-                to={`/networking/edit/${this.props.data.id}`}
-                className="btn btn-primary mb-2"
-                target="_blank"
-              >
-                Edit
-              </Link>
-            </div>
-            <div className="col-auto">
-              <button
-                class="btn btn-danger"
-                onClick={() => {
-                  if (
-                    window.confirm(
-                      'Are you sure you wish to delete this record?',
-                    )
-                  )
-                    this.deleteRecord(this.props.data.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
+        <div className="d-flex justify-content-between">
+          <div className="col-auto">
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                this.setState({ readMore: !this.state.readMore });
+              }}
+            >
+              {this.state.readMore ? 'View details' : 'Hide details'}
+            </button>
           </div>
-        ) : (
-          ''
-        )}
-      </div>
+
+          {contextType.isLoggedIn ? (
+            <div className="form-inline justify-content-end">
+              <div className="col-auto">
+                <Link
+                  to={`/networking/edit/${this.props.data.id}`}
+                  className="btn btn-primary"
+                  target="_blank"
+                >
+                  Edit
+                </Link>
+              </div>
+              <div className="col-auto">
+                <button
+                  class="btn btn-danger"
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Are you sure you wish to delete this record?',
+                      )
+                    )
+                      this.deleteRecord(this.props.data.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }

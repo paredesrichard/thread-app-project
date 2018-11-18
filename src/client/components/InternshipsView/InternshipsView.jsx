@@ -59,85 +59,90 @@ class InternshipsView extends Component {
       <div className="internships-view-container">
         <h3>Welcome to the Internships View</h3>
 
-        <div className="container">
-          <form onSubmit={this.handleSubmit}>
-            <div className="form-row text-left">
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Search:</label>
-                  <input
-                    type="text"
-                    name="internSearchWord"
-                    className="form-control"
-                    id="txtinternSearchWord"
-                    placeholder="Search keyword..."
-                    onChange={this.updateField}
-                    value={this.state.searchWord}
-                  />
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Search by:</label>
-                  <select
-                    name="fieldName"
-                    className="custom-select"
-                    onChange={this.updateField}
-                  >
-                    <option defaultValue value="internship_title">
-                      Internship Title
-                    </option>
-                    <option value="organisation_name">Organisation Name</option>
-                    <option value="location">Location</option>
-                    <option value="contact_person">Contact person</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group text-left">
-                  <label>Sort order:</label>
-                  <select
-                    name="sortBy"
-                    className="custom-select"
-                    onChange={this.updateField}
-                  >
-                    <option defaultValue value="ASC">
-                      Ascending
-                    </option>
-                    <option value="DESC">Descending</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-md-auto">
-                <div className="form-group mt-3">
-                  <button
-                    type="submit"
-                    className="btn btn-primary mt-3 align-self-end"
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {contextType.isLoggedIn ? (
+        <div className="container-fluid">
+          <div className="d-flex justify-content-center">
+            <form onSubmit={this.handleSubmit}>
               <div className="form-row text-left">
-                <div className="col-md-12 text-md-center">
-                  <NavLink
-                    to="/admin/internships/add"
-                    className="btn btn-primary btn-sm"
-                  >
-                    Add Record
-                  </NavLink>
+                <div className="col-md-4">
+                  <div className="form-group text-left">
+                    <label>Search:</label>
+                    <input
+                      type="text"
+                      name="internSearchWord"
+                      className="form-control"
+                      id="txtinternSearchWord"
+                      placeholder="Search keyword..."
+                      onChange={this.updateField}
+                      value={this.state.searchWord}
+                    />
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="form-group text-left">
+                    <label>Search by:</label>
+                    <select
+                      name="fieldName"
+                      className="custom-select"
+                      onChange={this.updateField}
+                    >
+                      <option defaultValue value="internship_title">
+                        Internship Title
+                      </option>
+                      <option value="organisation_name">
+                        Organisation Name
+                      </option>
+                      <option value="location">Location</option>
+                      <option value="contact_person">Contact person</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-2">
+                  <div className="form-group text-left">
+                    <label>Sort order:</label>
+                    <select
+                      name="sortBy"
+                      className="custom-select"
+                      onChange={this.updateField}
+                    >
+                      <option defaultValue value="ASC">
+                        Ascending
+                      </option>
+                      <option value="DESC">Descending</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-2">
+                  <div className="form-group">
+                    <label className="invisible">Search</label>
+                    <button
+                      type="submit"
+                      className="btn btn-primary form-control"
+                    >
+                      Search
+                    </button>
+                  </div>
                 </div>
               </div>
-            ) : (
-              ''
-            )}
-          </form>
+
+              {contextType.isLoggedIn ? (
+                <div className="form-row text-left">
+                  <div className="col-md-12 text-md-center">
+                    <NavLink
+                      to="/admin/internships/add"
+                      className="btn btn-primary btn-sm"
+                    >
+                      Add Record
+                    </NavLink>
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+            </form>
+          </div>
         </div>
 
         <section className="internships-section">
