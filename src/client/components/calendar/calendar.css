@@ -6,7 +6,7 @@
 
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 300;
   line-height: 1.5;
   color: var(--text-color);
@@ -17,7 +17,7 @@ body {
 header {
   display: block;
   width: 100%;
-  padding: 1.75em 0;
+  padding: 1.7em 0;
   border-bottom: 1px solid var(--border-color);
   background: var(--neutral-color);
 }
@@ -98,11 +98,11 @@ main {
     transition: 0.15s ease-out;
   }
   
-  .calendar .header .icon:hover {
+  /* .calendar .header .icon:hover {
     transform: scale(1.75);
     transition: 0.25s ease-out;
     color: var(--main-color);
-  }
+  } */
   
   .calendar .header .icon:first-of-type {
     margin-left: 1em;
@@ -191,4 +191,16 @@ main {
     flex-grow: 0;
     flex-basis: calc(100% / 7);
     width: calc(100% / 7);
+  }
+
+
+  .event-one{
+    font-size: 0.7em;
+    line-height: 0em;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+  }
+
+  .event-one:hover{
+    overflow: visible;
   }

@@ -10,6 +10,7 @@ class InternshipsForm extends Component {
     const { path } = this.props.match;
 
     if (this.props.isEditing) {
+      console.log("Passed data to InternshipsForm", this.props.internshipsData)
       this.state = {
         internshipsData: this.props.internshipsData,
       };
@@ -73,8 +74,7 @@ class InternshipsForm extends Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-        alert('Record has been saved.');
-        // TODO redirect to the Mentors list page (/Mentors)
+        this.props.history.push('/internships');
       })
       .catch(error => console.error('Error:', error));
   };
@@ -220,7 +220,7 @@ class InternshipsForm extends Component {
                   }
                 />
                 <label
-                  class="form-check-label"
+                  className="form-check-label"
                   htmlFor="chkInternshipAgreement"
                 >
                   Internship Agreement

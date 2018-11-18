@@ -13,6 +13,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border: 0.5px lightgray solid;
+  min-height: 180px;
 }
 
 .events-card:hover {
@@ -28,5 +29,7 @@
 @media screen and (min-width: 760px) {
   .events-card {
     width: 100%;
+    min-height: 160px;
+    height: auto;
   }
 }

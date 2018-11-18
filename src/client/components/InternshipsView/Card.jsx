@@ -39,7 +39,7 @@ class Card extends Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-        alert('Record has been deleted');
+        this.props.history.push('/internships');
       })
       .catch(error => console.error('Error:', error));
   }
@@ -48,7 +48,7 @@ class Card extends Component {
     const contextType = LoginContext._currentValue;
     // console.log("data:", this.props.data);
     return (
-      <div className="internships-card">
+      <div className="internships-card  shadow-lg rounded">
         <img
           src={this.props.data.internship_theme_image}
           className="internships-thumb-nail-img"
@@ -108,7 +108,10 @@ class Card extends Component {
                 <br />
                 <span className="card-label">
                   Website :{' '}
-                  <a className="text-secondary" href={this.props.data.organisation_website}>
+                  <a
+                    className="text-secondary"
+                    href={this.props.data.organisation_website}
+                  >
                     {this.props.data.organisation_website}
                   </a>
                 </span>

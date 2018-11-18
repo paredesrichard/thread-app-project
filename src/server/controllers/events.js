@@ -2,7 +2,7 @@ import SqlString from 'sqlstring';
 import db from '../config/db';
 
 export function listAllEvents(req, res) {
-  const sql = SqlString.format('SELECT * FROM events WHERE active=?', [true]);
+  const sql = SqlString.format('SELECT * FROM events WHERE active=? ORDER BY event_start_date ASC', [true]);
   console.log(sql);
   db.execute(sql, (err, rows) => {
     if (err) {
@@ -113,17 +113,19 @@ export function deleteEvents(req, res) {
 
 export function searchEvents(req, res) {
   /*  check and see if the order is Desc, else set the default to ASC */
-  const sortOrder = req.query.sort !== 'desc' ? "ASC" : "DESC";
+  const sortOrder = req.query.sort !== 'DESC' ? "ASC" : "DESC";
 
   /*  Reconstruct and enclosed the searchFieldValue passed to the api inside '% %'  */
-  const searchFieldValue = `%${req.query[Object.keys(req.query)[0]]}%`;
+  const searchFieldValue = `%${req.query[Object.keys(req.query)[0]].trim()}%`;
   const searchFieldName = Object.keys(req.query)[0];
 
-  const sql = SqlString.format('SELECT * FROM events WHERE active=? AND ?? LIKE ? order by ?? ?',
+  const sql = SqlString.format('SELECT * FROM events WHERE active=? AND ?? LIKE ? AND event_start_date >= ? and event_end_date <= ? order by ?? ?',
     [
       true,
-      searchFieldName,
-      searchFieldValue,
+      searchFieldName.trim(),
+      searchFieldValue.trim(),
+      req.query.event_start_date.trim(),
+      req.query.event_end_date.trim(),
       req.query.orderby,
       SqlString.raw(sortOrder),
     ],
