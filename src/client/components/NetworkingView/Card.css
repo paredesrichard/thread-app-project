@@ -19,7 +19,7 @@
   .networking-thumb-nail-img {
     padding: 1em;
     width: auto;
-    height: 60px;
+    height: 150px;
     text-align: center;
   }
   
@@ -34,9 +34,25 @@
   }
   
   @media screen and (min-width: 760px) {
+    .mentors-card {
+      width: 60%;
+    }
+  
+  }
+/*
+  @media screen and (min-width: 760px) {
     .networking-card {
       width: 270px;
       height: 400px;
     }
+    .card-description {
+      height: 80px;
+      overflow: hidden;
+      text-overflow: clip ellipsis;
+    }
+    .p-networking-view-card {
+      height: 195px;
+      margin-bottom: 80px;
+    }
   }
-  
+  */

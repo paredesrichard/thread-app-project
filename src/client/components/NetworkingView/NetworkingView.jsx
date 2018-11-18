@@ -30,7 +30,7 @@ class NetworkingView extends Component {
         <h3>Welcome to the Networking View</h3>
         <SearchForm />
         {contextType.isLoggedIn ? (
-          <div>
+          <div className="form-group">
             <Link to="/networking/add" className="btn btn-primary btn-sm">
               Add New Record
             </Link>

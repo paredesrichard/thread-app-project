@@ -72,7 +72,14 @@ class NetworkingForm extends React.Component {
     console.log('From <editnetworking------_>', this.state.networkingData);
     return (
       <div className="container">
-        <h4>Networking Form</h4>
+      
+        <div className="col-auto">
+        <Link to={`/networking`} className="btn btn-primary mb-2">
+        Go Back To Networking
+        </Link>
+      </div>
+
+        
         <form onSubmit={this.submitForm} className="text-left">
           <div>
             <div>
