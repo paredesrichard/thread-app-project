@@ -49,6 +49,9 @@ const Card = props => {
 class Card extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      readMore: true,
+    };
   }
   deleteRecord(id) {
     console.log('deleting record id: ', id);
@@ -76,7 +79,8 @@ class Card extends React.Component {
           className="networking-thumb-nail-img"
           alt="thumbnail"
         />
-        <p>
+        <p className="p-networking-view-card">
+        <br />
           <span className="card-label">Sector</span> :{' '}
           {this.props.data.sector_activity}
           <br />
@@ -86,12 +90,44 @@ class Card extends React.Component {
           <span className="card-label">Address</span> :{' '}
           {this.props.data.organisation_address}
           <br />
-          <span className="card-label">Description</span> :{' '}
+          {!this.state.readMore ? (
+            <div>
+          <span className="card-label card-description">Description</span> :{' '}
           {this.props.data.organisation_description}
+          <br />
+          <span className="card-label">organisation City</span> :{' '}
+          {this.props.data.organisation_city}
+          <br />
+          <span className="card-label">contact Person</span> :{' '}
+          {this.props.data.contact_person}
+          <br />
+          <span className="card-label">contact Email</span> :{' '}
+          {this.props.data.contact_email}
+          <br />
+          <span className="card-label">contact Phone</span> :{' '}
+          {this.props.data.contact_phone}
+          <br />
+          </div>
+          ) : (
+            ''
+          )}
+         
         </p>
 
+        <div className="form-inline">
+        <div className="col-auto">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            this.setState({ readMore: !this.state.readMore });
+          }}
+        >
+          {this.state.readMore ? 'View details' : 'Hide details'}
+        </button>
+      </div>
+
         {contextType.isLoggedIn ? (
-          <div className="form-row">
+          <div className="form-inline justify-content-end">
             <div className="col-auto">
               <Link
                 to={`/networking/edit/${this.props.data.id}`}
@@ -103,7 +139,7 @@ class Card extends React.Component {
             </div>
             <div className="col-auto">
               <button
-                class="btn btn-primary btn-sm"
+                class="btn btn-danger"
                 onClick={() => {
                   if (
                     window.confirm(
@@ -120,6 +156,7 @@ class Card extends React.Component {
         ) : (
           ''
         )}
+      </div>
       </div>
     );
   }

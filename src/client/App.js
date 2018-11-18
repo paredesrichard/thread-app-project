@@ -15,6 +15,7 @@ import EventsView from './components/EventsView/EventsView';
 import InternshipsView from './components/InternshipsView/InternshipsView';
 import MentorsView from './components/MentorsView/MentorsView';
 import NetworkingView from './components/NetworkingView/NetworkingView';
+//import NetworkingDetailedView from "./components/NetworkingView/NetworkingDetailedView";
 
 import MentorForms from './components/add';
 
