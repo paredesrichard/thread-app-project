@@ -74,10 +74,10 @@ class MentorForm extends React.Component {
     return (
       <div className="container">
         <div className="col-auto">
-              <Link to={`/mentors`} className="btn btn-primary mb-2">
-              Go Back To Mentors
-              </Link>
-            </div>
+          <Link to={`/mentors`} className="btn btn-primary mb-2">
+            Go Back To Mentors
+          </Link>
+        </div>
 
         <form onSubmit={this.submitForm} className="text-left">
           <div>
@@ -96,6 +96,7 @@ class MentorForm extends React.Component {
                     placeholder="First name...."
                     value={this.state.mentorData.first_name}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -110,6 +111,7 @@ class MentorForm extends React.Component {
                     placeholder="Last name..."
                     value={this.state.mentorData.last_name}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -126,6 +128,7 @@ class MentorForm extends React.Component {
                     placeholder="Mentor's email"
                     value={this.state.mentorData.email}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -139,6 +142,7 @@ class MentorForm extends React.Component {
                     placeholder="gender"
                     value={this.state.mentorData.gender}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -152,6 +156,7 @@ class MentorForm extends React.Component {
                     placeholder="Offering"
                     value={this.state.mentorData.offering}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -187,6 +192,7 @@ class MentorForm extends React.Component {
                   placeholder="Language"
                   value={this.state.mentorData.languages}
                   onChange={this.updateFields}
+                  required
                 />
               </div>
             </div>
@@ -236,33 +242,29 @@ class MentorForm extends React.Component {
 
             <div className="col-md-6">
               <div className="form-group">
-                <label>
-                  Preferred Meeting Place</label>
-                  <input
-                    className="form-control"
-                    id="preferred_meeting_place"
-                    name="preferred_meeting_place"
-                    placeholder="Preferred area"
-                    value={this.state.mentorData.preferred_meeting_place}
-                    onChange={this.updateFields}
-                  />
-                
+                <label>Preferred Meeting Place</label>
+                <input
+                  className="form-control"
+                  id="preferred_meeting_place"
+                  name="preferred_meeting_place"
+                  placeholder="Preferred area"
+                  value={this.state.mentorData.preferred_meeting_place}
+                  onChange={this.updateFields}
+                />
               </div>
             </div>
           </div>
           <div>
             <div class="form-group">
-              <label>
-                Profile picture </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="profile_picture"
-                  name="profile_picture"
-                  value={this.state.mentorData.profile_picture}
-                  onChange={this.updateFields}
-                />
-             
+              <label>Profile picture </label>
+              <input
+                type="text"
+                className="form-control"
+                id="profile_picture"
+                name="profile_picture"
+                value={this.state.mentorData.profile_picture}
+                onChange={this.updateFields}
+              />
             </div>
           </div>
           <div className="form-row">

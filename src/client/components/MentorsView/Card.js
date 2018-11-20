@@ -52,7 +52,7 @@ class Card extends React.Component {
     };
   }
 
-  deleteRecord(id) {
+  deleteRecord = (id) => {
     console.log('deleting record id: ', id);
 
     fetch(`/api/mentors/${id}`, {
@@ -64,7 +64,7 @@ class Card extends React.Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-        alert('Record has been deleted');
+        this.props.history.push('/mentors');
       })
       .catch(error => console.error('Error:', error));
   }
@@ -107,6 +107,12 @@ class Card extends React.Component {
               <span className="card-label">Offering: </span>
               {this.props.data.offering}
               <br />
+              <span className="card-label">Area Location: </span>
+              {this.props.data.area_location}
+              <br />
+              <span className="card-label">Preferred Meeting Place: </span>
+              {this.props.data.preferred_meeting_place}
+              <br />
             </div>
           ) : (
             ''
@@ -143,7 +149,7 @@ class Card extends React.Component {
               </div>
               <div className="col-auto">
                 <button
-                  class="btn btn-danger"
+                  className="btn btn-danger"
                   onClick={() => {
                     if (
                       window.confirm(
