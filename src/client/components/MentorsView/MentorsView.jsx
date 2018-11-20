@@ -7,6 +7,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import { Link } from 'react-router-dom';
 import LoginContext from '../../contexts/login';
 import { NavLink } from 'react-router-dom';
+import ResultMessage from '../Message/ResultMessage';
 
 class MentorsView extends Component {
   constructor(props) {
@@ -147,8 +148,8 @@ class MentorsView extends Component {
 
         <section className="mentors-section">
           {this.state.dataisLoaded && this.state.resultIsEmpty
-            ? 'Result is empty'
-            : `${this.state.data.length} record(s) found.`}
+            ? <ResultMessage message='No matching result found.' messageBody="Please try using a different keyword" />
+            : <ResultMessage message={`${this.state.data.length} record(s) found.`} messageBody="" />}
           <aside className="mentors-aside">
             {this.state.dataisLoaded
               ? this.state.data.map(data => {
