@@ -22,11 +22,10 @@ class EventsView extends Component {
       data: [],
       mapView: true,
       eventsSearchWord: '',
-      fieldName: 'event_name',
+      orderBy: 'event_name',
       dateEventStartDate: '',
       dateEventEndDate: '',
-      orderBy: 'event_name',
-      sortBy: 'ASC',
+      sortOrder: 'ASC',
       isInitial: true,
     };
   }
@@ -58,15 +57,10 @@ class EventsView extends Component {
   handleSubmit = event => {
     console.log('form submitted');
     event.preventDefault();
-    const url = `/api/events/search?${this.state.fieldName}=
-    ${this.state.eventsSearchWord.trim()}
-    &event_start_date=${moment(this.state.dateEventStartDate)
-      .format('YYYY-MM-DD')
-      .trim()}
-    &event_end_date=${moment(this.state.dateEventEndDate)
-      .format('YYYY-MM-DD')
-      .trim()}
-    &orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
+    const url = `/api/events/search?searchKeyword=${this.state.eventsSearchWord.trim()}`
+      + `&event_start_date=${moment(this.state.dateEventStartDate).format('YYYY-MM-DD').trim()}`
+      + `&event_end_date=${moment(this.state.dateEventEndDate).format('YYYY-MM-DD').trim()}`
+      + `&orderby=${this.state.orderBy}&sort=${this.state.sortOrder}`;
     console.log('moment: ', url);
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
@@ -111,31 +105,12 @@ class EventsView extends Component {
 
                 <div className="col-md-auto">
                   <div className="form-group text-left">
-                    <label>Search by:</label>
-                    <select
-                      name="fieldName"
-                      className="custom-select"
-                      onChange={this.updateField}
-                    >
-                      <option defaultValue value="event_name">
-                        Event name
-                      </option>
-                      <option value="event_type">Event type</option>
-                      <option value="event_city">City</option>
-                      <option value="contact_person">Contact person</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="col-md-auto">
-                  <div className="form-group text-left">
                     <label>Start date:</label>
                     <input
                       type="date"
                       name="dateEventStartDate"
                       className="form-control"
                       id="eventStartDate"
-                      required
                       onChange={this.updateField}
                       value={this.state.dateEventStartDate}
                     />
@@ -150,7 +125,6 @@ class EventsView extends Component {
                       name="dateEventEndDate"
                       className="form-control"
                       id="eventEndDate"
-                      required
                       onChange={this.updateField}
                       value={this.state.dateEventEndDate}
                     />
@@ -159,9 +133,27 @@ class EventsView extends Component {
 
                 <div className="col-md-auto">
                   <div className="form-group text-left">
+                    <label>Sort by:</label>
+                    <select
+                      name="orderBy"
+                      className="custom-select"
+                      onChange={this.updateField}
+                    >
+                      <option value="event_name">Event Name</option>
+                      <option value="event_type">Event Type</option>
+                      <option value="event_city">City</option>
+                      <option value="contact_person">Contact Person</option>
+                      <option value="event_start_date">Start Date</option>
+                      <option value="event_end_date">End Date</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-auto">
+                  <div className="form-group text-left">
                     <label>Sort order:</label>
                     <select
-                      name="sortBy"
+                      name="sortOrder"
                       className="custom-select"
                       onChange={this.updateField}
                     >

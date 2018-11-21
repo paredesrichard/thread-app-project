@@ -2,7 +2,10 @@ import SqlString from 'sqlstring';
 import db from '../config/db';
 
 export function listAllEvents(req, res) {
-  const sql = SqlString.format('SELECT * FROM events WHERE active=? ORDER BY event_start_date ASC', [true]);
+  const sql = SqlString.format(
+    'SELECT * FROM events WHERE active=? ORDER BY event_start_date ASC',
+    [true],
+  );
   console.log(sql);
   db.execute(sql, (err, rows) => {
     if (err) {
@@ -113,33 +116,59 @@ export function deleteEvents(req, res) {
 
 export function searchEvents(req, res) {
   /*  check and see if the order is Desc, else set the default to ASC */
-  const sortOrder = req.query.sort !== 'DESC' ? "ASC" : "DESC";
+  const sortOrder = req.query.sort !== 'DESC' ? 'ASC' : 'DESC';
 
   /*  Reconstruct and enclosed the searchFieldValue passed to the api inside '% %'  */
-  const searchFieldValue = `%${req.query[Object.keys(req.query)[0]].trim()}%`;
-  const searchFieldName = Object.keys(req.query)[0];
+  const searchFieldValue = `%${req.query.searchKeyword}%`;
+  // const searchFieldName = Object.keys(req.query)[0];
 
-  const sql = SqlString.format('SELECT * FROM events WHERE active=? AND ?? LIKE ? AND event_start_date >= ? and event_end_date <= ? order by ?? ?',
+  console.log('event_start_date is ', req.query.event_start_date);
+  console.log('event_end_date is', req.query.event_end_date);
+  let selectQuery = SqlString.format(
+    'SELECT * FROM events WHERE active=? AND (event_name LIKE ? or event_type LIKE ? OR event_address LIKE ? OR event_city LIKE ? OR event_agenda LIKE ? OR contact_person LIKE ?)',
     [
       true,
-      searchFieldName.trim(),
-      searchFieldValue.trim(),
-      req.query.event_start_date.trim(),
-      req.query.event_end_date.trim(),
-      req.query.orderby,
-      SqlString.raw(sortOrder),
+      searchFieldValue,
+      searchFieldValue,
+      searchFieldValue,
+      searchFieldValue,
+      searchFieldValue,
+      searchFieldValue,
     ],
   );
+  if (
+    req.query.event_start_date !== 'Invalid date' &&
+    req.query.event_start_date
+  )
+    selectQuery = SqlString.format(`${selectQuery} and event_start_date >= ?`,[req.query.event_start_date],);
+  if (req.query.event_end_date && req.query.event_end_date !== 'Invalid date')
+    selectQuery = SqlString.format(`${selectQuery}  and event_end_date <= ?`, [
+      req.query.event_end_date,
+    ]);
 
-  console.log("sql", sql);
+  selectQuery = SqlString.format(`${selectQuery} order by ?? ?`, [
+    req.query.orderby,
+    SqlString.raw(sortOrder),
+  ]);
+  console.log('selectQuery:', selectQuery);
+  // const sql = SqlString.format(selectQuery, [
+  //   true,
+  //   searchFieldName.trim(),
+  //   searchFieldValue.trim(),
+  //   req.query.event_start_date.trim(),
+  //   req.query.event_end_date.trim(),
+  //   req.query.orderby,
+  //   SqlString.raw(sortOrder),
+  // ]);
 
-  db.execute(sql, (err, rows) => {
+  // console.log('sql', sql);
+
+  db.execute(selectQuery, (err, rows) => {
     if (err) {
       // throw err;
       res.status(500).send(err);
       return;
     }
-
     res.send(rows);
   });
 }
