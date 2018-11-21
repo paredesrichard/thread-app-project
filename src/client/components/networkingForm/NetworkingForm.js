@@ -72,18 +72,11 @@ class NetworkingForm extends React.Component {
     console.log('From <editnetworking------_>', this.state.networkingData);
     return (
       <div className="container">
-      
-        <div className="col-auto">
-        <Link to={`/networking`} className="btn btn-primary mb-2">
-        Go Back To Networking
-        </Link>
-      </div>
-
-        
+        <h3>Mentors Form</h3>
         <form onSubmit={this.submitForm} className="text-left">
           <div>
             <div>
-              <h1>{`${this.props.isEditing ? 'Edit' : 'Add'} Networking`}</h1>
+              <h4>{`${this.props.isEditing ? 'Edit' : 'Add'} Networking`}</h4>
             </div>
             <div className="form-row">
               <div className="col-md-6">
@@ -263,14 +256,14 @@ class NetworkingForm extends React.Component {
                         </div>
                     </div>
                     */}
-          <div className="form-row">
-            <div className="col-auto">
+          <div className="d-flex flex-row justify-content-end">
+            <div className="p-2">
               <button type="submit" className="btn btn-primary mb-2">
                 Save
               </button>
             </div>
-            <div className="col-auto">
-              <Link to={`/networking`} className="btn btn-primary mb-2">
+            <div className="p-2">
+              <Link to={`/networking`} className="btn btn-danger mb-2">
                 cancel
               </Link>
             </div>

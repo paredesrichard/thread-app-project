@@ -32,6 +32,9 @@ import Login from './components/Login';
 import Logout from "./components/Logout/Logout";
 import LoginContext, { loadContextValue } from './contexts/login';
 
+import MentorsForm from './components/MentorsForm/MentorsForm';
+import EditMentors from './components/MentorsForm/EditMentors';
+
 // console.log(AddMentor);
 class App extends Component {
   render() {
@@ -50,11 +53,13 @@ class App extends Component {
             <Route exact path="/admin/events/add" component={EventsForm} />
             <Route exact path="/admin/events/edit/:id" component={EditEvents} />
             <Route exact path="/mentors" component={MentorsView} />
+            <Route exact path="/admin/mentors/add" component={MentorsForm} />
+            <Route exact path="/admin/mentors/edit/:id" component={EditMentors} />
             <Route exact path="/networking" component={NetworkingView} />
             <Route exact path="/about" component={AboutUs} />
-            <Route exact path="/mentors/add" component={MentorForms.AddMentor} />
-            <Route exact path="/mentors/edit/:id" component={MentorForms.EditMentor} />
-            <Route exact path="/Mentors/search" component={MentorSearch} />
+            {/* <Route exact path="/mentors/add" component={MentorForms.AddMentor} /> 
+            <Route exact path="/mentors/edit/:id" component={MentorForms.EditMentor} /> 
+            <Route exact path="/Mentors/search" component={MentorSearch} /> */}
             <Route exact path="/networking/add" component={NetworkingForms.AddNetworking} />
             <Route exact path="/networking/edit/:id" component={NetworkingForms.EditNetworking} />
             <Route exact path="/Networking/search" component={NetworkingSearch} />

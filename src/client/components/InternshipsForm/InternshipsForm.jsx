@@ -10,7 +10,6 @@ class InternshipsForm extends Component {
     const { path } = this.props.match;
 
     if (this.props.isEditing) {
-      console.log("Passed data to InternshipsForm", this.props.internshipsData)
       this.state = {
         internshipsData: this.props.internshipsData,
       };
@@ -76,7 +75,7 @@ class InternshipsForm extends Component {
         console.log('Success:', response);
         this.props.history.push('/internships');
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => console.log('Error:', error));
   };
 
   updateField = e => {
@@ -93,12 +92,15 @@ class InternshipsForm extends Component {
   render() {
     return (
       <div className="container">
-        <h4>Internships Form</h4>
+        <h3>Internships Form</h3>
         <form
           onSubmit={this.handleSubmit}
           className="text-left"
           id="internshipFormId"
         >
+          <div>
+            <h4>{`${this.props.isEditing ? 'Edit' : 'Add'} Internship`}</h4>
+          </div>
           <div className="form-row">
             <div className="col-md-6">
               <div className="form-group">
@@ -316,7 +318,9 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-5">
               <div className="form-group">
-                <label htmlFor="txtInternshipAddDate">Internship Add Date:</label>
+                <label htmlFor="txtInternshipAddDate">
+                  Internship Add Date:
+                </label>
                 <input
                   name="internship_add_date"
                   type="date"
@@ -348,7 +352,9 @@ class InternshipsForm extends Component {
             </div>
             <div className="col-md-4">
               <div className="form-group">
-                <label htmlFor="txtInternshipDeadline">Internship Deadline:</label>
+                <label htmlFor="txtInternshipDeadline">
+                  Internship Deadline:
+                </label>
                 <input
                   name="internship_deadline"
                   type="date"
@@ -462,14 +468,14 @@ class InternshipsForm extends Component {
             </div>
           </div>
 
-          <div className="form-row">
-            <div className="col-auto">
+          <div className="d-flex flex-row justify-content-end">
+            <div className="p-2">
               <button type="submit" className="btn btn-primary mb-2">
                 Save
               </button>
             </div>
-            <div className="col-auto">
-              <NavLink to={`/internships`} className="btn btn-primary mb-2">
+            <div className="p-2">
+              <NavLink to={`/internships`} className="btn btn-danger mb-2">
                 Cancel
               </NavLink>
             </div>

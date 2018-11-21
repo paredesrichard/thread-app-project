@@ -57,7 +57,7 @@ class MentorsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="mentors-view-container">
-        <h3>Welcome to the mentors View</h3>
+        <h3>Welcome to the Mentors Page</h3>
 
         <div className="container-fluid">
           <div className="d-flex justify-content-center">
@@ -128,10 +128,10 @@ class MentorsView extends Component {
               </div>
 
               {contextType.isLoggedIn ? (
-                <div className="form-row text-left">
+                <div className="form-row">
                   <div className="col-md-12 text-md-center">
                     <NavLink
-                      to="/mentors/add"
+                      to="/admin/mentors/add"
                       className="btn btn-primary btn-sm"
                     >
                       Add Record
