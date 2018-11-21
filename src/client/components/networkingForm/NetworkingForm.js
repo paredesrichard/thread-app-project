@@ -54,7 +54,7 @@ class NetworkingForm extends React.Component {
     }
 
     fetch(url, {
-      method: 'post', //put
+      method,
       body: JSON.stringify(this.state.networkingData),
       headers: {
         'Content-Type': 'application/json ',
@@ -63,16 +63,14 @@ class NetworkingForm extends React.Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-
-        //this.setState({displaySubmitForm:false});
+        this.props.history.push('/networking');
       })
       .catch(error => console.log('Error', error));
   };
   render() {
-    console.log('From <editnetworking------_>', this.state.networkingData);
     return (
       <div className="container">
-        <h3>Mentors Form</h3>
+        <h3>Networking Form</h3>
         <form onSubmit={this.submitForm} className="text-left">
           <div>
             <div>

@@ -48,7 +48,7 @@ class Card extends Component {
       <div className="container text-left p-3">
         <div className="card p-2 h-auto  shadow-lg rounded">
           <img
-            class="card-img-top"
+            className="card-img-top"
             src={event_theme_image}
             alt="Card image cap"
           />
@@ -115,7 +115,7 @@ class Card extends Component {
                   </div>
                   <div className="col-auto">
                     <button
-                      class="btn btn-danger btn-sm"
+                      className="btn btn-danger btn-sm"
                       onClick={() => {
                         if (
                           window.confirm(

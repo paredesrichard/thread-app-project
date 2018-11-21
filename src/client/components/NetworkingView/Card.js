@@ -66,7 +66,7 @@ class Card extends React.Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
-        alert('Record has been deleted');
+        this.props.history.push('/networking');
       })
       .catch(error => console.error('Error:', error));
   }
@@ -93,7 +93,9 @@ class Card extends React.Component {
           <br />
           {!this.state.readMore ? (
             <React.Fragment>
-              <span className="card-label card-description">Description : </span>
+              <span className="card-label card-description">
+                Description :{' '}
+              </span>
               {this.props.data.organisation_description}
               <br />
               <span className="card-label">Organisation City : </span>
@@ -103,7 +105,12 @@ class Card extends React.Component {
               {this.props.data.contact_person}
               <br />
               <span className="card-label">Contact Email : </span>
-              <a className="text-muted" href={`mailto:${this.props.data.contact_email}`}>{this.props.data.contact_email}</a>
+              <a
+                className="text-muted"
+                href={`mailto:${this.props.data.contact_email}`}
+              >
+                {this.props.data.contact_email}
+              </a>
               <br />
               <span className="card-label">Contact Phone : </span>
               {this.props.data.contact_phone}
@@ -138,7 +145,7 @@ class Card extends React.Component {
               </div>
               <div className="col-auto">
                 <button
-                  class="btn btn-danger"
+                  className="btn btn-danger"
                   onClick={() => {
                     if (
                       window.confirm(

@@ -255,7 +255,7 @@ class MentorForm extends React.Component {
             </div>
           </div>
           <div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Profile picture </label>
               <input
                 type="text"
