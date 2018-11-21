@@ -26,7 +26,6 @@ class MentorsView extends Component {
   }
 
   componentDidMount() {
-    let newCoords = [];
     fetchAPIData('/api/mentors').then(newData => {
       console.log('MentorView component---->', newData);
       this.setState({ data: newData, dataisLoaded: true });
@@ -147,9 +146,17 @@ class MentorsView extends Component {
         </div>
 
         <section className="mentors-section">
-          {this.state.dataisLoaded && this.state.resultIsEmpty
-            ? <ResultMessage message='No matching result found.' messageBody="Please try using a different keyword" />
-            : <ResultMessage message={`${this.state.data.length} record(s) found.`} messageBody="" />}
+          {this.state.dataisLoaded && this.state.resultIsEmpty ? (
+            <ResultMessage
+              message="No matching result found."
+              messageBody="Please try using a different keyword"
+            />
+          ) : (
+            <ResultMessage
+              message={`${this.state.data.length} record(s) found.`}
+              messageBody=""
+            />
+          )}
           <aside className="mentors-aside">
             {this.state.dataisLoaded
               ? this.state.data.map(data => {

@@ -53,6 +53,7 @@ class Card extends React.Component {
       readMore: true,
     };
   }
+
   deleteRecord(id) {
     console.log('deleting record id: ', id);
 
@@ -81,33 +82,33 @@ class Card extends React.Component {
         />
         <p className="p-networking-view-card">
           <br />
-          <span className="card-label">Sector</span> :{' '}
-          {this.props.data.sector_activity}
-          <br />
-          <span className="card-label">Organisation Name</span> :{' '}
+          <span className="card-label">Organisation Name : </span>
           {this.props.data.organisation_name}
           <br />
-          <span className="card-label">Address</span> :{' '}
+          <span className="card-label">Sector : </span>
+          {this.props.data.sector_activity}
+          <br />
+          <span className="card-label">Address : </span>
           {this.props.data.organisation_address}
           <br />
           {!this.state.readMore ? (
-            <div>
-              <span className="card-label card-description">Description</span> :{' '}
+            <React.Fragment>
+              <span className="card-label card-description">Description : </span>
               {this.props.data.organisation_description}
               <br />
-              <span className="card-label">organisation City</span> :{' '}
+              <span className="card-label">Organisation City : </span>
               {this.props.data.organisation_city}
               <br />
-              <span className="card-label">contact Person</span> :{' '}
+              <span className="card-label">Contact Person : </span>
               {this.props.data.contact_person}
               <br />
-              <span className="card-label">contact Email</span> :{' '}
-              {this.props.data.contact_email}
+              <span className="card-label">Contact Email : </span>
+              <a className="text-muted" href={`mailto:${this.props.data.contact_email}`}>{this.props.data.contact_email}</a>
               <br />
-              <span className="card-label">contact Phone</span> :{' '}
+              <span className="card-label">Contact Phone : </span>
               {this.props.data.contact_phone}
               <br />
-            </div>
+            </React.Fragment>
           ) : (
             ''
           )}

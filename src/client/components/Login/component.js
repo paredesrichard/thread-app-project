@@ -78,17 +78,17 @@ class Login extends Component {
               Log in
             </button>
           </div>
-          <div className="clearfix">
+          {/* <div className="clearfix">
             <NavLink to="#" className="text-primary">
               Forgot Password?
             </NavLink>
-          </div>
+          </div> */}
         </form>
-        <p className="text-center">
+        {/* <p className="text-center">
           <NavLink to="#" className="text-primary">
             Create an Account
           </NavLink>
-        </p>
+        </p> */}
       </div>
     );
   }
