@@ -149,7 +149,7 @@ class Card extends Component {
               </div>
               <div className="col-auto">
                 <button
-                  class="btn btn-danger btn-sm "
+                  className="btn btn-danger btn-sm "
                   onClick={() => {
                     if (
                       window.confirm(
