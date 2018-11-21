@@ -140,9 +140,8 @@ class Card extends React.Component {
             <div className="form-inline justify-content-end">
               <div className="col-auto">
                 <Link
-                  to={`/mentors/edit/${this.props.data.id}`}
+                  to={`/admin/mentors/edit/${this.props.data.id}`}
                   className="btn btn-primary"
-                  target="_blank"
                 >
                   Edit
                 </Link>

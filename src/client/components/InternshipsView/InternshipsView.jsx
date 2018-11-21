@@ -57,7 +57,7 @@ class InternshipsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="internships-view-container">
-        <h3>Welcome to the Internships View</h3>
+        <h3>Welcome to the Internships Page</h3>
 
         <div className="container-fluid">
           <div className="d-flex justify-content-center">
@@ -128,8 +128,8 @@ class InternshipsView extends Component {
               </div>
 
               {contextType.isLoggedIn ? (
-                <div className="form-row text-left">
-                  <div className="col-md-12 text-md-center">
+                <div className="form-row mb-3">
+                  <div className="col-md-12">
                     <NavLink
                       to="/admin/internships/add"
                       className="btn btn-primary btn-sm"

@@ -132,7 +132,6 @@ class Card extends React.Component {
                 <Link
                   to={`/networking/edit/${this.props.data.id}`}
                   className="btn btn-primary"
-                  target="_blank"
                 >
                   Edit
                 </Link>

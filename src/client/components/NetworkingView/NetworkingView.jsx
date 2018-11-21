@@ -4,7 +4,7 @@ import './NetworkingView.css';
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
 import SearchForm from '../SearchForm/SearchForm';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
 
@@ -59,7 +59,7 @@ class NetworkingView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="networking-view-container">
-        <h3>Welcome to the Networking View</h3>
+        <h3>Welcome to the Networking Page</h3>
         {/* <SearchForm /> */}
 
         <div className="container-fluid">
@@ -132,21 +132,6 @@ class NetworkingView extends Component {
                   </div>
                 </div>
               </div>
-
-              {contextType.isLoggedIn ? (
-                <div className="form-row text-left">
-                  <div className="col-md-12 text-md-center">
-                    <NavLink
-                      to="/mentors/add"
-                      className="btn btn-primary btn-sm"
-                    >
-                      Add Record
-                    </NavLink>
-                  </div>
-                </div>
-              ) : (
-                ''
-              )}
             </form>
           </div>
         </div>
@@ -154,7 +139,7 @@ class NetworkingView extends Component {
         {contextType.isLoggedIn ? (
           <div className="form-group">
             <Link to="/networking/add" className="btn btn-primary btn-sm">
-              Add New Record
+              Add Record
             </Link>
           </div>
         ) : (

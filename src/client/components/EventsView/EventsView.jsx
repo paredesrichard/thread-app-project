@@ -87,28 +87,12 @@ class EventsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="events-view-container">
-        <h3>Welcome to the Events page</h3>
+        <h3>Welcome to the Events Page</h3>
         {/* <EventViewSearchForm /> */}
 
-        <dev className="container-fluid">
+        <div className="container-fluid">
           <div className="d-flex justify-content-center">
             <form onSubmit={this.handleSubmit}>
-              {contextType.isLoggedIn ? (
-                <div className="form-row justify-content-md-end mb-3">
-                  <div className="col-md-12">
-                    <NavLink
-                      to="/admin/events/add"
-                      className="btn btn-primary btn-sm"
-                    >
-                      Add Record
-                    </NavLink>
-                  </div>
-                  <br />
-                </div>
-              ) : (
-                ''
-              )}
-
               <div className="form-row text-left">
                 <div className="col-md-auto">
                   <div className="form-group text-left">
@@ -192,15 +176,34 @@ class EventsView extends Component {
                 <div className="col-md-auto">
                   <div className="form-group">
                     <label className="invisible">Search</label>
-                    <button type="submit" className="btn btn-primary form-control">
+                    <button
+                      type="submit"
+                      className="btn btn-primary form-control"
+                    >
                       Search
                     </button>
                   </div>
                 </div>
               </div>
+
+              {contextType.isLoggedIn ? (
+                <div className="form-row mb-3">
+                  <div className="col-md-12">
+                    <NavLink
+                      to="/admin/events/add"
+                      className="btn btn-primary btn-sm"
+                    >
+                      Add Record
+                    </NavLink>
+                  </div>
+                  <br />
+                </div>
+              ) : (
+                ''
+              )}
             </form>
           </div>
-        </dev>
+        </div>
 
         <section className="events-section">
           <aside className="events-aside">
