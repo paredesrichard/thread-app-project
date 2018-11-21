@@ -83,13 +83,19 @@ export default class EventsForm extends Component {
   render() {
     return (
       <div className="container">
-        <h4>Welcome to Events Admin Form</h4>
-
+        <h3>Events Form</h3>
         <form
           onSubmit={this.handleSubmit}
           className="text-left"
           id="events_form_id"
         >
+          <div>
+            <hr />
+            <h4 className="text-center">{`${
+              this.props.isEditing ? 'Edit' : 'Add'
+            } Event`}</h4>
+            <hr />
+          </div>
           <div className="form-row">
             <div className="col-md-6">
               <div className="form-group">
@@ -396,14 +402,14 @@ export default class EventsForm extends Component {
             </div>
           </div>
 
-          <div className="form-row">
-            <div className="col-auto">
+          <div className="d-flex flex-row justify-content-end">
+            <div className="p-2">
               <button type="submit" className="btn btn-primary mb-2">
                 Save
               </button>
             </div>
-            <div className="col-auto">
-              <NavLink to="/events" className="btn btn-primary mb-2">
+            <div className="p-2">
+              <NavLink to="/events" className="btn btn-danger mb-2">
                 Cancel
               </NavLink>
             </div>
