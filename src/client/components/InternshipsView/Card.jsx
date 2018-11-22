@@ -3,7 +3,7 @@ import './Card.css';
 import { NavLink, Link } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
-
+import DeleteRecord from '../DeleteRecord/DeleteRecord';
 // function deleteRecord(id) {
 //   console.log("deleting record id: ", id);
 
@@ -28,25 +28,26 @@ class Card extends Component {
     };
   }
 
-  deleteRecord(id) {
-    console.log('deleting record id: ', id);
-    fetch(`/api/internships/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.text())
-      .then(response => {
-        console.log('Success:', response);
-        this.props.history.push('/internships');
-      })
-      .catch(error => console.error('Error:', error));
-  }
+  // deleteRecord(id) {
+  //   console.log('deleting record id: ', id);
+  //   fetch(`/api/internships/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.text())
+  //     .then(response => {
+  //       console.log('Success:', response);
+  //       this.props.history.push('/internships');
+  //     })
+  //     .catch(error => console.error('Error:', error));
+  // }
 
   render() {
     const contextType = LoginContext._currentValue;
     // console.log("data:", this.props.data);
+    const { id } = this.props.data;
     return (
       <div className="internships-card  shadow-lg rounded">
         <img
@@ -148,19 +149,12 @@ class Card extends Component {
                 </NavLink>
               </div>
               <div className="col-auto">
-                <button
+                <NavLink
                   className="btn btn-danger btn-sm "
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        'Are you sure you wish to delete this record?',
-                      )
-                    )
-                      this.deleteRecord(this.props.data.id);
-                  }}
+                  to={`/admin/internships/delete/${id}`}
                 >
                   Delete
-                </button>
+                </NavLink>
               </div>
             </div>
           ) : (
