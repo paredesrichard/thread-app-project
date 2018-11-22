@@ -11,7 +11,6 @@ class Card extends Component {
     this.state = {
       readMore: true,
     };
-    console.log(this.props);
   }
 
   // deleteRecord(id) {
