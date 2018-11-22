@@ -145,7 +145,7 @@ class MentorsView extends Component {
           </div>
         </div>
 
-        <section className="mentors-section">
+        <div className="container">
           {this.state.dataisLoaded && this.state.resultIsEmpty ? (
             <ResultMessage
               message="No matching result found."
@@ -157,14 +157,14 @@ class MentorsView extends Component {
               messageBody=""
             />
           )}
-          <aside className="mentors-aside">
+          <div className="d-flex flex-wrap justify-content-center">
             {this.state.dataisLoaded
               ? this.state.data.map(data => {
                   return <Card key={data.id} data={data} {...this.props} />;
                 })
               : 'Loading data...'}
-          </aside>
-        </section>
+          </div>
+        </div>
       </div>
     );
   }
