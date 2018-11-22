@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.css';
-import { Link } from 'react-router-dom';
+import { Link , NavLink } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
 
@@ -54,25 +54,26 @@ class Card extends React.Component {
     };
   }
 
-  deleteRecord(id) {
-    console.log('deleting record id: ', id);
+  // deleteRecord(id) {
+  //   console.log('deleting record id: ', id);
 
-    fetch(`/api/networking/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.text())
-      .then(response => {
-        console.log('Success:', response);
-        this.props.history.push('/networking');
-      })
-      .catch(error => console.error('Error:', error));
-  }
+  //   fetch(`/api/networking/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.text())
+  //     .then(response => {
+  //       console.log('Success:', response);
+  //       this.props.history.push('/networking');
+  //     })
+  //     .catch(error => console.error('Error:', error));
+  // }
 
   render() {
     const contextType = LoginContext._currentValue;
+    const { id } = this.props.data;
     return (
       <div className="networking-card">
         <img
@@ -144,19 +145,12 @@ class Card extends React.Component {
                 </Link>
               </div>
               <div className="col-auto">
-                <button
-                  className="btn btn-danger"
-                  onClick={() => {
-                    if (
-                      window.confirm(
-                        'Are you sure you wish to delete this record?',
-                      )
-                    )
-                      this.deleteRecord(this.props.data.id);
-                  }}
+                <NavLink
+                  className="btn btn-danger btn-sm"
+                  to={`/admin/networking/delete/${id}`}
                 >
                   Delete
-                </button>
+                </NavLink>
               </div>
             </div>
           ) : (

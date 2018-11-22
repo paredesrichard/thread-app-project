@@ -26,6 +26,7 @@ import EditEvents from './components/EventsForm/EditEvents';
 import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
+import DeleteRecord from './components/DeleteRecord/DeleteRecord';
 import MentorSearch from './components/MentorsView/MentorSearch';
 import NetworkingSearch from './components/NetworkingView/NetworkingSearch';
 import Login from './components/Login';
@@ -49,12 +50,15 @@ class App extends Component {
             <Route exact path="/internships" component={InternshipsView} />
             <Route exact path="/admin/internships/add" component={InternshipsForm} />
             <Route exact path="/admin/internships/edit/:id" component={EditInternships} />
+            <Route exact path="/admin/internships/delete/:id" component={DeleteRecord} />
             <Route exact path="/events" component={EventsView} />
             <Route exact path="/admin/events/add" component={EventsForm} />
             <Route exact path="/admin/events/edit/:id" component={EditEvents} />
+            <Route exact path="/admin/events/delete/:id" component={DeleteRecord} />
             <Route exact path="/mentors" component={MentorsView} />
             <Route exact path="/admin/mentors/add" component={MentorsForm} />
             <Route exact path="/admin/mentors/edit/:id" component={EditMentors} />
+            <Route exact path="/admin/mentors/delete/:id" component={DeleteRecord} />
             <Route exact path="/networking" component={NetworkingView} />
             <Route exact path="/about" component={AboutUs} />
             {/* <Route exact path="/mentors/add" component={MentorForms.AddMentor} /> 
@@ -62,6 +66,7 @@ class App extends Component {
             <Route exact path="/Mentors/search" component={MentorSearch} /> */}
             <Route exact path="/networking/add" component={NetworkingForms.AddNetworking} />
             <Route exact path="/networking/edit/:id" component={NetworkingForms.EditNetworking} />
+            <Route exact path="/admin/networking/delete/:id" component={DeleteRecord} />
             <Route exact path="/Networking/search" component={NetworkingSearch} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
