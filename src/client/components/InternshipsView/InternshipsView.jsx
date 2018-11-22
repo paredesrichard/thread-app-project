@@ -57,7 +57,7 @@ class InternshipsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="internships-view-container">
-        <h3>Welcome to the Internships Page</h3>
+        <h3>Search for Internships</h3>
 
         <div className="container-fluid">
           <div className="d-flex justify-content-center">
