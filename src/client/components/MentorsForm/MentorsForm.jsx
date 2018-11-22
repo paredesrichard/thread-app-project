@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
 
 class MentorsForm extends React.Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class MentorsForm extends React.Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
+        NotificationManager.success('Record saved');
         this.props.history.push('/mentors');
       })
       .catch(error => console.log('Error', error));
