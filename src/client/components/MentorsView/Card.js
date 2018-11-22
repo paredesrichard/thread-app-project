@@ -1,7 +1,9 @@
 import React from 'react';
 import './Card.css';
-import { Link , NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import LoginContext from '../../contexts/login';
+
+import Modal from 'react-responsive-modal';
 
 /*
 const Card = props => {
@@ -48,9 +50,17 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      readMore: true,
+      open: false,
     };
   }
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
 
   // deleteRecord = (id) => {
   //   console.log('deleting record id: ', id);
@@ -72,94 +82,83 @@ class Card extends React.Component {
   render() {
     const contextType = LoginContext._currentValue;
     const keyId = Math.random();
-    const { id } = this.props.data;
+    const { id, mentor } = this.props.data;
     return (
-      <div className="mentors-card">
+      <div className="card m-3 shadow-lg rounded  " style={{ width: `300px` }}>
         <img
           src={this.props.data.profile_picture}
-          className="mentors-thumb-nail-img"
+          className="card-img-top"
           alt="thumbnail"
         />
-        <p className="p-mentors-view-card">
-          <br />
-          <span className="card-label">First</span>:{' '}
-          {this.props.data.first_name}
-          <br />
-          <span className="card-label">Last Name</span>:{' '}
-          {this.props.data.last_name}
-          <br />
-          <span className="card-label">Email address</span>:{' '}
-          {this.props.data.email}
-          <br />
-          {!this.state.readMore ? (
-            <div>
-              <span className="card-label">Gender: </span>
-              {this.props.data.gender}
-              <br />
-              <span className="card-label">Description: </span>
-              {this.props.data.mentor_description}
-              <br />
-              <span className="card-label">Languages: </span>
-              {this.props.data.languages}
-              <br />
-              <span className="card-label">Availability: </span>
-              {this.props.data.availability}
-              <br />
-              <span className="card-label">Offering: </span>
-              {this.props.data.offering}
-              <br />
-              <span className="card-label">Area Location: </span>
-              {this.props.data.area_location}
-              <br />
-              <span className="card-label">Preferred Meeting Place: </span>
-              {this.props.data.preferred_meeting_place}
-              <br />
-            </div>
-          ) : (
-            ''
-          )}
-        </p>
+        <div className="card-title text-left">
+          <h4 className="card-title text-center">{`${this.props.data.first_name} ${
+            this.props.data.last_name
+          }`}</h4>
+        </div>
+        <div className="card-body text-left p-1">
+          <p className="card-text">
+            <span className="card-label">Email : </span>
+            {this.props.data.email}
+            <br />
+            <span className="card-label">Offering: </span>
+            {this.props.data.offering}
+            <br />
+          </p>
+        </div>
 
-        <div className="d-flex justify-content-between">
-          <div className="col-auto">
+        <div className="card-footer">
+          <div className="d-flex">
             <button
-              className="btn btn-primary"
-              onClick={() => {
-                this.setState({ readMore: !this.state.readMore });
-              }}
+              className="btn btn-info mr-auto"
+              onClick={this.onOpenModal}
             >
-              {this.state.readMore ? 'View details' : 'Hide details'}
+              See Profile
             </button>
-            {/* <input type="checkbox" className="read-more-state" id={keyId} onChange={(e)=> console.log(e.target.value)} />
-            <label
-              htmlFor={keyId}
-              class="read-more-trigger"
-            /> */}
-          </div>
-
-          {contextType.isLoggedIn ? (
-            <div className="form-inline justify-content-end">
-              <div className="col-auto">
+            {contextType.isLoggedIn ? (
+              <React.Fragment>
                 <Link
                   to={`/admin/mentors/edit/${this.props.data.id}`}
-                  className="btn btn-primary"
+                  className="btn btn-primary mx-1 px-3"
                 >
                   Edit
                 </Link>
-              </div>
-              <div className="col-auto">
                 <NavLink
-                  className="btn btn-danger btn-sm "
+                  className="btn btn-danger mx-1 px-2"
                   to={`/admin/mentors/delete/${id}`}
                 >
                   Delete
                 </NavLink>
-              </div>
-            </div>
-          ) : (
-            ''
-          )}
+              </React.Fragment>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
+
+        <Modal open={this.state.open} onClose={this.onCloseModal} center>
+          <div className="card m-3" style={{ maxWidth: `300px` }}>
+            <img
+              src={this.props.data.profile_picture}
+              className="card-img-top"
+              alt="thumbnail"
+            />
+            <div className="card-title text-left">
+              <h4 className="card-title text-center">{`${
+                this.props.data.first_name
+              } ${this.props.data.last_name}`}</h4>
+            </div>
+            <div className="card-body text-left p-1">
+              <p className="card-text">
+                <span className="card-label">Email : </span>
+                {this.props.data.email}
+                <br />
+                <span className="card-label">Offering: </span>
+                {this.props.data.offering}
+                <br />
+              </p>
+            </div>
+          </div>
+        </Modal>
       </div>
     );
   }

@@ -35,7 +35,7 @@ class Navmenu extends Component {
           className="collapse navbar-collapse mr-auto"
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ml-2">
             <li className="nav-item">
               <NavLink exact to="/" className="nav-link">
                 Home
