@@ -14,25 +14,26 @@ class Card extends Component {
     console.log(this.props);
   }
 
-  deleteRecord(id) {
-    console.log('deleting record id: ', id);
-    fetch(`/api/events/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.text())
-      .then(response => {
-        console.log('Success:', response);
-        this.props.history.push('/');
-      })
-      .catch(error => console.error('Error:', error));
-  }
+  // deleteRecord(id) {
+  //   console.log('deleting record id: ', id);
+  //   fetch(`/api/events/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.text())
+  //     .then(response => {
+  //       console.log('Success:', response);
+  //       this.props.history.push('/');
+  //     })
+  //     .catch(error => console.error('Error:', error));
+  // }
 
   render() {
     const contextType = LoginContext._currentValue;
     const {
+      id,
       event_name,
       event_type,
       event_start_date,
@@ -114,19 +115,12 @@ class Card extends Component {
                     </NavLink>
                   </div>
                   <div className="col-auto">
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            'Are you sure you wish to delete this record?',
-                          )
-                        )
-                          this.deleteRecord(this.props.data.id);
-                      }}
+                    <NavLink
+                      className="btn btn-danger btn-sm "
+                      to={`/admin/events/delete/${id}`}
                     >
                       Delete
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               ) : (
