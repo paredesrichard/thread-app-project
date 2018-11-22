@@ -55,13 +55,11 @@ class EventsView extends Component {
   };
 
   handleSubmit = event => {
-    console.log('form submitted');
     event.preventDefault();
     const url = `/api/events/search?searchKeyword=${this.state.eventsSearchWord.trim()}`
       + `&event_start_date=${moment(this.state.dateEventStartDate).format('YYYY-MM-DD').trim()}`
       + `&event_end_date=${moment(this.state.dateEventEndDate).format('YYYY-MM-DD').trim()}`
       + `&orderby=${this.state.orderBy}&sort=${this.state.sortOrder}`;
-    console.log('moment: ', url);
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
       let newCoords = [];
