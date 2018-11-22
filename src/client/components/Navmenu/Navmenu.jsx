@@ -12,7 +12,7 @@ class Navmenu extends Component {
       <nav className="navbar navbar-expand-md bg-dark navbar-dark">
         <a className="navbar-brand mr-5" href="/">
           <img
-            src="/src/client/images/logo.svg"
+            src="/src/client/images/threadlogo.svg"
             width="50"
             height="50"
             className="d-inline-block align-center"
