@@ -54,9 +54,11 @@ class App extends Component {
             <Route exact path="/events" component={EventsView} />
             <Route exact path="/admin/events/add" component={EventsForm} />
             <Route exact path="/admin/events/edit/:id" component={EditEvents} />
+            <Route exact path="/admin/events/delete/:id" component={DeleteRecord} />
             <Route exact path="/mentors" component={MentorsView} />
             <Route exact path="/admin/mentors/add" component={MentorsForm} />
             <Route exact path="/admin/mentors/edit/:id" component={EditMentors} />
+            <Route exact path="/admin/mentors/delete/:id" component={DeleteRecord} />
             <Route exact path="/networking" component={NetworkingView} />
             <Route exact path="/about" component={AboutUs} />
             {/* <Route exact path="/mentors/add" component={MentorForms.AddMentor} /> 
@@ -64,6 +66,7 @@ class App extends Component {
             <Route exact path="/Mentors/search" component={MentorSearch} /> */}
             <Route exact path="/networking/add" component={NetworkingForms.AddNetworking} />
             <Route exact path="/networking/edit/:id" component={NetworkingForms.EditNetworking} />
+            <Route exact path="/admin/networking/delete/:id" component={DeleteRecord} />
             <Route exact path="/Networking/search" component={NetworkingSearch} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
