@@ -57,7 +57,7 @@ class MentorsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="mentors-view-container">
-        <h3>Welcome to the Mentors Page</h3>
+        <h3>Search for Mentors</h3>
 
         <div className="container-fluid">
           <div className="d-flex justify-content-center">

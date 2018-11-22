@@ -81,7 +81,7 @@ class EventsView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="events-view-container">
-        <h3>Welcome to the Events Page</h3>
+        <h3>Search for Events</h3>
         {/* <EventViewSearchForm /> */}
 
         <div className="container-fluid">

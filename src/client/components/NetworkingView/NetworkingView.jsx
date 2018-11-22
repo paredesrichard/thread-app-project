@@ -59,7 +59,7 @@ class NetworkingView extends Component {
     const contextType = LoginContext._currentValue;
     return (
       <div className="networking-view-container">
-        <h3>Welcome to the Networking Page</h3>
+        <h3>Search for Networks</h3>
         {/* <SearchForm /> */}
 
         <div className="container-fluid">
