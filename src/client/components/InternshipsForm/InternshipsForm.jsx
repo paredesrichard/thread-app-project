@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { fetchAPIData } from '../Api/api';
 
 import { NavLink } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
 
 class InternshipsForm extends Component {
   constructor(props) {
@@ -73,6 +74,7 @@ class InternshipsForm extends Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
+        NotificationManager.success('Record saved');
         this.props.history.push('/internships');
       })
       .catch(error => console.log('Error:', error));

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import SearchForm from '../SearchForm/SearchForm';
 import './Login.css';
 import { NavLink } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
 
 class Login extends Component {
   state = {
@@ -37,13 +38,13 @@ class Login extends Component {
       .then(response => {
         console.log('Success:', JSON.stringify(response));
         localStorage.setItem('authToken', response.token);
-
-        // TODO maybe add a message showing "Logged in Successfully";
-        // Or use react context, to show a logout button instead of login in the header
-
+        NotificationManager.success('You are now logged in');
         this.props.history.push('/');
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Error:', error);
+        NotificationManager.error('You entered an invalid username/password');
+      });
   };
 
   render() {

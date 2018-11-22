@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { moment } from 'moment';
 
+import { NotificationManager } from 'react-notifications';
+
 export default class EventsForm extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +66,7 @@ export default class EventsForm extends Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
+        NotificationManager.success('Record saved');
         this.props.history.push('/events');
       })
       .catch(error => console.error('Error:', error));

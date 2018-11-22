@@ -36,6 +36,9 @@ import LoginContext, { loadContextValue } from './contexts/login';
 import MentorsForm from './components/MentorsForm/MentorsForm';
 import EditMentors from './components/MentorsForm/EditMentors';
 
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 // console.log(AddMentor);
 class App extends Component {
   render() {
@@ -45,6 +48,7 @@ class App extends Component {
         <LoginContext.Provider value={contextValue}>
           <Header />
           <Navmenu />
+          <NotificationContainer />
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/internships" component={InternshipsView} />

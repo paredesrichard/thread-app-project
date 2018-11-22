@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NotificationManager } from 'react-notifications';
 
 class NetworkingForm extends React.Component {
   constructor(props) {
@@ -39,8 +40,6 @@ class NetworkingForm extends React.Component {
   };
   submitForm = e => {
     e.preventDefault();
-    //alert('bla') alert(JSON.stringify(this.state))
-    console.log('NetworkingData from FORM', this.state.networkingData);
     var data = this.state.networkingData;
     let url = '',
       method = '';
@@ -63,6 +62,7 @@ class NetworkingForm extends React.Component {
       .then(res => res.text())
       .then(response => {
         console.log('Success:', response);
+        NotificationManager.success('Record saved');
         this.props.history.push('/networking');
       })
       .catch(error => console.log('Error', error));
@@ -79,29 +79,31 @@ class NetworkingForm extends React.Component {
             <div className="form-row">
               <div className="col-md-6">
                 <div className="form-group">
-                  <label htmlFor="txtName">Organisation name</label>
+                  <label htmlFor="txtName">Organisation Name</label>
                   <input
                     className="form-control"
                     type="text"
                     id="organisation_name"
                     name="organisation_name"
-                    placeholder="Organisation name...."
+                    placeholder="Organisation Name...."
                     value={this.state.networkingData.organisation_name}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
 
               <div className="col-md-6">
                 <div className="form-group">
-                  <label>Sector activity</label>
+                  <label>Sector Activity</label>
                   <input
                     className="form-control"
                     id="sector_activity"
                     name="sector_activity"
-                    placeholder="Sector activity..."
+                    placeholder="Sector Activity..."
                     value={this.state.networkingData.sector_activity}
                     onChange={this.updateFields}
+                    required
                   />
                 </div>
               </div>
@@ -110,7 +112,7 @@ class NetworkingForm extends React.Component {
             <div className="form-row">
               <div className="col-md-5">
                 <div className="form-group">
-                  <label>Organisation logo</label>
+                  <label>Organisation Logo Link</label>
                   <input
                     className="form-control"
                     id="organisation_logo"
@@ -123,12 +125,12 @@ class NetworkingForm extends React.Component {
               </div>
               <div className="col-md-2">
                 <div className="form-group">
-                  <label>Organisation url</label>
+                  <label>Organisation URL</label>
                   <input
                     className="form-control"
                     id="organisation_url"
                     name="organisation_url"
-                    placeholder="Organisation url"
+                    placeholder="Organisation URL"
                     value={this.state.networkingData.organisation_url}
                     onChange={this.updateFields}
                   />
@@ -136,12 +138,12 @@ class NetworkingForm extends React.Component {
               </div>
               <div className="col-md-5">
                 <div className="form-group">
-                  <label>Organisation address</label>
+                  <label>Organisation Address</label>
                   <input
                     className="form-control"
                     id="organisation_address"
                     name="organisation_address"
-                    placeholder="Organisation address"
+                    placeholder="Organisation Address"
                     value={this.state.networkingData.organisation_address}
                     onChange={this.updateFields}
                   />
@@ -153,7 +155,7 @@ class NetworkingForm extends React.Component {
             <div className="col-md-12">
               <div className="form-group">
                 <div className="form-group">
-                  <label>Organisation description</label>
+                  <label>Organisation Description</label>
                   <textarea
                     className="form-control"
                     id="organisation_description"
@@ -171,40 +173,27 @@ class NetworkingForm extends React.Component {
           <div className="form-row">
             <div className="col-md-5">
               <div className="form-group">
-                <label>Organisation city</label>
+                <label>Organisation City</label>
                 <input
                   className="form-control"
                   id="organisation_city"
                   name="organisation_city"
-                  placeholder="Organisation city"
+                  placeholder="Organisation City"
                   value={this.state.networkingData.organisation_city}
                   onChange={this.updateFields}
                 />
               </div>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-2">
               <div className="form-group">
-                <label>Organisation postal code</label>
+                <label>Organisation Postal Code</label>
                 <input
                   className="form-control"
                   id="organisation_postal_code"
                   name="organisation_postal_code"
-                  placeholder="Organisation postal code"
+                  placeholder="Postal Code"
                   value={this.state.networkingData.organisation_postal_code}
-                  onChange={this.updateFields}
-                />
-              </div>
-            </div>
-            <div className="col-md-3">
-              <div className="form-group">
-                <label>Contact Person</label>
-                <input
-                  className="form-control"
-                  id="contact_person"
-                  name="contact_person"
-                  placeholder="Contact person"
-                  value={this.state.networkingData.contact_person}
                   onChange={this.updateFields}
                 />
               </div>
@@ -212,28 +201,42 @@ class NetworkingForm extends React.Component {
           </div>
 
           <div className="form-row">
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div className="form-group">
-                <label>Contact email</label>
+                <label>Contact Person</label>
+                <input
+                  className="form-control"
+                  id="contact_person"
+                  name="contact_person"
+                  placeholder="Contact Person"
+                  value={this.state.networkingData.contact_person}
+                  onChange={this.updateFields}
+                />
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="form-group">
+                <label>Email</label>
                 <input
                   className="form-control"
                   id="contact_email"
                   name="contact_email"
-                  placeholder="Contact email"
+                  placeholder="Email"
                   value={this.state.networkingData.contact_email}
                   onChange={this.updateFields}
                 />
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div className="form-group">
-                <label>Contact phone</label>
+                <label>Contact Number</label>
                 <input
                   className="form-control"
                   id="contact_phone"
                   name="contact_phone"
-                  placeholder="Contact phone"
+                  placeholder="Contact Number"
                   value={this.state.networkingData.contact_phone}
                   onChange={this.updateFields}
                 />
