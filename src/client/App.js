@@ -26,6 +26,7 @@ import EditEvents from './components/EventsForm/EditEvents';
 import InternshipsForm from './components/InternshipsForm/InternshipsForm';
 import AddInternship from './components/InternshipsForm/AddInternship';
 import EditInternships from './components/InternshipsForm/EditInternships';
+import DeleteRecord from './components/DeleteRecord/DeleteRecord';
 import MentorSearch from './components/MentorsView/MentorSearch';
 import NetworkingSearch from './components/NetworkingView/NetworkingSearch';
 import Login from './components/Login';
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path="/internships" component={InternshipsView} />
             <Route exact path="/admin/internships/add" component={InternshipsForm} />
             <Route exact path="/admin/internships/edit/:id" component={EditInternships} />
+            <Route exact path="/admin/internships/delete/:id" component={DeleteRecord} />
             <Route exact path="/events" component={EventsView} />
             <Route exact path="/admin/events/add" component={EventsForm} />
             <Route exact path="/admin/events/edit/:id" component={EditEvents} />
