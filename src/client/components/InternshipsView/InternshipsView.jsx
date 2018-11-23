@@ -10,6 +10,8 @@ import { NavLink } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
 
+import ResultMessage from '../Message/ResultMessage';
+
 class InternshipsView extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,8 @@ class InternshipsView extends Component {
       orderBy: 'internship_title',
       sortBy: 'ASC',
       isInitial: true,
+      dataisLoaded: false,
+      recordCount: 0
     };
   }
 
@@ -28,7 +32,14 @@ class InternshipsView extends Component {
     // just load all the data initially...
     let newCoords = [];
     fetchAPIData('/api/internships').then(newData => {
-      this.setState({ data: newData, isInitial: false });
+      this.setState({ data: newData, dataisLoaded: true });
+      if (newData.length === 0) {
+        //  Set the recordCount to -2 to indicate that the table doesn't have
+        //  any records to provide to the customer
+        //
+        this.setState({ recordCount: -2 });
+        //console.log('Table is empty');
+      } else this.setState({ recordCount: newData.length });
     });
   }
 
@@ -49,7 +60,7 @@ class InternshipsView extends Component {
     }&orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
 
     fetchAPIData(url).then(newData => {
-      this.setState({ data: newData });
+      this.setState({ data: newData, recordCount: newData.length });
     });
   };
 
@@ -145,8 +156,13 @@ class InternshipsView extends Component {
           </div>
         </div>
 
-        <section className="internships-section">
-          <aside className="internships-aside">
+        <div className="container">
+          {this.state.dataisLoaded ? (
+            <ResultMessage count={this.state.recordCount} table="Internships" />
+          ) : (
+            <ResultMessage count={-1} table="Internships" />
+          )}
+          <div className="container justify-content-center">
             {this.state.data && this.state.data.length !== 0
               ? this.state.data.map(data => {
                   return (
@@ -157,9 +173,9 @@ class InternshipsView extends Component {
                     />
                   );
                 })
-              : 'Result is empty.  Please search again using a different keyword'}
-          </aside>
-        </section>
+              : ''}
+          </div>
+        </div>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import './NetworkingView.css';
 
 import { fetchAPIData } from '../Api/api';
 import Card from './Card';
-import SearchForm from '../SearchForm/SearchForm';
+//import SearchForm from '../SearchForm/SearchForm';
 import { Link, NavLink } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
@@ -21,14 +21,22 @@ class NetworkingView extends Component {
       sortBy: 'ASC',
       isInitial: true,
       dataisLoaded: false,
-      resultIsEmpty: false,
-      message: '',
+      recordCount: 0,
+      //message: '',
     };
   }
 
   componentDidMount() {
+    //  Load all active records initially
     fetchAPIData('/api/networking').then(newData => {
       this.setState({ data: newData, dataisLoaded: true });
+      if (newData.length === 0) {
+        //  Set the recordCount to -2 to indicate that the table doesn't have
+        //  any records to provide to the customer
+        //
+        this.setState({ recordCount: -2 });
+        //console.log('Table is empty');
+      } else this.setState({ recordCount: newData.length });
     });
   }
 
@@ -42,16 +50,12 @@ class NetworkingView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     const url = `/api/networking/search?${this.state.fieldName}=${
       this.state.searchKeyword
     }&orderby=${this.state.fieldName}&sort=${this.state.sortBy}`;
 
     fetchAPIData(url).then(newData => {
-      console.log('newData:', newData);
-      this.setState({ data: newData });
-      if (newData.length === 0) this.setState({ resultIsEmpty: true });
-      else this.setState({ resultIsEmpty: false });
+      this.setState({ data: newData, recordCount: newData.length });
     });
   };
 
@@ -146,16 +150,10 @@ class NetworkingView extends Component {
           ''
         )}
         <section className="networking-section">
-          {this.state.dataisLoaded && this.state.resultIsEmpty ? (
-            <ResultMessage
-              message="No matching result found."
-              messageBody="Please try using a different keyword"
-            />
+          {this.state.dataisLoaded ? (
+            <ResultMessage count={this.state.recordCount} table="Networking" />
           ) : (
-            <ResultMessage
-              message={`${this.state.data.length} record(s) found.`}
-              messageBody=""
-            />
+            <ResultMessage count={-1} table="Networking" />
           )}
           <aside className="networking-aside">
             {this.state.data

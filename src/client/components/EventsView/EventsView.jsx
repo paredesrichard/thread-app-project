@@ -15,6 +15,8 @@ import LoginContext from '../../contexts/login';
 
 import moment from 'moment';
 
+import ResultMessage from '../Message/ResultMessage';
+
 class EventsView extends Component {
   constructor(props) {
     super(props);
@@ -25,15 +27,25 @@ class EventsView extends Component {
       orderBy: 'event_name',
       dateEventStartDate: '',
       dateEventEndDate: '',
+      dataisLoaded: false,
       sortOrder: 'ASC',
-      isInitial: true,
+      recordCount: 0,
     };
   }
 
   componentDidMount() {
+    //  Load all active records initially
     let newCoords = [];
     fetchAPIData('/api/events').then(newData => {
-      this.setState({ data: newData });
+      this.setState({ data: newData , dataisLoaded: true });
+      if (newData.length === 0) {
+        //  Set the recordCount to -2 to indicate that the table doesn't have
+        //  any records to provide to the customer
+        //
+        this.setState({ recordCount: -2 });
+        //console.log('Table is empty');
+      } else this.setState({ recordCount: newData.length });
+      // newCoods will be passed to the map for markings
       newCoords = newData.map(data => {
         let tempCoords = {};
         tempCoords = {
@@ -56,10 +68,15 @@ class EventsView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const url = `/api/events/search?searchKeyword=${this.state.eventsSearchWord.trim()}`
-      + `&event_start_date=${moment(this.state.dateEventStartDate).format('YYYY-MM-DD').trim()}`
-      + `&event_end_date=${moment(this.state.dateEventEndDate).format('YYYY-MM-DD').trim()}`
-      + `&orderby=${this.state.orderBy}&sort=${this.state.sortOrder}`;
+    const url =
+      `/api/events/search?searchKeyword=${this.state.eventsSearchWord.trim()}` +
+      `&event_start_date=${moment(this.state.dateEventStartDate)
+        .format('YYYY-MM-DD')
+        .trim()}` +
+      `&event_end_date=${moment(this.state.dateEventEndDate)
+        .format('YYYY-MM-DD')
+        .trim()}` +
+      `&orderby=${this.state.orderBy}&sort=${this.state.sortOrder}`;
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
       let newCoords = [];
@@ -71,7 +88,7 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
-      this.setState({ coords: newCoords });
+      this.setState({ coords: newCoords, recordCount: newData.length });
     });
   };
 
@@ -196,6 +213,11 @@ class EventsView extends Component {
         </div>
 
         <section className="events-section">
+          {this.state.dataisLoaded ? (
+            <ResultMessage count={this.state.recordCount} table="Networking" />
+          ) : (
+            <ResultMessage count={-1} table="Networking" />
+          )}
           <aside className="events-aside">
             <h4>Events results:</h4>
             {this.state.data
@@ -204,7 +226,7 @@ class EventsView extends Component {
                 })
               : 'No results'}
           </aside>
-          <div className="map-section">
+          <div className="map-section sticky-top">
             <div className="form-row text-right">
               <button
                 className="btn btn-secondary btn-sm btn-block"

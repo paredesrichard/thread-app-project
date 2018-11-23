@@ -20,8 +20,8 @@ class MentorsView extends Component {
       sortBy: 'ASC',
       isInitial: true,
       dataisLoaded: false,
-      resultIsEmpty: false,
-      message: '',
+      recordCount: 0,
+      
     };
   }
 
@@ -29,6 +29,13 @@ class MentorsView extends Component {
     fetchAPIData('/api/mentors').then(newData => {
       console.log('MentorView component---->', newData);
       this.setState({ data: newData, dataisLoaded: true });
+      if (newData.length === 0) {
+        //  Set the recordCount to -2 to indicate that the table doesn't have
+        //  any records to provide to the customer
+        //
+        this.setState({ recordCount: -2 });
+        //console.log('Table is empty');
+      } else this.setState({ recordCount: newData.length });
     });
   }
 
@@ -48,8 +55,7 @@ class MentorsView extends Component {
 
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
-      if (newData.length === 0) this.setState({ resultIsEmpty: true });
-      else this.setState({ resultIsEmpty: false });
+      this.setState({ data: newData, recordCount: newData.length });
     });
   };
 
@@ -146,16 +152,10 @@ class MentorsView extends Component {
         </div>
 
         <div className="container">
-          {this.state.dataisLoaded && this.state.resultIsEmpty ? (
-            <ResultMessage
-              message="No matching result found."
-              messageBody="Please try using a different keyword"
-            />
+          {this.state.dataisLoaded ? (
+            <ResultMessage count={this.state.recordCount} table="Mentors" />
           ) : (
-            <ResultMessage
-              message={`${this.state.data.length} record(s) found.`}
-              messageBody=""
-            />
+            <ResultMessage count={-1} table="Mentors" />
           )}
           <div className="d-flex flex-wrap justify-content-center">
             {this.state.dataisLoaded
