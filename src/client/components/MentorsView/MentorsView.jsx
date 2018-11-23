@@ -55,8 +55,7 @@ class MentorsView extends Component {
 
     fetchAPIData(url).then(newData => {
       this.setState({ data: newData });
-      if (newData.length === 0) this.setState({ resultIsEmpty: true });
-      else this.setState({ resultIsEmpty: false });
+      this.setState({ data: newData, recordCount: newData.length });
     });
   };
 
