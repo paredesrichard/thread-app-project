@@ -3,7 +3,8 @@ import './Card.css';
 import { NavLink, Link } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
-import DeleteRecord from '../DeleteRecord/DeleteRecord';
+//import DeleteRecord from '../DeleteRecord/DeleteRecord';
+//import { noAuto } from '@fortawesome/fontawesome-svg-core';
 // function deleteRecord(id) {
 //   console.log("deleting record id: ", id);
 
@@ -48,15 +49,34 @@ class Card extends Component {
     const contextType = LoginContext._currentValue;
     // console.log("data:", this.props.data);
     const { id } = this.props.data;
+
+    const imageStyle = {
+      height: '120px',
+      width: '100%',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      // backgroundImage: `url("${this.props.data.internship_theme_image}")`,
+    };
     return (
-      <div className="internships-card  shadow-lg rounded">
-        <img
+      <div
+        className="card m-2 shadow-lg rounded text-left"
+         style={{ width: `95%` }} 
+      >
+        {/* <img
           src={this.props.data.internship_theme_image}
           className="internships-thumb-nail-img"
           alt="thumbnail"
-        />
-        <div>
-          <p>
+        /> */}
+        <div className="thumbnail-img-container" style={imageStyle}>
+          <img
+            src={this.props.data.internship_theme_image}
+            className="internships-thumb-nail-img"
+            alt="thumbnail"
+          />
+        </div>
+        <div className="card-body h-auto p-1 text-wrap">
+          <p className="card-text">
             <span className="card-label">Title</span> :{' '}
             {this.props.data.internship_title}
             <br />
@@ -67,7 +87,7 @@ class Card extends Component {
             {this.props.data.internship_category}
             <br />
             {!this.state.readMore ? (
-              <div>
+              <React.Fragment>
                 <span className="card-label">Department : </span>
                 {this.props.data.department}
                 <br />
@@ -77,21 +97,21 @@ class Card extends Component {
                 <span className="card-label">Organisation Description : </span>
                 {this.props.data.organisation_description}
                 <br />
-                <span className="card-label">Agreement? : </span>
+                {/* <span className="card-label">Agreement? : </span>
                 {this.props.data.internship_agreement ? 'Yes' : 'No'}
                 <br />
                 <span className="card-label">Requirements : </span>
                 {this.props.data.internship_requirements ? 'Yes' : 'No'}
-                <br />
+                <br /> */}
                 <span className="card-label">Application Requirements : </span>
                 {this.props.data.application_requirements}
                 <br />
                 <span className="card-label">Availability Schedule : </span>
                 {this.props.data.internship_availabiltiy_schedule}
                 <br />
-                <span className="card-label">Travel Expenses : </span>
-                {this.props.data.travel_expenses ? 'Yes' : 'No'}
-                <br />
+                  {/* <span className="card-label">Travel Expenses : </span>
+                  {this.props.data.travel_expenses ? 'Yes' : 'No'}
+                  <br /> */}
                 <span className="card-label">Location : </span>
                 {this.props.data.location}
                 <br />
@@ -109,16 +129,16 @@ class Card extends Component {
                 <br />
                 <span className="card-label">
                   Website :{' '}
-                  <a
-                    className="text-secondary"
-                    href={this.props.data.organisation_website}
+                  <NavLink
+                    className="text-secondary text-truncate"
+                    to={this.props.data.organisation_website}
                   >
-                    {this.props.data.organisation_website}
-                  </a>
+                    Click Here!
+                  </NavLink>
                 </span>
 
                 <br />
-              </div>
+              </React.Fragment>
             ) : (
               ''
             )}
@@ -126,37 +146,31 @@ class Card extends Component {
         </div>
 
         {/* <div className="form-inline"> */}
-        <div className="d-flex justify-content-between">
-          <div className="col-auto">
-            <button
-              className="btn btn-primary"
-              onClick={() => {
-                this.setState({ readMore: !this.state.readMore });
-              }}
-            >
-              {this.state.readMore ? 'View details' : 'Hide details'}
-            </button>
-          </div>
+        <div className="d-flex justify-content-between card-footer px-0">
+          <button
+            className="btn btn-primary btn-sm mr-auto m-1"
+            onClick={() => {
+              this.setState({ readMore: !this.state.readMore });
+            }}
+          >
+            {this.state.readMore ? 'View details' : 'Hide details'}
+          </button>
 
           {contextType.isLoggedIn ? (
-            <div className="form-row">
-              <div className="col-auto">
-                <NavLink
-                  to={`/admin/internships/edit/${this.props.data.id}`}
-                  className="btn btn-primary btn-sm"
-                >
-                  Edit
-                </NavLink>
-              </div>
-              <div className="col-auto">
-                <NavLink
-                  className="btn btn-danger btn-sm "
-                  to={`/admin/internships/delete/${id}`}
-                >
-                  Delete
-                </NavLink>
-              </div>
-            </div>
+            <React.Fragment>
+              <NavLink
+                to={`/admin/internships/edit/${this.props.data.id}`}
+                className="btn btn-primary btn-sm m-1"
+              >
+                Edit
+              </NavLink>
+              <NavLink
+                className="btn btn-danger btn-sm m-1"
+                to={`/admin/internships/delete/${id}`}
+              >
+                Delete
+              </NavLink>
+            </React.Fragment>
           ) : (
             ''
           )}
