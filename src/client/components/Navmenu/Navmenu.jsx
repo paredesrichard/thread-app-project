@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 import LoginContext from '../../contexts/login';
 
+import THREADLOGO from '../../images/threadlogo.svg';
+
 // import './Navmenu.css';
 
 class Navmenu extends Component {
@@ -12,7 +14,7 @@ class Navmenu extends Component {
       <nav className="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
         <a className="navbar-brand mr-5" href="/">
           <img
-            src={'src/client/images/threadlogo.svg'}
+            src={THREADLOGO}
             width="50px"
             height="50px"
             className="d-inline-block align-center"
