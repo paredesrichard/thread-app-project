@@ -9,7 +9,7 @@ class Navmenu extends Component {
   render() {
     const contextType = LoginContext._currentValue;
     return (
-      <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+      <nav className="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
         <a className="navbar-brand mr-5" href="/">
           <img
             src={'src/client/images/threadlogo.svg'}
