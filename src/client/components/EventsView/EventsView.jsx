@@ -24,7 +24,7 @@ class EventsView extends Component {
     super(props);
     this.state = {
       data: [],
-      mapView: false,
+      mapView: true,
       eventsSearchWord: '',
       orderBy: 'event_name',
       dateEventStartDate: '',
