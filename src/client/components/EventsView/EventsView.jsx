@@ -8,7 +8,9 @@ import { fetchAPIData } from '../Api/api';
 // import EventViewSearchForm from '../EventViewSearchForm/EventViewSearchForm';
 import Card from './Card';
 import MapComponent from '../MapComponent/MapComponent';
-import Calendar from '../calendar/calendar';
+//import Calendar from '../calendar/calendar';
+import CalendarComponent from '../calendar/CalendarComponent';
+
 //import { renderComponent } from 'recompose';
 
 import LoginContext from '../../contexts/login';
@@ -22,7 +24,7 @@ class EventsView extends Component {
     super(props);
     this.state = {
       data: [],
-      mapView: true,
+      mapView: false,
       eventsSearchWord: '',
       orderBy: 'event_name',
       dateEventStartDate: '',
@@ -30,14 +32,16 @@ class EventsView extends Component {
       dataisLoaded: false,
       sortOrder: 'ASC',
       recordCount: 0,
+      calendarEvents: [],
     };
   }
 
   componentDidMount() {
+    console.log('initial calendarEvents:', this.state.calendarEvents);
     //  Load all active records initially
     let newCoords = [];
     fetchAPIData('/api/events').then(newData => {
-      this.setState({ data: newData , dataisLoaded: true });
+      this.setState({ data: newData, dataisLoaded: true });
       if (newData.length === 0) {
         //  Set the recordCount to -2 to indicate that the table doesn't have
         //  any records to provide to the customer
@@ -55,6 +59,15 @@ class EventsView extends Component {
         return tempCoords;
       });
       this.setState({ coords: newCoords });
+      const newCalendarEvents = newData.map(data => {
+        return {
+          id: data.id,
+          title: data.event_name,
+          start: new Date(moment(data.event_start_date)),
+          end: new Date(moment(data.event_end_date)),
+        };
+      });
+      this.setState({ calendarEvents: newCalendarEvents });
     });
   }
 
@@ -88,7 +101,19 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
-      this.setState({ coords: newCoords, recordCount: newData.length });
+      const newCalendarEvents = newData.map(data => {
+        return {
+          id: data.id,
+          title: data.event_name,
+          start: new Date(moment(data.event_start_date)),
+          end: new Date(moment(data.event_end_date)),
+        };
+      });
+      this.setState({
+        coords: newCoords,
+        recordCount: newData.length,
+        calendarEvents: newCalendarEvents,
+      });
     });
   };
 
@@ -218,18 +243,17 @@ class EventsView extends Component {
           ) : (
             <ResultMessage count={-1} table="Networking" />
           )}
-          <aside className="events-aside">
-            <h4>Events results:</h4>
+          <aside className="events-aside mt-0 pt-0">
             {this.state.data
               ? this.state.data.map(data => {
                   return <Card key={data.id} data={data} />;
                 })
               : 'No results'}
           </aside>
-          <div className="map-section sticky-top">
+          <div className="map-section h-auto mt-0 pt-2">
             <div className="form-row text-right">
               <button
-                className="btn btn-secondary btn-sm btn-block"
+                className="btn btn-secondary btn-sm btn-block p-2 m-3"
                 onClick={() => {
                   this.setState({ mapView: !this.state.mapView });
                 }}
@@ -240,9 +264,13 @@ class EventsView extends Component {
               </button>
             </div>
             {this.state.mapView === true ? (
-              <MapComponent setMarker Zoom={11} coords={this.state.coords} />
+              <div style={{ height: 500, width: `100%` }}>
+                <MapComponent setMarker Zoom={11} coords={this.state.coords} />
+              </div>
             ) : (
-              <Calendar />
+              <div className="container shadow-lg rounded">
+                <CalendarComponent data={this.state.calendarEvents} />
+              </div>
             )}
           </div>
         </section>
