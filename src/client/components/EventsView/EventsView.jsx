@@ -253,7 +253,7 @@ class EventsView extends Component {
           <div className="map-section h-auto mt-0 pt-2">
             <div className="form-row text-right">
               <button
-                className="btn btn-secondary btn-sm btn-block p-2 m-3"
+                className="btn btn-primary btn-sm btn-block p-2 m-3"
                 onClick={() => {
                   this.setState({ mapView: !this.state.mapView });
                 }}
@@ -264,7 +264,7 @@ class EventsView extends Component {
               </button>
             </div>
             {this.state.mapView === true ? (
-              <div style={{ height: 500, width: `100%` }}>
+              <div className="container" style={{ height: 600, width: `100%` }}>
                 <MapComponent setMarker Zoom={11} coords={this.state.coords} />
               </div>
             ) : (
