@@ -6,7 +6,7 @@
 
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 300;
   line-height: 1.5;
   color: var(--text-color);
@@ -173,7 +173,7 @@ main {
     line-height: 1;
     color: var(--main-color);
     opacity: 0;
-    font-size: 8em;
+    font-size: 5em;
     position: absolute;
     top: -0.2em;
     right: -0.05em;
@@ -183,7 +183,7 @@ main {
   
   .calendar .body .cell:hover .bg,
   .calendar .body .selected .bg {
-    opacity: 0.05;
+    opacity: 0.5;
     transition: 0.5s ease-in;
   }
   
@@ -195,10 +195,11 @@ main {
 
 
   .event-one{
-    font-size: 0.7em;
+    font-size: 0.5em;
     line-height: 0em;
     text-overflow: ellipsis;
     white-space: pre-line;
+    font-weight: 600;
   }
 
   .event-one:hover{
