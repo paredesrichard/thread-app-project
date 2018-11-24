@@ -160,7 +160,7 @@ class Card extends Component {
             <React.Fragment>
               <NavLink
                 to={`/admin/internships/edit/${this.props.data.id}`}
-                className="btn btn-primary btn-sm m-1"
+                className="btn btn-primary btn-sm m-1 px-3"
               >
                 Edit
               </NavLink>

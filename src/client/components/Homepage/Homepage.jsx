@@ -6,8 +6,8 @@ const Homepage = () => (
   <div className="homepage-container font-weight-normal px-5">
     <h1 className="welcome-page text-white">Welcome to the Thread Online Platform Project</h1>
     <div className="container text-white">
-      <h4 className="p-5">THREAD</h4>
-      <h5 className="p-4">Textile Hub for Refugees' Empowerment, Employment and Entrepreneurship Advancement in Denmark - a new model</h5>
+      <h4 className="p-2">THREAD</h4>
+      <h5 className="p-2">Textile Hub for Refugees' Empowerment, Employment and Entrepreneurship Advancement in Denmark - a new model</h5>
       <p className="text-center">
         THREAD is a dynamic and innovative collaboration of diverse partners
         from business, design, education, research and refugee support agencies

@@ -15,7 +15,7 @@ class CalendarComponent extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container m-0">
         {this.props.data ? (
           <div>
             <BigCalendar

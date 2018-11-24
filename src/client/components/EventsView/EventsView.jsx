@@ -268,7 +268,7 @@ class EventsView extends Component {
                 <MapComponent setMarker Zoom={11} coords={this.state.coords} />
               </div>
             ) : (
-              <div className="container shadow-lg rounded">
+              <div className="container shadow-lg rounded p-0 m-0">
                 <CalendarComponent data={this.state.calendarEvents} />
               </div>
             )}

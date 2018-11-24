@@ -405,7 +405,7 @@ export default class EventsForm extends Component {
 
           <div className="d-flex flex-row justify-content-end">
             <div className="p-2">
-              <button type="submit" className="btn btn-primary mb-2">
+              <button type="submit" className="btn btn-primary mb-2 px-4">
                 Save
               </button>
             </div>

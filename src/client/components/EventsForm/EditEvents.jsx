@@ -16,15 +16,16 @@ class EditEvents extends Component {
     fetch(`${url}/${id}`)
       .then(response => response.json())
       .then(data => {
-        const temp_start_date = moment(data.event_start_date).format('YYYY-MM-DDTHH:MM');
+        const temp_start_date = new Date(data.event_start_date).toUTCString();
+        console.log('converted date', temp_start_date);
         data.event_start_date = temp_start_date;
-        const temp_end_date = moment(data.event_end_date).format('YYYY-MM-DDTHH:MM');
+        const temp_end_date = new Date(data.event_start_date).toUTCString();
         data.event_end_date = temp_end_date;
-        
+
         this.setState({
           isLoading: false,
           eventsData: data,
-         });
+        });
       });
   }
 
