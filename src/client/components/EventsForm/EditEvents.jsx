@@ -16,9 +16,9 @@ class EditEvents extends Component {
     fetch(`${url}/${id}`)
       .then(response => response.json())
       .then(data => {
-        const temp_start_date = moment(data.event_start_date).format('YYYY-MM-DD');
+        const temp_start_date = moment(data.event_start_date).format('YYYY-MM-DDTHH:MM');
         data.event_start_date = temp_start_date;
-        const temp_end_date = moment(data.event_end_date).format('YYYY-MM-DD');
+        const temp_end_date = moment(data.event_end_date).format('YYYY-MM-DDTHH:MM');
         data.event_end_date = temp_end_date;
         
         this.setState({
