@@ -4,7 +4,7 @@ import './Homepage.css';
 
 const Homepage = () => (
   <div className="homepage-container font-weight-normal px-5">
-    <h1 className="welcome-page text-white">Welcome to the Thread Online Platform Project</h1>
+    <h1 className="welcome-page text-white">Thread Online Platform Project</h1>
     <div className="container text-white">
       <h4 className="p-2">THREAD</h4>
       <h5 className="p-2">Textile Hub for Refugees' Empowerment, Employment and Entrepreneurship Advancement in Denmark - a new model</h5>
