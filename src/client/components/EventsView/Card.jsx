@@ -36,6 +36,7 @@ class Card extends Component {
       event_name,
       event_type,
       event_start_date,
+      event_end_date,
       event_address,
       event_postal_code,
       event_city,
@@ -59,24 +60,19 @@ class Card extends Component {
               <span className="card-label">Type</span> : {event_type}
               <br />
               <span className="card-label">Start date:</span> :{' '}
-              {moment(event_start_date).format('DD/MM/YYYY')}
+              {moment(event_start_date).format('llll')}
+              <br />
               {!this.state.readMore ? (
-                <div>
+                <React.Fragment>
+                  <span className="card-label">End Date :</span>
+                  {moment(event_end_date).format('llll')}
+                  <br />
                   <span className="card-label">Event Address : </span>
                   {event_address}
                   <br />
                   <span className="card-label">Postal Code : </span>
                   {event_postal_code}
                   <br />
-                  <span className="card-label">Start Date : </span>
-                  {moment(this.props.data.event_start_date).format(
-                    'DD/MM/YYYY',
-                  )}
-                  <br />
-                  <span className="card-label">End Date :</span>
-                  {moment(this.props.data.event_end_date).format('DD/MM/YYYY')}
-                  <br />
-
                   <span className="card-label">Contact Person : </span>
                   {contact_person}
                   <br />
@@ -86,7 +82,7 @@ class Card extends Component {
                   <span className="card-label">Contact Email : </span>
                   {contact_email}
                   <br />
-                </div>
+                </React.Fragment>
               ) : (
                 ''
               )}
@@ -108,7 +104,7 @@ class Card extends Component {
                   <div className="col-auto">
                     <NavLink
                       to={`/admin/events/edit/${this.props.data.id}`}
-                      className="btn btn-primary btn-sm"
+                      className="btn btn-primary btn-sm mx-1 px-3"
                     >
                       Edit
                     </NavLink>
