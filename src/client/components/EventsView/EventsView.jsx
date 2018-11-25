@@ -117,7 +117,7 @@ class EventsView extends Component {
       // //      this.setState({
       // //        coords: newCoords,
       //         recordCount: newData.length,
-      //         key: Math.random(),
+      //key: Math.random(),
 
       const newCalendarEvents = newData.map(data => {
         return {
@@ -131,6 +131,7 @@ class EventsView extends Component {
         coords: newCoords,
         recordCount: newData.length,
         calendarEvents: newCalendarEvents,
+        key: Math.random()
       });
     });
   };
