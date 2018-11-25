@@ -84,7 +84,7 @@ class Card extends React.Component {
     const keyId = Math.random();
     const { id, mentor } = this.props.data;
     return (
-      <div className="card m-3 shadow-lg rounded  " style={{ width: `300px` }}>
+      <div className="card m-3 shadow-lg rounded  " style={{ maxWidth: `300px` }}>
         <img
           src={this.props.data.profile_picture}
           className="card-img-top"
@@ -136,7 +136,7 @@ class Card extends React.Component {
         </div>
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-          <div className="card m-3" style={{ maxWidth: `300px` }}>
+          <div className="card m-1" style={{ maxWidth: `450px` }}>
             <img
               src={this.props.data.profile_picture}
               className="card-img-top"
@@ -147,14 +147,23 @@ class Card extends React.Component {
                 this.props.data.first_name
               } ${this.props.data.last_name}`}</h4>
             </div>
-            <div className="card-body text-left p-1">
+            <div className="card-body h-auto text-left p-1">
               <p className="card-text">
                 <span className="card-label">Email : </span>
                 {this.props.data.email}
-                <br />
+                <br /> <br />
+                <span className="card-label">Availability: </span>
+                {this.props.data.availability}
+                <br /> <br />
                 <span className="card-label">Offering: </span>
                 {this.props.data.offering}
-                <br />
+                <br /> <br />
+                <span className="card-label">Description: </span>
+                {this.props.data.mentor_description}
+                <br /> <br />
+                <span className="card-label">Affiliation: </span>
+                {this.props.data.affiliation}
+                <br /> <br />
               </p>
             </div>
           </div>

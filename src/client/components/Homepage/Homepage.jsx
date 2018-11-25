@@ -3,7 +3,7 @@ import './Homepage.css';
 //import backgroundImage from '../../images/pexels1.jpeg';
 
 const Homepage = () => (
-  <div className="homepage-container font-weight-normal px-5">
+  <div className="homepage-container font-weight-normal px-5 h-auto">
     <h1 className="welcome-page text-white">Thread Online Platform Project</h1>
     <div className="container text-white">
       <h4 className="p-2">THREAD</h4>
