@@ -146,7 +146,7 @@ class Card extends Component {
         </div>
 
         {/* <div className="form-inline"> */}
-        <div className="d-flex justify-content-between card-footer px-0">
+        <div className="d-flex justify-content-between card-footer px-1">
           <button
             className="btn btn-primary btn-sm mr-auto m-1"
             onClick={() => {
