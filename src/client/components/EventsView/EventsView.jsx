@@ -7,7 +7,11 @@ import { fetchAPIData } from '../Api/api';
 // import SearchForm from '../SearchForm/SearchForm';
 // import EventViewSearchForm from '../EventViewSearchForm/EventViewSearchForm';
 import Card from './Card';
-import MapComponent from '../MapComponent/MapComponent';
+
+import MapContainer from '../MapComponent/AlternateMap';
+//import Calendar from '../calendar/calendar';
+
+//import MapComponent from '../MapComponent/MapComponent';
 //import Calendar from '../calendar/calendar';
 import CalendarComponent from '../calendar/CalendarComponent';
 
@@ -32,6 +36,10 @@ class EventsView extends Component {
       dataisLoaded: false,
       sortOrder: 'ASC',
       recordCount: 0,
+
+      coords: [],
+      key: null,
+
       calendarEvents: [],
     };
   }
@@ -58,6 +66,10 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
+
+      this.setState({ coords: newCoords, mapView: !this.state.mapView });
+      //      this.setState({ mapView: !this.state.mapView });
+
       this.setState({ coords: newCoords });
       const newCalendarEvents = newData.map(data => {
         return {
@@ -101,6 +113,12 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
+
+      // //      this.setState({
+      // //        coords: newCoords,
+      //         recordCount: newData.length,
+      //         key: Math.random(),
+
       const newCalendarEvents = newData.map(data => {
         return {
           id: data.id,
@@ -243,13 +261,21 @@ class EventsView extends Component {
           ) : (
             <ResultMessage count={-1} table="Networking" />
           )}
-          <aside className="events-aside mt-0 pt-0">
+
+          <aside className="events-aside">
+            {/* <aside className="events-aside mt-0 pt-0"> */}
+
             {this.state.data
               ? this.state.data.map(data => {
-                  return <Card key={data.id} data={data} />;
+                  return <Card key={data.id} data={data} id={data.id} />;
                 })
               : 'No results'}
           </aside>
+
+          {/* <<<<<<< HEAD */}
+          {/* <div className="map-section sticky-top pt-4"> */}
+          {/* ======= 
+            </div>  */}
           <div className="map-section h-auto mt-0 pt-2">
             <div className="form-row text-right">
               <button
@@ -264,8 +290,13 @@ class EventsView extends Component {
               </button>
             </div>
             {this.state.mapView === true ? (
-              <div className="container" style={{ height: 600, width: `100%` }}>
-                <MapComponent setMarker Zoom={11} coords={this.state.coords} />
+              <div className="container shadow-lg rounded p-0 m-0">
+                <MapContainer
+                  key={this.state.key}
+                  Zoom={11}
+                  coords={this.state.coords}
+                  data={this.state.data}
+                />
               </div>
             ) : (
               <div className="container shadow-lg rounded p-0 m-0">
