@@ -5,7 +5,7 @@ import { relative } from 'upath';
 
 const style = {
   width: '100%',
-  height: '70vh',
+  height: '600px',
   position: 'relative',
 };
 
