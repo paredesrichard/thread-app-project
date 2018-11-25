@@ -84,16 +84,19 @@ class Card extends React.Component {
     const keyId = Math.random();
     const { id, mentor } = this.props.data;
     return (
-      <div className="card m-3 shadow-lg rounded  " style={{ maxWidth: `300px` }}>
+      <div
+        className="card m-3 shadow-lg rounded"
+        style={{ width: `300px` }}
+      >
         <img
           src={this.props.data.profile_picture}
           className="card-img-top"
           alt="thumbnail"
         />
         <div className="card-title text-left">
-          <h4 className="card-title text-center">{`${this.props.data.first_name} ${
-            this.props.data.last_name
-          }`}</h4>
+          <h4 className="card-title text-center">{`${
+            this.props.data.first_name
+          } ${this.props.data.last_name}`}</h4>
         </div>
         <div className="card-body text-left p-1">
           <p className="card-text">
@@ -106,33 +109,31 @@ class Card extends React.Component {
           </p>
         </div>
 
-        <div className="card-footer">
-          <div className="d-flex">
-            <button
-              className="btn btn-info mr-auto"
-              onClick={this.onOpenModal}
-            >
-              See Profile
-            </button>
-            {contextType.isLoggedIn ? (
-              <React.Fragment>
-                <Link
-                  to={`/admin/mentors/edit/${this.props.data.id}`}
-                  className="btn btn-primary mx-1 px-3"
-                >
-                  Edit
-                </Link>
-                <NavLink
-                  className="btn btn-danger mx-1 px-2"
-                  to={`/admin/mentors/delete/${id}`}
-                >
-                  Delete
-                </NavLink>
-              </React.Fragment>
-            ) : (
-              ''
-            )}
-          </div>
+        <div className="d-flex justify-content-between card-footer p-2">
+          <button
+            className="btn btn-info mr-auto px-1 ml-1"
+            onClick={this.onOpenModal}
+          >
+            See Profile
+          </button>
+          {contextType.isLoggedIn ? (
+            <React.Fragment>
+              <Link
+                to={`/admin/mentors/edit/${this.props.data.id}`}
+                className="btn btn-primary mx-1 px-3"
+              >
+                Edit
+              </Link>
+              <NavLink
+                className="btn btn-danger mx-1 px-2"
+                to={`/admin/mentors/delete/${id}`}
+              >
+                Delete
+              </NavLink>
+            </React.Fragment>
+          ) : (
+            ''
+          )}
         </div>
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
@@ -164,7 +165,13 @@ class Card extends React.Component {
                 <span className="card-label">Affiliation: </span>
                 {this.props.data.affiliation}
                 <br /> <br />
-                <button type="button" className="btn btn-primary btn-block" onClick={() => this.onCloseModal() }>Close</button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block"
+                  onClick={() => this.onCloseModal()}
+                >
+                  Close
+                </button>
               </p>
             </div>
           </div>
