@@ -7,8 +7,14 @@ import { fetchAPIData } from '../Api/api';
 // import SearchForm from '../SearchForm/SearchForm';
 // import EventViewSearchForm from '../EventViewSearchForm/EventViewSearchForm';
 import Card from './Card';
+
 import MapContainer from '../MapComponent/AlternateMap';
-import Calendar from '../calendar/calendar';
+//import Calendar from '../calendar/calendar';
+
+//import MapComponent from '../MapComponent/MapComponent';
+//import Calendar from '../calendar/calendar';
+import CalendarComponent from '../calendar/CalendarComponent';
+
 //import { renderComponent } from 'recompose';
 
 import LoginContext from '../../contexts/login';
@@ -30,12 +36,16 @@ class EventsView extends Component {
       dataisLoaded: false,
       sortOrder: 'ASC',
       recordCount: 0,
+
       coords: [],
       key: null,
+
+      calendarEvents: [],
     };
   }
 
   componentDidMount() {
+    console.log('initial calendarEvents:', this.state.calendarEvents);
     //  Load all active records initially
     let newCoords = [];
     fetchAPIData('/api/events').then(newData => {
@@ -56,8 +66,20 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
+
       this.setState({ coords: newCoords, mapView: !this.state.mapView });
-      this.setState({ mapView: !this.state.mapView });
+      //      this.setState({ mapView: !this.state.mapView });
+
+      this.setState({ coords: newCoords });
+      const newCalendarEvents = newData.map(data => {
+        return {
+          id: data.id,
+          title: data.event_name,
+          start: new Date(moment(data.event_start_date)),
+          end: new Date(moment(data.event_end_date)),
+        };
+      });
+      this.setState({ calendarEvents: newCalendarEvents });
     });
   }
 
@@ -91,10 +113,24 @@ class EventsView extends Component {
         };
         return tempCoords;
       });
+
+      // //      this.setState({
+      // //        coords: newCoords,
+      //         recordCount: newData.length,
+      //         key: Math.random(),
+
+      const newCalendarEvents = newData.map(data => {
+        return {
+          id: data.id,
+          title: data.event_name,
+          start: new Date(moment(data.event_start_date)),
+          end: new Date(moment(data.event_end_date)),
+        };
+      });
       this.setState({
         coords: newCoords,
         recordCount: newData.length,
-        key: Math.random(),
+        calendarEvents: newCalendarEvents,
       });
     });
   };
@@ -225,17 +261,25 @@ class EventsView extends Component {
           ) : (
             <ResultMessage count={-1} table="Networking" />
           )}
+
           <aside className="events-aside">
+            {/* <aside className="events-aside mt-0 pt-0"> */}
+
             {this.state.data
               ? this.state.data.map(data => {
                   return <Card key={data.id} data={data} id={data.id} />;
                 })
               : 'No results'}
           </aside>
-          <div className="map-section sticky-top pt-4">
+
+          {/* <<<<<<< HEAD */}
+          {/* <div className="map-section sticky-top pt-4"> */}
+          {/* ======= 
+            </div>  */}
+          <div className="map-section h-auto mt-0 pt-2">
             <div className="form-row text-right">
               <button
-                className="btn btn-secondary btn-sm btn-block"
+                className="btn btn-primary btn-sm btn-block p-2 m-3"
                 onClick={() => {
                   this.setState({ mapView: !this.state.mapView });
                 }}
@@ -246,15 +290,18 @@ class EventsView extends Component {
               </button>
             </div>
             {this.state.mapView === true ? (
-              <MapContainer
-                key={this.state.key}
-                Zoom={11}
-                coords={this.state.coords}
-                data={this.state.data}
-                className="p-3"
-              />
+              <div className="container shadow-lg rounded p-0 m-0">
+                <MapContainer
+                  key={this.state.key}
+                  Zoom={11}
+                  coords={this.state.coords}
+                  data={this.state.data}
+                />
+              </div>
             ) : (
-              <Calendar />
+              <div className="container shadow-lg rounded p-0 m-0">
+                <CalendarComponent data={this.state.calendarEvents} />
+              </div>
             )}
           </div>
         </section>

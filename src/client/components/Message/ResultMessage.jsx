@@ -4,7 +4,7 @@ let resultsMessage = '';
 let messageBody = '';
 
 const ResultMessage = props => {
-  console.log("ResultMessage received props:", props)
+  //console.log("ResultMessage received props:", props)
   switch (props.count) {
     case -2:
       resultsMessage = `Sorry, ${props.table} doesn't have any activity as of this moment.`;

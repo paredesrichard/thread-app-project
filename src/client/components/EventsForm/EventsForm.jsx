@@ -14,7 +14,7 @@ export default class EventsForm extends Component {
       this.state = {
         eventsData: this.props.eventsData,
       };
-      console.log('passed data', this.props.eventsData);
+      //console.log('passed data', this.props.eventsData);
     } else if (path === '/admin/events/add') {
       this.state = {
         isEditing: true,
@@ -28,8 +28,8 @@ export default class EventsForm extends Component {
           event_geo_lng: '',
           event_start_date: '',
           event_end_date: '',
-          event_start_hour: '08:00',
-          event_end_hour: '17:00',
+          event_start_hour: '00:00',
+          event_end_hour: '00:00',
           event_language: '',
           max_participants: '',
           event_URL: '',
@@ -215,35 +215,33 @@ export default class EventsForm extends Component {
           </div>
 
           <div className="form-row">
-            <div className="col-md-3">
+            <div className="col-md-4">
               <div className="form-group">
                 <label htmlFor="idEvent_start_date">Start Date: </label>
                 <input
-                  type="date"
+                  type="datetime-local"
                   name="event_start_date"
                   className="form-control"
                   id="idEvent_start_date"
                   onChange={this.updateField}
                   value={this.state.eventsData.event_start_date}
-                  required
                 />
               </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-4">
               <div className="form-group">
                 <label htmlFor="dateEvent_event_date">End Date: </label>
                 <input
-                  type="date"
+                  type="datetime-local"
                   name="event_end_date"
                   className="form-control"
                   id="dateEvent_event_date"
                   onChange={this.updateField}
                   value={this.state.eventsData.event_end_date}
-                  required
                 />
               </div>
             </div>
-            <div className="col-md-3">
+            {/* <div className="col-md-3">
               <div className="form-group">
                 <label htmlFor="idEvent_start_time">Start Time: </label>
                 <input
@@ -259,7 +257,7 @@ export default class EventsForm extends Component {
             </div>
             <div className="col-md-3">
               <div className="form-group">
-                <label htmlFor="idEvent_end_time">End Date: </label>
+                <label htmlFor="idEvent_end_time">End Time: </label>
                 <input
                   type="text"
                   name="event_end_hour"
@@ -270,7 +268,7 @@ export default class EventsForm extends Component {
                   required
                 />
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="form-row">
@@ -407,7 +405,7 @@ export default class EventsForm extends Component {
 
           <div className="d-flex flex-row justify-content-end">
             <div className="p-2">
-              <button type="submit" className="btn btn-primary mb-2">
+              <button type="submit" className="btn btn-primary mb-2 px-4">
                 Save
               </button>
             </div>
