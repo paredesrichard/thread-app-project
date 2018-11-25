@@ -136,7 +136,7 @@ class Card extends React.Component {
         </div>
 
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
-          <div className="card m-1" style={{ maxWidth: `450px` }}>
+          <div className="card m-3" style={{ maxWidth: `450px` }}>
             <img
               src={this.props.data.profile_picture}
               className="card-img-top"
@@ -164,6 +164,7 @@ class Card extends React.Component {
                 <span className="card-label">Affiliation: </span>
                 {this.props.data.affiliation}
                 <br /> <br />
+                <button type="button" className="btn btn-primary btn-block" onClick={() => this.onCloseModal() }>Close</button>
               </p>
             </div>
           </div>
