@@ -21,8 +21,10 @@
     "react-dom": "^16.5.2",
     "react-google-maps": "^9.4.5",
     "react-notifications": "^1.4.3",
+    "react-redux": "^5.1.1",
     "react-responsive-modal": "^3.5.1",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
     "sqlstring": "^2.3.1"
   },
   "scripts": {
