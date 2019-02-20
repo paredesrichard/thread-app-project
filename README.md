@@ -3,7 +3,13 @@
 
 You can check the deployed application [here](http://thread-app-project.herokuapp.com).
 
-If you are planning on running this app locally, then you need to setup a mysql database and create the 4 tables manually.
+If you are planning on running this app locally, then you need to setup a mysql database and create the required tables manually.
+
+Required tables:
+    - events
+    - mentors
+    - internships
+    - networking
 
 
 The Customer - THREAD
