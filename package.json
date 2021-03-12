@@ -90,7 +90,7 @@
     "html-webpack-plugin": "4.0.0-alpha.2",
     "nodemon": "^1.19.4",
     "prettier": "^1.19.1",
-    "react-dev-utils": "^6.0.5",
+    "react-dev-utils": "^11.0.4",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.41.4",
